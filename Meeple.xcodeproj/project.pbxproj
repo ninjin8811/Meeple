@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31AA5823CDE81E007CA906 /* Home.storyboard */; };
+		9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31AA5A23CDE867007CA906 /* HomeViewController.swift */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
-		9A6C460723C25B32008B6413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460623C25B32008B6413 /* ViewController.swift */; };
-		9A6C460A23C25B32008B6413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460823C25B32008B6413 /* Main.storyboard */; };
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
 		9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */; };
 		9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */; };
@@ -21,11 +21,11 @@
 		016B2C6A47961704F5EFBA1B /* Pods-Meeple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.debug.xcconfig"; sourceTree = "<group>"; };
 		445EF727F4125388268A67D4 /* Pods_Meeple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meeple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CA202DBF08F8ACA4B78F5C /* Pods-Meeple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.release.xcconfig"; sourceTree = "<group>"; };
+		9A31AA5823CDE81E007CA906 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9A31AA5A23CDE867007CA906 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A6C45FF23C25B32008B6413 /* Meeple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6C460223C25B32008B6413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6C460423C25B32008B6413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9A6C460623C25B32008B6413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A6C460923C25B32008B6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A6C460B23C25B33008B6413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A6C460E23C25B33008B6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6C461023C25B33008B6413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +52,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A31AA5523CDA276007CA906 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9A31AA5623CDA27F007CA906 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9A31AA5723CDA286007CA906 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */,
+				9A31AA5823CDE81E007CA906 /* Home.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		9A6C45F623C25B32008B6413 = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +99,10 @@
 			children = (
 				9A6C460223C25B32008B6413 /* AppDelegate.swift */,
 				9A6C460423C25B32008B6413 /* SceneDelegate.swift */,
-				9A6C460623C25B32008B6413 /* ViewController.swift */,
-				9A6C460823C25B32008B6413 /* Main.storyboard */,
+				9A31AA5623CDA27F007CA906 /* Models */,
+				9A31AA5523CDA276007CA906 /* Controllers */,
+				9A31AA5723CDA286007CA906 /* Storyboards */,
 				9A6C460B23C25B33008B6413 /* Assets.xcassets */,
-				9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */,
 				9A6C461023C25B33008B6413 /* Info.plist */,
 				9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */,
 			);
@@ -106,6 +130,7 @@
 				9A6C45FC23C25B32008B6413 /* Frameworks */,
 				9A6C45FD23C25B32008B6413 /* Resources */,
 				F6CDBEECB2349DF093DB7083 /* [CP] Embed Pods Frameworks */,
+				9A444B9723C3A24D0059CDC1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -154,16 +179,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
 				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
-				9A6C460A23C25B32008B6413 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9A444B9723C3A24D0059CDC1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		A6AC20A246561D7BDCBDBB90 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,8 +242,9 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -216,8 +259,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -235,23 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A6C460723C25B32008B6413 /* ViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
+				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9A6C460823C25B32008B6413 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A6C460923C25B32008B6413 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -385,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M35Y9MHDZC;
 				INFOPLIST_FILE = Meeple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M35Y9MHDZC;
 				INFOPLIST_FILE = Meeple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

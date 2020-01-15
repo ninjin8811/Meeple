@@ -18,5 +18,6 @@ pod 'SVProgressHUD'
 pod 'CodableFirebase'
 pod ‘Nuke’
 pod 'SwiftLint'
+pod 'Protobuf', :inhibit_warnings => true
 
 end
