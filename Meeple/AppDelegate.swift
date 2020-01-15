@@ -13,20 +13,27 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private let STORED_KEY = "loginData"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         
-        if #available(iOS 13, *) {
-        } else {
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            self.window = window
-            window.makeKeyAndVisible()
-
-            let vc = HomeViewController()
-            window.rootViewController = vc
-        }
+        //とりあえずログイン状態じゃないよって値を保存
+//        let ud = UserDefaults.standard
+//        let loginDataDictionary: [String: Bool] = ["isLogin": false]
+//        ud.set(loginDataDictionary, forKey: STORED_KEY)
+        
+        //iOS12以下の対応しようと思ったけど全部SceleDelegateから実行されるからこの文いらない？
+//        if #available(iOS 13, *) {
+//        } else {
+//            let window = UIWindow(frame: UIScreen.main.bounds)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//
+//            let vc = HomeViewController()
+//            window.rootViewController = vc
+//        }
         return true
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A16F79023CEC21D00401506 /* Welcome.storyboard */; };
+		9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16F79223CEC25F00401506 /* WelcomeViewController.swift */; };
 		9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31AA5823CDE81E007CA906 /* Home.storyboard */; };
 		9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31AA5A23CDE867007CA906 /* HomeViewController.swift */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 		016B2C6A47961704F5EFBA1B /* Pods-Meeple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.debug.xcconfig"; sourceTree = "<group>"; };
 		445EF727F4125388268A67D4 /* Pods_Meeple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meeple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CA202DBF08F8ACA4B78F5C /* Pods-Meeple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.release.xcconfig"; sourceTree = "<group>"; };
+		9A16F79023CEC21D00401506 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		9A16F79223CEC25F00401506 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9A31AA5823CDE81E007CA906 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9A31AA5A23CDE867007CA906 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A6C45FF23C25B32008B6413 /* Meeple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +59,7 @@
 		9A31AA5523CDA276007CA906 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A6D5B9623CEE42F00CFB2B4 /* WelcomeView */,
 				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
 			);
 			path = Controllers;
@@ -72,6 +77,7 @@
 			children = (
 				9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */,
 				9A31AA5823CDE81E007CA906 /* Home.storyboard */,
+				9A16F79023CEC21D00401506 /* Welcome.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -107,6 +113,14 @@
 				9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */,
 			);
 			path = Meeple;
+			sourceTree = "<group>";
+		};
+		9A6D5B9623CEE42F00CFB2B4 /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				9A16F79223CEC25F00401506 /* WelcomeViewController.swift */,
+			);
+			path = WelcomeView;
 			sourceTree = "<group>";
 		};
 		AC51E799450DE8C1BE2999D6 /* Pods */ = {
@@ -182,6 +196,7 @@
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
 				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
+				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
+				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
 			);

@@ -12,20 +12,43 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    private let STORED_KEY = "loginData"
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         //windowを生成
-        guard let scene = (scene as? UIWindowScene) else { return }
+        guard let scene = scene as? UIWindowScene else {
+            return
+        }
         let window = UIWindow(windowScene: scene)
         self.window = window
         window.makeKeyAndVisible()
         
-        //Storyboardに関連付けられたViewControllerを取得
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Home")
-        window.rootViewController = vc
+        
+        if let loginData = UserDefaults.standard.dictionary(forKey: STORED_KEY) {
+            guard let isLogin = loginData["isLogin"] as? Bool else {
+                preconditionFailure("ログインデータにisLogin値がありません")
+            }
+            if isLogin {
+                //ログインデータがあった時
+                //Storyboardに関連付けられたViewControllerを取得
+                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                let homeVC = homeStoryboard.instantiateViewController(identifier: "Home")
+                window.rootViewController = homeVC
+            } else {
+                //ログイン状態ではなかったときWelcomeViewを表示
+                let welcomeStoryboard = UIStoryboard(name: "Welcome", bundle: nil)
+                let welcomeVC = welcomeStoryboard.instantiateViewController(identifier: "Welcome")
+                window.rootViewController = welcomeVC
+            }
+        } else {
+            //ログイン状態ではなかったときWelcomeViewを表示
+            let welcomeStoryboard = UIStoryboard(name: "Welcome", bundle: nil)
+            let welcomeVC = welcomeStoryboard.instantiateViewController(identifier: "Welcome")
+            window.rootViewController = welcomeVC
+        }
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
