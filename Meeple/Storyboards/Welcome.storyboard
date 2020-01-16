@@ -15,20 +15,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4se-P4-4AW">
-                                <rect key="frame" x="171.5" y="437.5" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-71-nzO">
+                                <rect key="frame" x="62" y="704" width="290" height="50"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C9C-QV-mzi"/>
+                                    <constraint firstAttribute="width" constant="290" id="oDH-WQ-uNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Facebookではじめる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-H4-Oay">
+                                <rect key="frame" x="62" y="784" width="290" height="50"/>
+                                <color key="backgroundColor" red="0.34509803921568627" green="0.5725490196078431" blue="0.8784313725490196" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="KED-vG-Br4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="fO8-Zr-aOG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ikw-3A-oxe"/>
+                                    <constraint firstAttribute="height" constant="50" id="rvv-dr-YKf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="メールアドレスではじめる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFn-cR-Ztm">
+                                <rect key="frame" x="191" y="844" width="32" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="lYf-lS-MFk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="8"/>
+                                <state key="normal" title="利用規約">
+                                    <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※Meepleを使っていることはFacebookに表示されません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKM-ix-o2m">
+                                <rect key="frame" x="75" y="764" width="264" height="10"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4se-P4-4AW" firstAttribute="centerX" secondItem="4og-sH-hLF" secondAttribute="centerX" id="Zlx-Ow-RFu"/>
-                            <constraint firstItem="4se-P4-4AW" firstAttribute="centerY" secondItem="4og-sH-hLF" secondAttribute="centerY" id="c1g-Xh-iLb"/>
+                            <constraint firstItem="KKM-ix-o2m" firstAttribute="centerX" secondItem="4og-sH-hLF" secondAttribute="centerX" id="3Oo-dO-myo"/>
+                            <constraint firstItem="d1U-71-nzO" firstAttribute="centerX" secondItem="4og-sH-hLF" secondAttribute="centerX" id="Auv-9I-S0z"/>
+                            <constraint firstItem="zFr-H4-Oay" firstAttribute="centerX" secondItem="4og-sH-hLF" secondAttribute="centerX" id="BQP-kt-bD6"/>
+                            <constraint firstItem="KKM-ix-o2m" firstAttribute="top" secondItem="d1U-71-nzO" secondAttribute="bottom" constant="10" id="QbM-01-Pj8"/>
+                            <constraint firstItem="zFr-H4-Oay" firstAttribute="top" secondItem="KKM-ix-o2m" secondAttribute="bottom" constant="10" id="blZ-n8-I8H"/>
+                            <constraint firstItem="VFn-cR-Ztm" firstAttribute="top" secondItem="zFr-H4-Oay" secondAttribute="bottom" constant="10" id="mwA-Fz-47T"/>
+                            <constraint firstItem="ltg-p1-J4a" firstAttribute="bottom" secondItem="VFn-cR-Ztm" secondAttribute="bottom" constant="10" id="x5E-Zs-ioX"/>
+                            <constraint firstItem="VFn-cR-Ztm" firstAttribute="centerX" secondItem="4og-sH-hLF" secondAttribute="centerX" id="yDV-dL-Fys"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ltg-p1-J4a"/>
                     </view>
+                    <connections>
+                        <outlet property="facebookButton" destination="d1U-71-nzO" id="59V-nT-H5t"/>
+                        <outlet property="mailButton" destination="zFr-H4-Oay" id="RIT-Mt-QHB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkV-FZ-etC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

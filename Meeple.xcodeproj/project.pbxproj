@@ -16,6 +16,8 @@
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
 		9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */; };
 		9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */; };
+		9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */; };
+		9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		9A6C460E23C25B33008B6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6C461023C25B33008B6413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
+		9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,8 @@
 		9A31AA5523CDA276007CA906 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A6D5B9723CEE56500CFB2B4 /* HomeView */,
 				9A6D5B9623CEE42F00CFB2B4 /* WelcomeView */,
-				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,6 +115,8 @@
 				9A6C460B23C25B33008B6413 /* Assets.xcassets */,
 				9A6C461023C25B33008B6413 /* Info.plist */,
 				9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */,
+				9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */,
+				9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */,
 			);
 			path = Meeple;
 			sourceTree = "<group>";
@@ -121,6 +127,14 @@
 				9A16F79223CEC25F00401506 /* WelcomeViewController.swift */,
 			);
 			path = WelcomeView;
+			sourceTree = "<group>";
+		};
+		9A6D5B9723CEE56500CFB2B4 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		AC51E799450DE8C1BE2999D6 /* Pods */ = {
@@ -193,7 +207,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */,
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
+				9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
 				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
