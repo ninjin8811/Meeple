@@ -11,6 +11,11 @@
 		9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16F79223CEC25F00401506 /* WelcomeViewController.swift */; };
 		9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31AA5823CDE81E007CA906 /* Home.storyboard */; };
 		9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31AA5A23CDE867007CA906 /* HomeViewController.swift */; };
+		9A5C6BED23D07B57006C35AD /* EmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */; };
+		9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */; };
+		9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */; };
+		9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */; };
+		9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
@@ -29,6 +34,11 @@
 		9A16F79223CEC25F00401506 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9A31AA5823CDE81E007CA906 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9A31AA5A23CDE867007CA906 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEntryViewController.swift; sourceTree = "<group>"; };
+		9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPasscodeViewController.swift; sourceTree = "<group>"; };
 		9A6C45FF23C25B32008B6413 /* Meeple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6C460223C25B32008B6413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6C460423C25B32008B6413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,9 @@
 				9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */,
 				9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */,
 				9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */,
+				9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */,
+				9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */,
+				9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */,
 			);
 			path = Meeple;
 			sourceTree = "<group>";
@@ -125,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				9A16F79223CEC25F00401506 /* WelcomeViewController.swift */,
+				9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */,
+				9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */,
 			);
 			path = WelcomeView;
 			sourceTree = "<group>";
@@ -210,10 +225,13 @@
 				9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */,
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
 				9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */,
+				9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
 				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
+				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
+				9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,9 +329,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
+				9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
+				9A5C6BED23D07B57006C35AD /* EmailEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,17 +16,28 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //ログインボタンの見た目の変更
-        facebookButton.setTitle("Facebookではじめる", for: .normal)
-        facebookButton.setImage(#imageLiteral(resourceName: "fb-icon-75"), for: .normal)
-        facebookButton.titleEdgeInsets.left = CGFloat(10)
-        facebookButton.imageEdgeInsets.left = CGFloat(-40)
-        mailButton.setTitle("メールアドレスではじめる", for: .normal)
-        mailButton.setImage(#imageLiteral(resourceName: "mail-icon-60"), for: .normal)
-        mailButton.titleEdgeInsets.left = CGFloat(15)
-        mailButton.imageEdgeInsets.left = CGFloat(-15)
+        //見た目を整える
+        prepareDesign()
     }
     
+    func prepareDesign() {
+        //ログインボタンの見た目の変更
+        facebookButton.layer.cornerRadius = 25
+        facebookButton.setImage(#imageLiteral(resourceName: "fb-icon-75"), for: .normal)
+        facebookButton.titleEdgeInsets.left = 10
+        facebookButton.imageEdgeInsets.left = -40
+        mailButton.layer.cornerRadius = 25
+        mailButton.setImage(#imageLiteral(resourceName: "mail-icon-60"), for: .normal)
+        mailButton.titleEdgeInsets.left = 15
+        mailButton.imageEdgeInsets.left = -15
+    }
+    
+    @IBAction func fbButtonPressed(_ sender: Any) {
+        
+    }
 
+    @IBAction func emailButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToEmailEntry", sender: nil)
+    }
+    
 }
