@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -24,31 +25,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        
-        if let loginData = UserDefaults.standard.dictionary(forKey: STORED_KEY) {
-            guard let isLogin = loginData["isLogin"] as? Bool else {
-                preconditionFailure("ログインデータにisLogin値がありません")
-            }
-            if isLogin {
-                //ログインデータがあった時
-                //Storyboardに関連付けられたViewControllerを取得
-                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let homeVC = homeStoryboard.instantiateViewController(identifier: "Home")
-                window.rootViewController = homeVC
-            } else {
-                //ログイン状態ではなかったときWelcomeViewを表示
-                let welcomeStoryboard = UIStoryboard(name: "Welcome", bundle: nil)
-                let welcomeVC = welcomeStoryboard.instantiateViewController(identifier: "Welcome")
-                window.rootViewController = welcomeVC
-            }
+        if let uid = Auth.auth().currentUser?.uid {
+            print(uid)
+            goToHomeView(window: window)
         } else {
-            //ログイン状態ではなかったときWelcomeViewを表示
-            let welcomeStoryboard = UIStoryboard(name: "Welcome", bundle: nil)
-            let welcomeVC = welcomeStoryboard.instantiateViewController(identifier: "Welcome")
-            window.rootViewController = welcomeVC
+            goToWelcomeView(window: window)
         }
-        
-        
+
+//        if let loginData = UserDefaults.standard.dictionary(forKey: STORED_KEY) {
+//            guard let isLogin = loginData["isLogin"] as? Bool else {
+//                preconditionFailure("ログインデータにisLogin値がありません")
+//            }
+//            if isLogin {
+//                //ログインデータがあった時
+//               goToHomeView(window: window)
+//            } else {
+//                //ログイン状態ではなかったときWelcomeViewを表示
+//                goToWelcomeView(window: window)
+//            }
+//        } else {
+//            goToWelcomeView(window: window)
+//        }
+    }
+    
+    func goToWelcomeView(window: UIWindow) {
+        let welcomeStoryboard = UIStoryboard(name: "Welcome", bundle: nil)
+        let welcomeVC = welcomeStoryboard.instantiateViewController(identifier: "Welcome")
+        window.rootViewController = welcomeVC
+    }
+
+    func goToHomeView(window: UIWindow) {
+        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = homeStoryboard.instantiateViewController(identifier: "Home")
+        window.rootViewController = homeVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

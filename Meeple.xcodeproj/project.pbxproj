@@ -24,6 +24,8 @@
 		9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */; };
 		9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */; };
 		9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */; };
+		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
+		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
+		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			children = (
 				9A6D5B9723CEE56500CFB2B4 /* HomeView */,
 				9A6D5B9623CEE42F00CFB2B4 /* WelcomeView */,
+				9AA6821F23D2DA560004AD37 /* RegisterView */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 				9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */,
 				9A31AA5823CDE81E007CA906 /* Home.storyboard */,
 				9A16F79023CEC21D00401506 /* Welcome.storyboard */,
+				9AA6821D23D2DA220004AD37 /* Register.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -121,7 +127,6 @@
 		9A6C460123C25B32008B6413 /* Meeple */ = {
 			isa = PBXGroup;
 			children = (
-				9A5E172923D0D3F0005000F0 /* Meeple.entitlements */,
 				9A6C460223C25B32008B6413 /* AppDelegate.swift */,
 				9A6C460423C25B32008B6413 /* SceneDelegate.swift */,
 				9A31AA5623CDA27F007CA906 /* Models */,
@@ -135,6 +140,7 @@
 				9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */,
 				9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */,
 				9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */,
+				9A5E172923D0D3F0005000F0 /* Meeple.entitlements */,
 			);
 			path = Meeple;
 			sourceTree = "<group>";
@@ -155,6 +161,14 @@
 				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		9AA6821F23D2DA560004AD37 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */,
+			);
+			path = RegisterView;
 			sourceTree = "<group>";
 		};
 		AC51E799450DE8C1BE2999D6 /* Pods */ = {
@@ -239,6 +253,7 @@
 				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
 				9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */,
+				9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,17 +269,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Meeple/Pods-Meeple-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseOAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseOAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -319,14 +344,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Meeple/Pods-Meeple-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -338,14 +366,17 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -365,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
 				9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,

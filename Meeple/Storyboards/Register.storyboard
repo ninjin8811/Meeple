@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uSq-C6-qKw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Check Terms View Controller-->
+        <scene sceneID="eEa-xn-mbX">
+            <objects>
+                <viewController id="nqr-DX-AFB" customClass="CheckTermsViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7MP-ja-A86">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meeple-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Mim-fE-fri">
+                                <rect key="frame" x="47" y="74" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="7zW-72-jJU"/>
+                                    <constraint firstAttribute="width" constant="320" id="vjB-Ci-vmX"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mim-fE-fri" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="Hiw-RV-LJF"/>
+                            <constraint firstItem="Mim-fE-fri" firstAttribute="top" secondItem="0RV-DR-oud" secondAttribute="top" constant="30" id="P4Z-Yd-Pzx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0RV-DR-oud"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S8v-sd-ybf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhu-TB-NND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="211"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dW1-b6-ZFh">
+            <objects>
+                <navigationController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="uSq-C6-qKw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TD6-jE-i3b">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZb-XM-yw6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="nqr-DX-AFB" kind="relationship" relationship="rootViewController" id="NgV-Qk-FgY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVf-rk-K5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="211"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="meeple-icon" width="1024" height="1024"/>
+    </resources>
+</document>

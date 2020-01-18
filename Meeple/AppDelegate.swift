@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // facebook&Google&電話番号認証時に呼ばれる関数
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String? else {
+            preconditionFailure("認証設定のエラー")
+        }
+        // GoogleもしくはFacebook認証の場合、trueを返す
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // 電話番号認証の場合、trueを返す
+        if Auth.auth().canHandle(url) {
+            return true
+        }
+        return false
+    }
+    
+    // 電話番号認証の場合に通知をHandel出来るかチェックする関数
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification notification: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
+        }
+        // エラーの時の処理を書く
+    }
 
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)

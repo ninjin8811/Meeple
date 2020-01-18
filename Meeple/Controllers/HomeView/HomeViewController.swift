@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +19,14 @@ class HomeViewController: UIViewController {
     }
     
 
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            print("サインアウトします")
+        } catch {
+            print("サインアウトエラー")
+        }
+    }
     /*
     // MARK: - Navigation
 

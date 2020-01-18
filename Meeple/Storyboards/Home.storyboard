@@ -18,6 +18,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjQ-su-pCs">
                                 <rect key="frame" x="168.5" y="433" width="77" height="30"/>
                                 <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="emx-Ub-GQT" eventType="touchUpInside" id="Xzk-w3-dsw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

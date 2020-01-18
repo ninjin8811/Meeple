@@ -7,21 +7,19 @@ target 'Meeple' do
 
   # Pods for Meeple
 
-pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
-pod 'Firebase/Messaging'
-pod 'Fabric'
-pod 'Crashlytics'
-pod 'FirebaseUI/Auth'
-pod 'FirebaseUI/Facebook'
-pod 'FirebaseUI/Phone'
+pod 'FirebaseUI'
 pod 'FBSDKCoreKit'
 pod 'SVProgressHUD'
 pod 'CodableFirebase'
-pod ‘Nuke’
 pod 'SwiftLint'
+pod 'Firebase/Messaging'
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'Firebase/Analytics'
+pod 'Nuke'
 pod 'Protobuf', :inhibit_warnings => true
 
 end
