@@ -16,31 +16,139 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meeple-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Mim-fE-fri">
-                                <rect key="frame" x="47" y="74" width="320" height="320"/>
+                                <rect key="frame" x="47" y="118" width="320" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="7zW-72-jJU"/>
                                     <constraint firstAttribute="width" constant="320" id="vjB-Ci-vmX"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQU-t6-l4B">
+                                <rect key="frame" x="47" y="458" width="320" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Ry8-qm-a3w"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Meepleへようこそ！">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="28" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csZ-yW-EL0">
+                                <rect key="frame" x="47" y="516" width="320" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="xvh-y1-bnE"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">マッチングしやすくするために、
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="いくつか質問をします。">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bq1-n8-VXh">
+                                <rect key="frame" x="47" y="616" width="320" height="35"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked-105" translatesAutoresizingMaskIntoConstraints="NO" id="Cyr-6L-xX0">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="WBS-0x-BmN"/>
+                                            <constraint firstAttribute="width" constant="35" id="ecD-9f-Sqy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzl-Cc-WP5">
+                                        <rect key="frame" x="45" y="0.0" width="275" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">私は18歳以上で独身です。Meepleの利用規約、
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="プライバシーポリシーにも同意します。">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="I9t-b6-V63"/>
+                                    <constraint firstAttribute="width" constant="320" id="mrM-LD-qIH"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Paw-8p-goO">
+                                <rect key="frame" x="47" y="796" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="36I-ZX-9o3"/>
+                                    <constraint firstAttribute="width" constant="320" id="QGu-0D-9N8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="nqr-DX-AFB" eventType="touchUpInside" id="7bs-17-aHk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="csZ-yW-EL0" firstAttribute="top" secondItem="cQU-t6-l4B" secondAttribute="bottom" constant="30" id="69Z-ze-AU4"/>
+                            <constraint firstItem="Paw-8p-goO" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="9V2-zX-SUL"/>
+                            <constraint firstItem="csZ-yW-EL0" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="CwF-Jp-07k"/>
+                            <constraint firstItem="0RV-DR-oud" firstAttribute="bottom" secondItem="Paw-8p-goO" secondAttribute="bottom" constant="16" id="Fci-eI-Gay"/>
                             <constraint firstItem="Mim-fE-fri" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="Hiw-RV-LJF"/>
                             <constraint firstItem="Mim-fE-fri" firstAttribute="top" secondItem="0RV-DR-oud" secondAttribute="top" constant="30" id="P4Z-Yd-Pzx"/>
+                            <constraint firstItem="bq1-n8-VXh" firstAttribute="top" secondItem="csZ-yW-EL0" secondAttribute="bottom" constant="65" id="Sem-UX-9cL"/>
+                            <constraint firstItem="bq1-n8-VXh" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="aJz-9D-D4Q"/>
+                            <constraint firstItem="cQU-t6-l4B" firstAttribute="centerX" secondItem="7MP-ja-A86" secondAttribute="centerX" id="oCu-UT-fE1"/>
+                            <constraint firstItem="cQU-t6-l4B" firstAttribute="top" secondItem="Mim-fE-fri" secondAttribute="bottom" constant="20" id="w9D-Y3-NsJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0RV-DR-oud"/>
                     </view>
                     <navigationItem key="navigationItem" id="S8v-sd-ybf"/>
+                    <connections>
+                        <outlet property="checkBoxImage" destination="Cyr-6L-xX0" id="9AW-KI-y9z"/>
+                        <outlet property="nextButton" destination="Paw-8p-goO" id="Q5y-FD-p8b"/>
+                        <outlet property="termTextView" destination="Fzl-Cc-WP5" id="PmS-jp-txN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhu-TB-NND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="211"/>
+            <point key="canvasLocation" x="1802.8985507246377" y="210.9375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dW1-b6-ZFh">
             <objects>
-                <navigationController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="uSq-C6-qKw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="uSq-C6-qKw" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TD6-jE-i3b">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZb-XM-yw6">
@@ -57,5 +165,6 @@
     </scenes>
     <resources>
         <image name="meeple-icon" width="1024" height="1024"/>
+        <image name="unchecked-105" width="35" height="35"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@ import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private let STORED_KEY = "loginData"
+//    private let STORED_KEY = "loginData"
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -27,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let uid = Auth.auth().currentUser?.uid {
             print(uid)
-            goToHomeView(window: window)
+            goToRegisterView(window: window)
+//            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }
@@ -57,6 +58,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func goToHomeView(window: UIWindow) {
         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
         let homeVC = homeStoryboard.instantiateViewController(identifier: "Home")
+        window.rootViewController = homeVC
+    }
+    
+    func goToRegisterView(window: UIWindow) {
+        let homeStoryboard = UIStoryboard(name: "Register", bundle: nil)
+        let homeVC = homeStoryboard.instantiateViewController(identifier: "Register")
         window.rootViewController = homeVC
     }
 
