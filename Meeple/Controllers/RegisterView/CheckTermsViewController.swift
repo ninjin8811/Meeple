@@ -53,6 +53,9 @@ class CheckTermsViewController: UIViewController {
         nextButton.setTitleColor(disabledButtonTextColor, for: .normal)
         nextButton.backgroundColor = disabledButtonColor
         nextButton.isUserInteractionEnabled = false
+        //遷移先ナビゲーションバーの戻るボタン
+        let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButtonItem
     }
     
     @objc
@@ -78,6 +81,7 @@ class CheckTermsViewController: UIViewController {
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         print("次へボタンがタップされました")
+        performSegue(withIdentifier: "goToNicknameRegister", sender: self)
     }
     
 }

@@ -137,16 +137,33 @@
                         <outlet property="checkBoxImage" destination="Cyr-6L-xX0" id="9AW-KI-y9z"/>
                         <outlet property="nextButton" destination="Paw-8p-goO" id="Q5y-FD-p8b"/>
                         <outlet property="termTextView" destination="Fzl-Cc-WP5" id="PmS-jp-txN"/>
+                        <segue destination="9Vb-bI-7Qn" kind="show" identifier="goToNicknameRegister" id="URV-Rn-FF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhu-TB-NND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="210.9375"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nickname Register View Controller-->
+        <scene sceneID="bFp-et-mmR">
+            <objects>
+                <viewController id="9Vb-bI-7Qn" customClass="NicknameRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F8E-6V-tZo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zgi-P1-KJV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aFx-mm-veH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGF-iE-kwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2675" y="211"/>
+        </scene>
+        <!--Custom Navigation View Controller-->
         <scene sceneID="dW1-b6-ZFh">
             <objects>
-                <navigationController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="uSq-C6-qKw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="uSq-C6-qKw" customClass="CustomNavigationViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TD6-jE-i3b">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
