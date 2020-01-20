@@ -10,6 +10,10 @@ import UIKit
 
 class NicknameRegisterViewController: UIViewController {
 
+    @IBOutlet weak var name1TextField: UITextField!
+    @IBOutlet weak var name2TextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

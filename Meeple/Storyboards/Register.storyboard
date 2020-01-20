@@ -151,10 +151,157 @@
                     <view key="view" contentMode="scaleToFill" id="F8E-6V-tZo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIi-Gh-CG6">
+                                <rect key="frame" x="47" y="158" width="320" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Dah-TU-47F"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="ニックネーム">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTE-9m-DMy">
+                                <rect key="frame" x="47" y="204" width="320" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="RRv-89-oKa"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">8文字以内で入力してください。</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ニックネームはあとから変更できます。">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEa-SH-bDS">
+                                <rect key="frame" x="47" y="299" width="320" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="wUV-lo-Kcf"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="1人目（ご登録者）">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="20" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="入力してください" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Afj-yC-YIE">
+                                <rect key="frame" x="52" y="329" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="FZd-XK-7bE"/>
+                                    <constraint firstAttribute="width" constant="310" id="nNh-GT-RaE"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgp-ER-ifa">
+                                <rect key="frame" x="47" y="359" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Ssc-w3-z83"/>
+                                    <constraint firstAttribute="width" constant="320" id="UvL-wy-cPF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-Uf-5WG">
+                                <rect key="frame" x="47" y="391" width="320" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="NA8-K7-I05"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="2人目">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="20" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="入力してください" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgS-2Q-YiM">
+                                <rect key="frame" x="52" y="421" width="310" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="9M9-ua-KU3"/>
+                                    <constraint firstAttribute="height" constant="20" id="bly-4I-Dws"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-FJ-6Bk">
+                                <rect key="frame" x="47" y="451" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="IhK-f8-87A"/>
+                                    <constraint firstAttribute="width" constant="320" id="S2S-nD-x5B"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAe-16-iyv">
+                                <rect key="frame" x="47" y="796" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="CxW-Pz-DKq"/>
+                                    <constraint firstAttribute="height" constant="50" id="wvM-Rm-VTY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="nqr-DX-AFB" eventType="touchUpInside" id="qBf-2F-s9B"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aEa-SH-bDS" firstAttribute="top" secondItem="LTE-9m-DMy" secondAttribute="bottom" constant="60" id="01T-eg-Rhb"/>
+                            <constraint firstItem="Afj-yC-YIE" firstAttribute="top" secondItem="aEa-SH-bDS" secondAttribute="bottom" constant="10" id="7JY-Ji-ax8"/>
+                            <constraint firstItem="Cgp-ER-ifa" firstAttribute="top" secondItem="Afj-yC-YIE" secondAttribute="bottom" constant="10" id="DY2-eP-oOn"/>
+                            <constraint firstItem="LTE-9m-DMy" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="Gkh-k8-m3G"/>
+                            <constraint firstItem="LTE-9m-DMy" firstAttribute="top" secondItem="BIi-Gh-CG6" secondAttribute="bottom" constant="20" id="LSb-qw-ad9"/>
+                            <constraint firstItem="kgS-2Q-YiM" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="NSl-N9-VvT"/>
+                            <constraint firstItem="Cgp-ER-ifa" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="OTX-JI-aed"/>
+                            <constraint firstItem="BIi-Gh-CG6" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="R5B-WS-XEk"/>
+                            <constraint firstItem="kgS-2Q-YiM" firstAttribute="top" secondItem="wsM-Uf-5WG" secondAttribute="bottom" constant="10" id="Sul-Lb-dac"/>
+                            <constraint firstItem="Afj-yC-YIE" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="a4T-jl-VF2"/>
+                            <constraint firstItem="BIi-Gh-CG6" firstAttribute="top" secondItem="zgi-P1-KJV" secondAttribute="top" constant="70" id="dAW-yd-Yfm"/>
+                            <constraint firstItem="wsM-Uf-5WG" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="ibj-uT-7P9"/>
+                            <constraint firstItem="wsM-Uf-5WG" firstAttribute="top" secondItem="Cgp-ER-ifa" secondAttribute="bottom" constant="30" id="nk5-xd-aBK"/>
+                            <constraint firstItem="aEa-SH-bDS" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="nnt-Gs-sbT"/>
+                            <constraint firstItem="ZWh-FJ-6Bk" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="oaC-oH-Be4"/>
+                            <constraint firstItem="zgi-P1-KJV" firstAttribute="bottom" secondItem="eAe-16-iyv" secondAttribute="bottom" constant="16" id="qbZ-bb-34E"/>
+                            <constraint firstItem="ZWh-FJ-6Bk" firstAttribute="top" secondItem="kgS-2Q-YiM" secondAttribute="bottom" constant="10" id="tHv-kb-AKL"/>
+                            <constraint firstItem="eAe-16-iyv" firstAttribute="centerX" secondItem="F8E-6V-tZo" secondAttribute="centerX" id="xTH-D0-sva"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zgi-P1-KJV"/>
                     </view>
                     <navigationItem key="navigationItem" id="aFx-mm-veH"/>
+                    <connections>
+                        <outlet property="name1TextField" destination="Afj-yC-YIE" id="myE-Rc-MQH"/>
+                        <outlet property="name2TextField" destination="kgS-2Q-YiM" id="2dF-hx-5xZ"/>
+                        <outlet property="nextButton" destination="eAe-16-iyv" id="dfh-v4-ZA4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGF-iE-kwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
