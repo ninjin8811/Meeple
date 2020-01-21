@@ -16,9 +16,6 @@ class CheckTermsViewController: UIViewController {
     @IBOutlet weak var termTextView: UITextView!
     
     var isChecked = false
-    let meepleColor = #colorLiteral(red: 0.8784313725, green: 0.4, blue: 0.3450980392, alpha: 1)
-    let disabledButtonColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-    let disabledButtonTextColor = #colorLiteral(red: 0.6666666667, green: 0.6666666667, blue: 0.6666666667, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +47,8 @@ class CheckTermsViewController: UIViewController {
         checkBoxImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped(_:))))
         //次へボタンが無効時のデザイン
         nextButton.layer.cornerRadius = 25
-        nextButton.setTitleColor(disabledButtonTextColor, for: .normal)
-        nextButton.backgroundColor = disabledButtonColor
+        nextButton.setTitleColor(ColorPalette.textColor(), for: .normal)
+        nextButton.backgroundColor = ColorPalette.disabledColor()
         nextButton.isUserInteractionEnabled = false
         //遷移先ナビゲーションバーの戻るボタン
         let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -65,14 +62,14 @@ class CheckTermsViewController: UIViewController {
             //ボタンを有効時のデザインへ
             nextButton.isUserInteractionEnabled = true
             nextButton.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
-            nextButton.backgroundColor = meepleColor
+            nextButton.backgroundColor = ColorPalette.meepleColor()
             //チェックボックスの画像を変更
             checkBoxImage.image = #imageLiteral(resourceName: "checked-105")
         } else {
             //ボタンを無効時のデザインへ
             nextButton.isUserInteractionEnabled = false
-            nextButton.setTitleColor(disabledButtonTextColor, for: .normal)
-            nextButton.backgroundColor = disabledButtonColor
+            nextButton.setTitleColor(ColorPalette.textColor(), for: .normal)
+            nextButton.backgroundColor = ColorPalette.disabledColor()
             //チェックボックスの画像を変更
             checkBoxImage.image = #imageLiteral(resourceName: "unchecked-105")
         }

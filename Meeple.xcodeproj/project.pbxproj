@@ -26,6 +26,9 @@
 		9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */; };
 		9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */; };
 		9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */; };
+		9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */; };
+		9A8AEB4D23D6C76500C31F3A /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */; };
+		9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */; };
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
@@ -57,6 +60,9 @@
 		9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
 		9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameRegisterViewController.swift; sourceTree = "<group>"; };
+		9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
+		9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRegisterViewController.swift; sourceTree = "<group>"; };
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +90,7 @@
 		9A31AA5523CDA276007CA906 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A6EDE0E23D5B43000EA713C /* Navigation */,
+				9A6EDE0E23D5B43000EA713C /* Custom */,
 				9A6D5B9723CEE56500CFB2B4 /* HomeView */,
 				9A6D5B9623CEE42F00CFB2B4 /* WelcomeView */,
 				9AA6821F23D2DA560004AD37 /* RegisterView */,
@@ -95,6 +101,7 @@
 		9A31AA5623CDA27F007CA906 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,12 +175,13 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		9A6EDE0E23D5B43000EA713C /* Navigation */ = {
+		9A6EDE0E23D5B43000EA713C /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 				9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */,
+				9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */,
 			);
-			path = Navigation;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		9AA6821F23D2DA560004AD37 /* RegisterView */ = {
@@ -181,6 +189,7 @@
 			children = (
 				9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */,
 				9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */,
+				9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -410,14 +419,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8AEB4D23D6C76500C31F3A /* TextFieldController.swift in Sources */,
 				9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */,
 				9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */,
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
 				9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */,
+				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
+				9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */,
 				9A5C6BED23D07B57006C35AD /* EmailEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
