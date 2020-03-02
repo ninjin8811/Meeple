@@ -175,7 +175,8 @@
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">8文字以内で入力してください。</string>
+                                        <string key="content">8文字以内で入力してください。
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="14" name="HiraginoSans-W3"/>

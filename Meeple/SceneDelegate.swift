@@ -27,26 +27,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let uid = Auth.auth().currentUser?.uid {
             print(uid)
-            goToRegisterView(window: window)
+            
+//            起動画面を変えてる
+//            goToRegisterView(window: window)
+            goToWelcomeView(window: window)
 //            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }
-
-//        if let loginData = UserDefaults.standard.dictionary(forKey: STORED_KEY) {
-//            guard let isLogin = loginData["isLogin"] as? Bool else {
-//                preconditionFailure("ログインデータにisLogin値がありません")
-//            }
-//            if isLogin {
-//                //ログインデータがあった時
-//               goToHomeView(window: window)
-//            } else {
-//                //ログイン状態ではなかったときWelcomeViewを表示
-//                goToWelcomeView(window: window)
-//            }
-//        } else {
-//            goToWelcomeView(window: window)
-//        }
     }
     
     func goToWelcomeView(window: UIWindow) {

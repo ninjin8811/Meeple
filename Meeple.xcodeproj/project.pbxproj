@@ -11,11 +11,9 @@
 		9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16F79223CEC25F00401506 /* WelcomeViewController.swift */; };
 		9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31AA5823CDE81E007CA906 /* Home.storyboard */; };
 		9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31AA5A23CDE867007CA906 /* HomeViewController.swift */; };
-		9A5C6BED23D07B57006C35AD /* EmailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */; };
 		9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */; };
 		9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */; };
 		9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */; };
-		9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */; };
 		9A5E172823D0CE54005000F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5E172723D0CE54005000F0 /* Default-568h@2x.png */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
@@ -29,6 +27,9 @@
 		9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */; };
 		9A8AEB4D23D6C76500C31F3A /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */; };
 		9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */; };
+		9A8AEB5123D6F68200C31F3A /* RegisterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */; };
+		9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */; };
+		9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */; };
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
@@ -42,11 +43,9 @@
 		9A16F79223CEC25F00401506 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9A31AA5823CDE81E007CA906 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9A31AA5A23CDE867007CA906 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEntryViewController.swift; sourceTree = "<group>"; };
 		9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
-		9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPasscodeViewController.swift; sourceTree = "<group>"; };
 		9A5E172723D0CE54005000F0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9A5E172923D0D3F0005000F0 /* Meeple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meeple.entitlements; sourceTree = "<group>"; };
 		9A6C45FF23C25B32008B6413 /* Meeple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +62,9 @@
 		9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
 		9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRegisterViewController.swift; sourceTree = "<group>"; };
+		9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableView.swift; sourceTree = "<group>"; };
+		9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCell.swift; sourceTree = "<group>"; };
+		9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTableViewCell.xib; sourceTree = "<group>"; };
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				9A16F79223CEC25F00401506 /* WelcomeViewController.swift */,
-				9A5C6BEC23D07B57006C35AD /* EmailEntryViewController.swift */,
-				9A5C6BF423D095E0006C35AD /* VerifyPasscodeViewController.swift */,
 			);
 			path = WelcomeView;
 			sourceTree = "<group>";
@@ -180,6 +180,9 @@
 			children = (
 				9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */,
 				9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */,
+				9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */,
+				9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */,
+				9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
 				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
 				9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */,
@@ -424,13 +428,13 @@
 				9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */,
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
-				9A5C6BF523D095E0006C35AD /* VerifyPasscodeViewController.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
+				9A8AEB5123D6F68200C31F3A /* RegisterTableView.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
+				9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */,
 				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
 				9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */,
-				9A5C6BED23D07B57006C35AD /* EmailEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
