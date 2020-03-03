@@ -360,17 +360,64 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="erW-Xj-Jqb">
+                                <rect key="frame" x="47" y="238" width="320" height="538"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="tiV-wo-qke"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genderCell" id="aYo-RD-58f">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aYo-RD-58f" id="Zmb-QI-j8n" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UEI-Xp-sZU" id="kmR-nh-ni3"/>
+                                    <outlet property="delegate" destination="UEI-Xp-sZU" id="IXM-Tu-WEP"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXZ-Q0-wrw">
+                                <rect key="frame" x="47" y="796" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="ZRq-rz-cWv"/>
+                                    <constraint firstAttribute="height" constant="50" id="rKH-15-qx4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="UEI-Xp-sZU" eventType="touchUpInside" id="FZK-DQ-nHz"/>
+                                    <action selector="nextButtonPressed:" destination="nqr-DX-AFB" eventType="touchUpInside" id="cRi-aa-792"/>
+                                    <action selector="nextButtonPressed:" destination="9Vb-bI-7Qn" eventType="touchUpInside" id="nZs-ba-nJF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fXZ-Q0-wrw" firstAttribute="centerX" secondItem="lAX-ij-Mwd" secondAttribute="centerX" id="7XJ-Lz-Sz2"/>
                             <constraint firstItem="hZW-C0-NTM" firstAttribute="top" secondItem="apC-pR-o2K" secondAttribute="bottom" constant="20" id="BIq-Q3-HqN"/>
+                            <constraint firstItem="erW-Xj-Jqb" firstAttribute="top" secondItem="hZW-C0-NTM" secondAttribute="bottom" constant="40" id="DLd-Tc-tgg"/>
+                            <constraint firstItem="erW-Xj-Jqb" firstAttribute="centerX" secondItem="lAX-ij-Mwd" secondAttribute="centerX" id="MWf-Sb-7fD"/>
                             <constraint firstItem="apC-pR-o2K" firstAttribute="centerX" secondItem="lAX-ij-Mwd" secondAttribute="centerX" id="Tt8-Kl-tLO"/>
                             <constraint firstItem="hZW-C0-NTM" firstAttribute="centerX" secondItem="lAX-ij-Mwd" secondAttribute="centerX" id="nCd-LX-Ddo"/>
+                            <constraint firstItem="E9h-d0-aY0" firstAttribute="bottom" secondItem="fXZ-Q0-wrw" secondAttribute="bottom" constant="16" id="qTI-zQ-KuA"/>
+                            <constraint firstItem="fXZ-Q0-wrw" firstAttribute="top" secondItem="erW-Xj-Jqb" secondAttribute="bottom" constant="20" id="wDX-dN-KtD"/>
                             <constraint firstItem="apC-pR-o2K" firstAttribute="top" secondItem="E9h-d0-aY0" secondAttribute="top" constant="50" id="xPI-4B-RBm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E9h-d0-aY0"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uc0-lI-EDY"/>
+                    <connections>
+                        <outlet property="nextButton" destination="fXZ-Q0-wrw" id="iw4-EO-Y7l"/>
+                        <outlet property="tableview" destination="erW-Xj-Jqb" id="UaG-OD-nkE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlC-rm-F8K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

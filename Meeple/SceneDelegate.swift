@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(uid)
             
 //            起動画面を変えてる
-//            goToRegisterView(window: window)
-            goToWelcomeView(window: window)
+            goToRegisterView(window: window)
+//            goToWelcomeView(window: window)
 //            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
