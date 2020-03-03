@@ -1,31 +1,30 @@
 //
-//  GenderRegisterViewController.swift
+//  RegionRegisterViewController.swift
 //  Meeple
 //
-//  Created by 吉野史也 on 2020/01/21.
+//  Created by 吉野史也 on 2020/03/03.
 //  Copyright © 2020 Meeple. All rights reserved.
 //
 
 import UIKit
 
-class GenderRegisterViewController: UIViewController {
-    
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var tableview: UITableView!
-    
-    let genderList = UserSelectData.genderList()
-    var selectedIndexPath: IndexPath?
-    var userProfile: UserProfileModel?
+class RegionRegisterViewController: UIViewController {
 
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    var userProfile: UserProfileModel?
+    var selectedIndexPath: IndexPath?
+    let regionList = UserSelectData.regionList()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "genderCell")
+        tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "regionCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
-
     }
     
     func prepareDesign() {
@@ -39,36 +38,38 @@ class GenderRegisterViewController: UIViewController {
         nextButton.isUserInteractionEnabled = false
     }
     
+
     @IBAction func nextButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "goToRegionRegister", sender: self)
+        performSegue(withIdentifier: "goToGradeRegister", sender: self)
     }
     
     //次の画面へプロフィールデータの受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        userProfile?.gender = selectedIndexPath?.row
+        userProfile?.region = selectedIndexPath?.row
         
-        if let destinationVC = segue.destination as? RegionRegisterViewController {
+        if let destinationVC = segue.destination as? GradeRegisterViewController {
             destinationVC.userProfile = userProfile
         }
     }
-    
+
 }
 
-extension GenderRegisterViewController: UITableViewDelegate, UITableViewDataSource {
+extension RegionRegisterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genderList.count
+        return regionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "genderCell") as? RegisterTableViewCell {
-            cell.titleLabel.text = genderList[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "regionCell") as? RegisterTableViewCell {
+            cell.titleLabel.text = regionList[indexPath.row]
             cell.titleLabel.textColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
             cell.checkmarkImage.image = nil
             cell.selectionStyle = .none
             return cell
+        } else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

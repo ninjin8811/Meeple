@@ -14,6 +14,8 @@ class NicknameRegisterViewController: UIViewController {
     @IBOutlet weak var name2TextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    var userProfile: UserProfileModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //見た目を整える
@@ -84,6 +86,15 @@ class NicknameRegisterViewController: UIViewController {
         performSegue(withIdentifier: "goToGenderRegister", sender: self)
     }
     
+    //次の画面へプロフィールデータの受け渡し
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        userProfile?.name1 = name1TextField.text
+        userProfile?.name2 = name2TextField.text
+        
+        if let destinationVC = segue.destination as? GenderRegisterViewController {
+            destinationVC.userProfile = userProfile
+        }
+    }
 }
 
 //キーボード部分以外をタップしたらキーボードが消える設定
