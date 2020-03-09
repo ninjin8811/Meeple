@@ -46,6 +46,16 @@ class GradeRegisterViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToProfileImageRegister", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        userProfile?.grade1 = selectedIndexPath1?.row
+        userProfile?.grade2 = selectedIndexPath2?.row
+        
+        if let destinationVC = segue.destination as? ProfileImageRegisterViewController {
+            destinationVC.userProfile = userProfile
+        }
     }
 }
 
