@@ -16,6 +16,8 @@ class ProfileImageRegisterViewController: UIViewController {
 
     @IBOutlet weak var profileImage1: UIImageView!
     @IBOutlet weak var profileImage2: UIImageView!
+    @IBOutlet weak var highlightView1: UIView!
+    @IBOutlet weak var highlightView2: UIView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var avatarBlock: UIView!
@@ -43,6 +45,10 @@ class ProfileImageRegisterViewController: UIViewController {
         profileImage2.contentMode = .scaleAspectFill
         profileImage1.image = #imageLiteral(resourceName: "noneAvatar1")
         profileImage2.image = #imageLiteral(resourceName: "noneAvatar2")
+        highlightView1.backgroundColor = .clear
+        highlightView2.backgroundColor = .clear
+        highlightView1.isUserInteractionEnabled = false
+        highlightView2.isUserInteractionEnabled = false
         avatarBlock.backgroundColor = ColorPalette.lightTextColor()
         avatarBlock.layer.cornerRadius = 30
         avatarBlock.layer.borderColor = ColorPalette.lightTextColor().cgColor
@@ -68,9 +74,9 @@ extension ProfileImageRegisterViewController: UIImagePickerControllerDelegate, U
         if let touch = touches.first {
             switch touch.view {
             case profileImage1:
-                
+                highlightView1.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.5)
             case profileImage2:
-
+                highlightView2.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.5)
             default:
                 break
             }
@@ -79,14 +85,14 @@ extension ProfileImageRegisterViewController: UIImagePickerControllerDelegate, U
     
     @objc
     func imageview1Tapped(_ sender: UITapGestureRecognizer) {
-        profileImage1.isHighlighted = !profileImage1.isHighlighted
+        highlightView1.backgroundColor = .clear
         tag = 1
         pickImage()
     }
     
     @objc
     func imageview2Tapped(_ sender: UITapGestureRecognizer) {
-        profileImage2.isHighlighted = !profileImage2.isHighlighted
+        highlightView2.backgroundColor = .clear
         tag = 2
         pickImage()
     }
