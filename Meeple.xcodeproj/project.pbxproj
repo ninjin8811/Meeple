@@ -37,6 +37,7 @@
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC86D69240D742100FFA997 /* UserSelectData.swift */; };
+		9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8173A2419B47500768A04 /* CropViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 		9AC86D69240D742100FFA997 /* UserSelectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectData.swift; sourceTree = "<group>"; };
+		9AD8173A2419B47500768A04 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */,
 				9A88554C240E8DF300BB58EF /* GradeRegisterViewController.swift */,
 				9A88554E240EE35500BB58EF /* ProfileImageRegisterViewController.swift */,
+				9AD8173A2419B47500768A04 /* CropViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
+				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,

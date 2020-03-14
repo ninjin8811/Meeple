@@ -49,10 +49,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = homeVC
     }
     
+    //起動画面をテストのため一時的に変えてる
     func goToRegisterView(window: UIWindow) {
-        let homeStoryboard = UIStoryboard(name: "Register", bundle: nil)
-        let homeVC = homeStoryboard.instantiateViewController(identifier: "Register")
-        window.rootViewController = homeVC
+        let registerStoryboard = UIStoryboard(name: "Register", bundle: nil)
+//        let reggisterVC = registerStoryboard.instantiateViewController(identifier: "Register")
+        let registerVC = registerStoryboard.instantiateViewController(identifier: "profileImageRegister")
+//        let registerVC = registerStoryboard.instantiateViewController(identifier: "goToCrop")
+        window.rootViewController = registerVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

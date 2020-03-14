@@ -11,6 +11,7 @@ disabled_rules:
   - file_header
   - trailing_newline
   - unused_optional_binding
+  - colon
 opt_in_rules:
   - empty_count
   - file_header
