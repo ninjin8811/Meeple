@@ -96,12 +96,9 @@ extension GradeRegisterViewController: UITableViewDelegate, UITableViewDataSourc
                 } else {
                     print("選択解除するセルのキャストに失敗")
                 }
-                //新しく選択されたインデックスパスを更新
-                selectedIndexPath1 = indexPath
-            } else {
-                //新しく選択されたインデックスパスを更新
-                selectedIndexPath1 = indexPath
             }
+            //新しく選択されたインデックスパスを更新
+            selectedIndexPath1 = indexPath
         } else {
             if let deselectIndexPath = selectedIndexPath2 {
                 if let deselectCell = tableView.cellForRow(at: deselectIndexPath) as? RegisterTableViewCell {
@@ -110,12 +107,9 @@ extension GradeRegisterViewController: UITableViewDelegate, UITableViewDataSourc
                 } else {
                     print("選択解除するセルのキャストに失敗")
                 }
-                //新しく選択されたインデックスパスを更新
-                selectedIndexPath2 = indexPath
-            } else {
-                //新しく選択されたインデックスパスを更新
-                selectedIndexPath2 = indexPath
             }
+            //新しく選択されたインデックスパスを更新
+            selectedIndexPath2 = indexPath
         }
         //新しく選択されたセルのデザインをチェック済みにする
         if let cell = tableView.cellForRow(at: indexPath) as? RegisterTableViewCell {

@@ -18,5 +18,7 @@ class UserProfileModel: Decodable {
     var grade2: Int?
     var mainImageURL1: String?
     var mainImageURL2: String?
+    var personality: Int?
+    var liquor: Int?
     var isVerified: Bool = false
 }

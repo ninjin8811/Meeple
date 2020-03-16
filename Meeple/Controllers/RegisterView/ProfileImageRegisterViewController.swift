@@ -123,6 +123,7 @@ class ProfileImageRegisterViewController: UIViewController {
                 }
             }
             alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         } else if isSetImage2 == true {
             //2個設定させるアラートを出す
             alert.title = "1人目の画像が\n設定されていません"

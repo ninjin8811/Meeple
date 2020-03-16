@@ -74,12 +74,9 @@ extension GenderRegisterViewController: UITableViewDelegate, UITableViewDataSour
             } else {
                 print("選択解除するセルのキャストに失敗")
             }
-            //新しく選択されたインデックスパスを更新
-            selectedIndexPath = indexPath
-        } else {
-            //新しく選択されたインデックスパスを更新
-            selectedIndexPath = indexPath
         }
+        //新しく選択されたインデックスパスを更新
+        selectedIndexPath = indexPath
         //新しく選択されたセルのデザインをチェック済みにする
         if let cell = tableView.cellForRow(at: indexPath) as? RegisterTableViewCell {
             cell.titleLabel.textColor = #colorLiteral(red: 0.8784313725, green: 0.4, blue: 0.3450980392, alpha: 1)

@@ -856,7 +856,7 @@
         <!--Personality Register View Controller-->
         <scene sceneID="RZa-He-PQ0">
             <objects>
-                <viewController id="TgF-bj-ZcD" customClass="PersonalityRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="TgF-bj-ZcD" customClass="PersonalityRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CZp-8L-CVr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -919,7 +919,7 @@
                                     <constraint firstAttribute="width" constant="320" id="0sL-vB-UrP"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="regionCell" id="a6J-1S-rrS" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalityCell" id="a6J-1S-rrS" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a6J-1S-rrS" id="o9b-c5-1rQ" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
@@ -929,8 +929,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="4do-zI-9uO" id="dXG-C2-rI5"/>
-                                    <outlet property="delegate" destination="4do-zI-9uO" id="c5q-bM-Jvx"/>
+                                    <outlet property="dataSource" destination="TgF-bj-ZcD" id="jNH-tf-mbL"/>
+                                    <outlet property="delegate" destination="TgF-bj-ZcD" id="k2j-Ye-3Ev"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -962,7 +962,7 @@
         <!--Liquor Register View Controller-->
         <scene sceneID="Zxf-vD-yIc">
             <objects>
-                <viewController id="FNW-T8-SaL" customClass="LiquorRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="FNW-T8-SaL" customClass="LiquorRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3rd-SY-BzV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1025,7 +1025,7 @@
                                     <constraint firstAttribute="width" constant="320" id="Y3U-Zp-dB9"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="regionCell" id="wYu-ss-DXy" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liquorCell" id="wYu-ss-DXy" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYu-ss-DXy" id="M2N-Lm-r0i" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
@@ -1035,8 +1035,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="4do-zI-9uO" id="NM3-aX-y2V"/>
-                                    <outlet property="delegate" destination="4do-zI-9uO" id="jpO-11-EBQ"/>
+                                    <outlet property="dataSource" destination="FNW-T8-SaL" id="40t-FC-kkc"/>
+                                    <outlet property="delegate" destination="FNW-T8-SaL" id="Aib-xD-zbD"/>
                                 </connections>
                             </tableView>
                         </subviews>
