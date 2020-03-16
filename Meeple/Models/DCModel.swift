@@ -50,44 +50,29 @@ class DCModel {
                 }
             }
         }
-        
-        
     }
-//
-//    func uploadImage(_ resizedImage: UIImage) {
-//        SVProgressHUD.show()
-//
-//        guard let userID = Auth.auth().currentUser?.uid else {
-//            return
-//        }
-//        let imageRef = Storage.storage().reference().child("avatarImages").child("\(userID).jpg")
-//
-//        if let data = resizedImage.jpegData(compressionQuality: 1.0) {
-//            imageRef.putData(data, metadata: nil) { _, error in
-//
-//                if error != nil {
-//                    print("画像をアップロードできませんでした！")
-//                } else {
-//                    print("画像がアップロードされました！")
-//
-//                    imageRef.downloadURL(completion: { uploadedImageURL, error in
-//
-//                        if error != nil {
-//                            print("ダウンロードURLが取得できませんでした！")
-//                        } else {
-//                            guard let imageURL = uploadedImageURL?.absoluteString else {
-//                                return
-//                            }
-//                            self.profileData.imageURL = imageURL
-//                            self.loadAvatarImage()
-//                        }
-//                    })
-//                }
-//            }
-//        }
-//        SVProgressHUD.dismiss()
-//    }
     
+    //認証用画像のアップロード処理(今のところプロフィール画像のアップロードとほぼ同じ)
+    func uploadVerifyImage(tag: Int, image: UIImage, storageRef: StorageReference, _ after: @escaping (Bool) -> Void) {
+        var isStored = false
+        //メタデータを設定
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        //UIImageをjpegデータに変換
+        guard let imageData = image.jpegData(compressionQuality: 0.1) else {
+            preconditionFailure("UIImageをjpegに変換できませんでした")
+        }
+        //画像のアップロード
+        storageRef.putData(imageData, metadata: metaData) { (_, error) in
+            if let error = error {
+                print("画像のアップロードに失敗しました\(error)")
+            } else {
+                print("画像をアップロードしました")
+                isStored = true
+            }
+            after(isStored)
+        }
+    }
     
 //    //位置情報をRouteDataの中に保存する時に使う
 //    func uploadLocation(_ index: Int, _ data: locationData, _ uid: String) {

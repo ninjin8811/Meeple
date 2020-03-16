@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 //MARK:　-　自作クロップビューProtocol
 protocol PickProfileImageDelegate: class {
@@ -84,14 +85,17 @@ class ProfileImageRegisterViewController: UIViewController {
         alert.addAction(cancelAction)
         //画像の更新を確認してからアップロード
         if isSetImage1 == true && isSetImage2 == true {
+            SVProgressHUD.show()
             dcModel.uploadProfileImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored1) in
                 if isStored1 == false {
                     //アラートを出す
                     alert.title = "画像のアップロードに\n失敗しました"
                     alert.message = "もう一度やり直してください。"
                     self.present(alert, animated: true, completion: nil)
+                    SVProgressHUD.dismiss()
                 } else {
                     dcModel.uploadProfileImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored2) in
+                        SVProgressHUD.dismiss()
                         if isStored2 == false {
                             //アラートを出す
                             alert.title = "画像のアップロードに\n失敗しました"
@@ -110,7 +114,9 @@ class ProfileImageRegisterViewController: UIViewController {
             alert.message = "1人目の画像のみアップロードして\n次へ進みますか？"
             //アラートでOKが押されたときの処理
             let okAction = UIAlertAction(title: "次へ進む", style: .default) { (_) in
+                SVProgressHUD.show()
                 dcModel.uploadProfileImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored) in
+                    SVProgressHUD.dismiss()
                     if isStored == false {
                         //アラートを出す
                         alert.title = "画像のアップロードに\n失敗しました"
@@ -130,7 +136,9 @@ class ProfileImageRegisterViewController: UIViewController {
             alert.message = "2人目の画像のみアップロードして\n次へ進みますか？"
             //アラートでOKが押されたときの処理
             let okAction = UIAlertAction(title: "次へ進む", style: .default) { (_) in
+                SVProgressHUD.show()
                 dcModel.uploadProfileImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored) in
+                    SVProgressHUD.dismiss()
                     if isStored == false {
                         alert.title = "画像のアップロードに\n失敗しました"
                         alert.message = "もう一度やり直してください。"
@@ -190,7 +198,7 @@ extension ProfileImageRegisterViewController: UIImagePickerControllerDelegate, U
         print("\(tag)人目の画像設定")
         let pickerView = UIImagePickerController()
         pickerView.delegate = self
-        //アラートを設定
+        //メニューアラートを設定
         let alert = UIAlertController(title: "プロフィール画像を選んでください", message: "", preferredStyle: .actionSheet)
         let launchCameraAction = UIAlertAction(title: "カメラを起動", style: .default) { _ in
             pickerView.sourceType = .camera
@@ -204,7 +212,7 @@ extension ProfileImageRegisterViewController: UIImagePickerControllerDelegate, U
         alert.addAction(launchCameraAction)
         alert.addAction(pickAction)
         alert.addAction(cancelAction)
-        //アラートを表示
+        //メニューアラートを表示
         present(alert, animated: true, completion: nil)
     }
     

@@ -39,7 +39,7 @@ class LiquorRegisterViewController: UIViewController {
 
     @IBAction func nextButtonPressed(_ sender: Any) {
         DCModel.currentUserData.liquor = selectedIndexPath?.row
-        print("次へタップ")
+        performSegue(withIdentifier: "goToVerifyRegister", sender: self)
     }
 }
 

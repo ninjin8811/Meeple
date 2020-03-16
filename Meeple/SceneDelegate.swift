@@ -13,10 +13,13 @@ import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    private let STORED_KEY = "loginData"
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+        //SVProgressをXCode11に適応
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            preconditionFailure("Appdelegateのキャストに失敗")
+        }
+        appDelegate.window = self.window
         //windowを生成
         guard let scene = scene as? UIWindowScene else {
             return
@@ -29,8 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(uid)
             
 //            起動画面を変えてる
-            goToRegisterView(window: window)
-//            goToWelcomeView(window: window)
+//            goToRegisterView(window: window)
+            goToWelcomeView(window: window)
 //            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
@@ -52,8 +55,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //起動画面をテストのため一時的に変えてる
     func goToRegisterView(window: UIWindow) {
         let registerStoryboard = UIStoryboard(name: "Register", bundle: nil)
-//        let registerVC = registerStoryboard.instantiateViewController(identifier: "Register")
-        let registerVC = registerStoryboard.instantiateViewController(identifier: "profileImageRegister")
+        let registerVC = registerStoryboard.instantiateViewController(identifier: "Register")
+//        let registerVC = registerStoryboard.instantiateViewController(identifier: "profileImageRegister")
 //        let registerVC = registerStoryboard.instantiateViewController(identifier: "goToCrop")
         window.rootViewController = registerVC
     }
