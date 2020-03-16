@@ -38,6 +38,8 @@
 		9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC86D69240D742100FFA997 /* UserSelectData.swift */; };
 		9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8173A2419B47500768A04 /* CropViewController.swift */; };
 		9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A6241FAB3600042A73 /* DCModel.swift */; };
+		9ADD16A9241FDBA500042A73 /* PersonalityRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */; };
+		9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		9AC86D69240D742100FFA997 /* UserSelectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectData.swift; sourceTree = "<group>"; };
 		9AD8173A2419B47500768A04 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		9ADD16A6241FAB3600042A73 /* DCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCModel.swift; sourceTree = "<group>"; };
+		9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityRegisterViewController.swift; sourceTree = "<group>"; };
+		9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,8 @@
 				9A88554C240E8DF300BB58EF /* GradeRegisterViewController.swift */,
 				9A88554E240EE35500BB58EF /* ProfileImageRegisterViewController.swift */,
 				9AD8173A2419B47500768A04 /* CropViewController.swift */,
+				9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */,
+				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -454,9 +460,11 @@
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
+				9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */,
 				9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */,
+				9ADD16A9241FDBA500042A73 /* PersonalityRegisterViewController.swift in Sources */,
 				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
 				9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */,
 			);

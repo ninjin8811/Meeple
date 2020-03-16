@@ -846,11 +846,223 @@
                         <outlet property="profileImage2" destination="K3Q-DR-5GZ" id="PZw-mI-aaK"/>
                         <outlet property="skipButton" destination="peV-Na-Tq1" id="nCG-2K-xMW"/>
                         <outlet property="uploadButton" destination="Cu3-pC-vZ1" id="7bs-8K-sXC"/>
+                        <segue destination="TgF-bj-ZcD" kind="show" identifier="goToPersonalityRegister" id="yLj-Nf-3VX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGZ-SU-Hcw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5851" y="211"/>
+        </scene>
+        <!--Personality Register View Controller-->
+        <scene sceneID="RZa-He-PQ0">
+            <objects>
+                <viewController id="TgF-bj-ZcD" customClass="PersonalityRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CZp-8L-CVr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-nZ-IRY">
+                                <rect key="frame" x="47" y="138" width="320" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="9S0-Dm-urb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="グループの性格">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLK-eC-FmM">
+                                <rect key="frame" x="47" y="184" width="320" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="ksG-YR-hlY"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="性格の合うグループとマッチングできます。">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKX-cV-u7V">
+                                <rect key="frame" x="47" y="796" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="gYW-gy-NNJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="yS3-8S-kJb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="9Vb-bI-7Qn" eventType="touchUpInside" id="Nyu-qx-F4T"/>
+                                    <action selector="nextButtonPressed:" destination="4do-zI-9uO" eventType="touchUpInside" id="RAK-aZ-Ihg"/>
+                                    <action selector="nextButtonPressed:" destination="TgF-bj-ZcD" eventType="touchUpInside" id="cOm-iO-mTl"/>
+                                    <action selector="nextButtonPressed:" destination="nqr-DX-AFB" eventType="touchUpInside" id="eiy-0T-AXa"/>
+                                    <action selector="nextButtonPressed:" destination="UEI-Xp-sZU" eventType="touchUpInside" id="uY7-vV-ntM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rrm-3f-oAO">
+                                <rect key="frame" x="47" y="238" width="320" height="538"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0sL-vB-UrP"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="regionCell" id="a6J-1S-rrS" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a6J-1S-rrS" id="o9b-c5-1rQ" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4do-zI-9uO" id="dXG-C2-rI5"/>
+                                    <outlet property="delegate" destination="4do-zI-9uO" id="c5q-bM-Jvx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tLK-eC-FmM" firstAttribute="top" secondItem="BNN-nZ-IRY" secondAttribute="bottom" constant="20" id="4zT-rp-ZHf"/>
+                            <constraint firstItem="BNN-nZ-IRY" firstAttribute="centerX" secondItem="CZp-8L-CVr" secondAttribute="centerX" id="6Xh-vd-GYU"/>
+                            <constraint firstItem="tLK-eC-FmM" firstAttribute="centerX" secondItem="CZp-8L-CVr" secondAttribute="centerX" id="C1b-3A-cNG"/>
+                            <constraint firstItem="gKX-cV-u7V" firstAttribute="top" secondItem="Rrm-3f-oAO" secondAttribute="bottom" constant="20" id="C8F-CS-yi9"/>
+                            <constraint firstItem="Rrm-3f-oAO" firstAttribute="centerX" secondItem="CZp-8L-CVr" secondAttribute="centerX" id="OBY-JL-cXY"/>
+                            <constraint firstItem="Rrm-3f-oAO" firstAttribute="top" secondItem="tLK-eC-FmM" secondAttribute="bottom" constant="40" id="S3v-rx-G5q"/>
+                            <constraint firstItem="BNN-nZ-IRY" firstAttribute="top" secondItem="1oO-jy-R0n" secondAttribute="top" constant="50" id="lt2-3r-uPD"/>
+                            <constraint firstItem="gKX-cV-u7V" firstAttribute="centerX" secondItem="CZp-8L-CVr" secondAttribute="centerX" id="mXF-bg-dQb"/>
+                            <constraint firstItem="1oO-jy-R0n" firstAttribute="bottom" secondItem="gKX-cV-u7V" secondAttribute="bottom" constant="16" id="u88-tC-4Uo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1oO-jy-R0n"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UwW-xi-aTa"/>
+                    <connections>
+                        <outlet property="nextButton" destination="gKX-cV-u7V" id="aXc-7D-y8K"/>
+                        <outlet property="tableview" destination="Rrm-3f-oAO" id="9Y7-pK-IOe"/>
+                        <segue destination="FNW-T8-SaL" kind="show" identifier="goToLiquorRegister" id="XoK-Jr-JWi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UB-z0-1vx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6667" y="211"/>
+        </scene>
+        <!--Liquor Register View Controller-->
+        <scene sceneID="Zxf-vD-yIc">
+            <objects>
+                <viewController id="FNW-T8-SaL" customClass="LiquorRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3rd-SY-BzV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZG-cm-JAK">
+                                <rect key="frame" x="47" y="138" width="320" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Gda-T2-lGn"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="お酒">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-sY-6H5">
+                                <rect key="frame" x="47" y="184" width="320" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="F0m-nd-gpc"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="実際似合う時、お酒を飲むかどうかを選べます。">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="HiraginoSans-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jr3-eb-2IA">
+                                <rect key="frame" x="47" y="796" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Cbv-HT-DFb"/>
+                                    <constraint firstAttribute="height" constant="50" id="QuC-QG-plr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="nqr-DX-AFB" eventType="touchUpInside" id="Azf-gu-oM6"/>
+                                    <action selector="nextButtonPressed:" destination="4do-zI-9uO" eventType="touchUpInside" id="Pz2-Yw-WDg"/>
+                                    <action selector="nextButtonPressed:" destination="9Vb-bI-7Qn" eventType="touchUpInside" id="Sg5-AB-4Ef"/>
+                                    <action selector="nextButtonPressed:" destination="UEI-Xp-sZU" eventType="touchUpInside" id="TiS-Jg-H2R"/>
+                                    <action selector="nextButtonPressed:" destination="FNW-T8-SaL" eventType="touchUpInside" id="lGs-Ac-fw4"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-2i-so6">
+                                <rect key="frame" x="47" y="238" width="320" height="538"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Y3U-Zp-dB9"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="regionCell" id="wYu-ss-DXy" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYu-ss-DXy" id="M2N-Lm-r0i" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4do-zI-9uO" id="NM3-aX-y2V"/>
+                                    <outlet property="delegate" destination="4do-zI-9uO" id="jpO-11-EBQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="G4M-sY-6H5" firstAttribute="top" secondItem="zZG-cm-JAK" secondAttribute="bottom" constant="20" id="49n-vu-QMG"/>
+                            <constraint firstItem="ltX-2i-so6" firstAttribute="top" secondItem="G4M-sY-6H5" secondAttribute="bottom" constant="40" id="IMb-9b-ilz"/>
+                            <constraint firstItem="jr3-eb-2IA" firstAttribute="centerX" secondItem="3rd-SY-BzV" secondAttribute="centerX" id="JLn-rn-TGZ"/>
+                            <constraint firstItem="zZG-cm-JAK" firstAttribute="top" secondItem="kzS-8j-5uW" secondAttribute="top" constant="50" id="SAh-oT-vq6"/>
+                            <constraint firstItem="kzS-8j-5uW" firstAttribute="bottom" secondItem="jr3-eb-2IA" secondAttribute="bottom" constant="16" id="U9w-Qj-SmL"/>
+                            <constraint firstItem="zZG-cm-JAK" firstAttribute="centerX" secondItem="3rd-SY-BzV" secondAttribute="centerX" id="aVi-5N-mEw"/>
+                            <constraint firstItem="ltX-2i-so6" firstAttribute="centerX" secondItem="3rd-SY-BzV" secondAttribute="centerX" id="mDw-Ca-Tru"/>
+                            <constraint firstItem="G4M-sY-6H5" firstAttribute="centerX" secondItem="3rd-SY-BzV" secondAttribute="centerX" id="oao-Oa-H0h"/>
+                            <constraint firstItem="jr3-eb-2IA" firstAttribute="top" secondItem="ltX-2i-so6" secondAttribute="bottom" constant="20" id="vfb-bL-eIl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kzS-8j-5uW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f7Q-Bq-YZl"/>
+                    <connections>
+                        <outlet property="nextButton" destination="jr3-eb-2IA" id="0lz-fv-uYK"/>
+                        <outlet property="tableview" destination="ltX-2i-so6" id="7EW-d4-V3e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gie-cF-dxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7471" y="211"/>
         </scene>
         <!--Crop View Controller-->
         <scene sceneID="aGh-EK-HNc">
