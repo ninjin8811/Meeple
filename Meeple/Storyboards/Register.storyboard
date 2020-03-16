@@ -1096,7 +1096,9 @@
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">認証マークがあると、よりマッチングしやすくなります。認証にはプロフィール画像の登録が必要です。</string>
+                                        <string key="content">認証マークがあると、
+よりマッチングしやすくなります。
+認証にはプロフィール画像の登録が必要です。</string>
                                         <attributes>
                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="14" name="HiraginoSans-W3"/>
@@ -1416,6 +1418,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZV-rq-JK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5850.7246376811599" y="-478.125"/>
+        </scene>
+        <!--Crop Verify Image View Controller-->
+        <scene sceneID="9Lv-hs-BHl">
+            <objects>
+                <viewController storyboardIdentifier="goToCropVerifyImage" id="8t2-lw-Tq7" customClass="CropVerifyImageViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zKm-wd-lj0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-dV-DaV">
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="259"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="slh-pu-MFY">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="259"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="slh-pu-MFY" secondAttribute="height" multiplier="320:200" id="fpJ-bO-JmT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6588235294" green="0.6588235294" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="slh-pu-MFY" secondAttribute="bottom" id="3Hd-jO-gzj"/>
+                                    <constraint firstAttribute="trailing" secondItem="slh-pu-MFY" secondAttribute="trailing" id="O7N-HE-f87"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="leading" secondItem="iJw-dV-DaV" secondAttribute="leading" id="YG3-si-xdc"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="centerX" secondItem="iJw-dV-DaV" secondAttribute="centerX" id="aBx-4s-9VX"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="top" secondItem="iJw-dV-DaV" secondAttribute="top" id="nmQ-kM-j3t"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="width" secondItem="iJw-dV-DaV" secondAttribute="width" id="qwY-PY-5vK"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="height" secondItem="iJw-dV-DaV" secondAttribute="height" id="zWo-e3-dW2"/>
+                                    <constraint firstItem="slh-pu-MFY" firstAttribute="centerY" secondItem="iJw-dV-DaV" secondAttribute="centerY" id="zxi-h1-W7o"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJD-lP-VRL">
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="259"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cJD-lP-VRL" secondAttribute="height" multiplier="320:200" id="TVp-tM-LJp"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uZ-8E-n1S">
+                                <rect key="frame" x="102.5" y="124" width="209" height="79"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">学生証を枠の中に収めてください</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH7-aT-G3L">
+                                <rect key="frame" x="344" y="800" width="40" height="32"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                <state key="normal" title="完了">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="completeButtonPressed:" destination="8t2-lw-Tq7" eventType="touchUpInside" id="w34-4t-zrE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwb-oe-zRj">
+                                <rect key="frame" x="30" y="800" width="100" height="32"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="8t2-lw-Tq7" eventType="touchUpInside" id="Q53-Uo-d6q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NY8-81-8e8" firstAttribute="trailing" secondItem="LH7-aT-G3L" secondAttribute="trailing" constant="30" id="8H9-qV-wy8"/>
+                            <constraint firstItem="NY8-81-8e8" firstAttribute="bottom" secondItem="LH7-aT-G3L" secondAttribute="bottom" constant="30" id="9Db-VX-pTm"/>
+                            <constraint firstItem="iJw-dV-DaV" firstAttribute="trailing" secondItem="NY8-81-8e8" secondAttribute="trailing" id="CI6-ms-w5J"/>
+                            <constraint firstItem="0uZ-8E-n1S" firstAttribute="centerX" secondItem="zKm-wd-lj0" secondAttribute="centerX" id="DV9-JP-6QY"/>
+                            <constraint firstItem="iJw-dV-DaV" firstAttribute="leading" secondItem="NY8-81-8e8" secondAttribute="leading" id="EP5-zu-YKK"/>
+                            <constraint firstItem="iJw-dV-DaV" firstAttribute="centerY" secondItem="zKm-wd-lj0" secondAttribute="centerY" id="GDD-ON-yO0"/>
+                            <constraint firstItem="cJD-lP-VRL" firstAttribute="leading" secondItem="NY8-81-8e8" secondAttribute="leading" id="JjU-Dh-3uI"/>
+                            <constraint firstItem="cJD-lP-VRL" firstAttribute="centerY" secondItem="zKm-wd-lj0" secondAttribute="centerY" id="VcV-Q0-uMO"/>
+                            <constraint firstItem="NY8-81-8e8" firstAttribute="bottom" secondItem="zwb-oe-zRj" secondAttribute="bottom" constant="30" id="ZSs-Zc-tiu"/>
+                            <constraint firstItem="0uZ-8E-n1S" firstAttribute="top" secondItem="NY8-81-8e8" secondAttribute="top" constant="80" id="fgY-Jd-Leo"/>
+                            <constraint firstItem="cJD-lP-VRL" firstAttribute="trailing" secondItem="NY8-81-8e8" secondAttribute="trailing" id="ord-eD-SVW"/>
+                            <constraint firstItem="iJw-dV-DaV" firstAttribute="centerX" secondItem="zKm-wd-lj0" secondAttribute="centerX" id="sFJ-WB-mX1"/>
+                            <constraint firstItem="cJD-lP-VRL" firstAttribute="centerX" secondItem="zKm-wd-lj0" secondAttribute="centerX" id="sxK-QF-6eW"/>
+                            <constraint firstItem="zwb-oe-zRj" firstAttribute="leading" secondItem="NY8-81-8e8" secondAttribute="leading" constant="30" id="t0j-5g-xxW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NY8-81-8e8"/>
+                    </view>
+                    <connections>
+                        <outlet property="cropFrameView" destination="cJD-lP-VRL" id="r3E-mW-iGV"/>
+                        <outlet property="imageview" destination="slh-pu-MFY" id="GFg-XM-UKr"/>
+                        <outlet property="scrollview" destination="iJw-dV-DaV" id="r7L-iW-xeG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i2h-HH-ThK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9145" y="-478"/>
         </scene>
         <!--Custom Navigation View Controller-->
         <scene sceneID="dW1-b6-ZFh">

@@ -28,6 +28,7 @@
 		9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */; };
 		9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A88554C240E8DF300BB58EF /* GradeRegisterViewController.swift */; };
 		9A88554F240EE35500BB58EF /* ProfileImageRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A88554E240EE35500BB58EF /* ProfileImageRegisterViewController.swift */; };
+		9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89131F24200AC20030818C /* CropVerifyImageViewController.swift */; };
 		9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */; };
 		9A8AEB4D23D6C76500C31F3A /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */; };
 		9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */; };
@@ -73,6 +74,7 @@
 		9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionRegisterViewController.swift; sourceTree = "<group>"; };
 		9A88554C240E8DF300BB58EF /* GradeRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRegisterViewController.swift; sourceTree = "<group>"; };
 		9A88554E240EE35500BB58EF /* ProfileImageRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageRegisterViewController.swift; sourceTree = "<group>"; };
+		9A89131F24200AC20030818C /* CropVerifyImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropVerifyImageViewController.swift; sourceTree = "<group>"; };
 		9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
 		9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRegisterViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
 				9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */,
 				9ADD16B02420015600042A73 /* EndRegisterViewController.swift */,
+				9A89131F24200AC20030818C /* CropVerifyImageViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
+				9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
 				9ADD16AF2420013A00042A73 /* VerifyRegisterViewController.swift in Sources */,
 				9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */,

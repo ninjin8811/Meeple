@@ -14,8 +14,16 @@ class EndRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //見た目を整える
+        prepareDesign()
+    }
+    
+    func prepareDesign() {
+        //はじめるボタンのデザイン
+        nextButton.layer.cornerRadius = 25
+        nextButton.isUserInteractionEnabled = true
+        nextButton.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        nextButton.backgroundColor = ColorPalette.meepleColor()
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
