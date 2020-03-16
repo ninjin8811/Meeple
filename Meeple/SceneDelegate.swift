@@ -52,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //起動画面をテストのため一時的に変えてる
     func goToRegisterView(window: UIWindow) {
         let registerStoryboard = UIStoryboard(name: "Register", bundle: nil)
-//        let reggisterVC = registerStoryboard.instantiateViewController(identifier: "Register")
+//        let registerVC = registerStoryboard.instantiateViewController(identifier: "Register")
         let registerVC = registerStoryboard.instantiateViewController(identifier: "profileImageRegister")
 //        let registerVC = registerStoryboard.instantiateViewController(identifier: "goToCrop")
         window.rootViewController = registerVC

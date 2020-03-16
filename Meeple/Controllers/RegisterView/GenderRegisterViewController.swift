@@ -15,7 +15,6 @@ class GenderRegisterViewController: UIViewController {
     
     let genderList = UserSelectData.genderList()
     var selectedIndexPath: IndexPath?
-    var userProfile: UserProfileModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,6 @@ class GenderRegisterViewController: UIViewController {
         tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "genderCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
-
     }
     
     func prepareDesign() {
@@ -40,16 +38,8 @@ class GenderRegisterViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
+        DCModel.currentUserData.gender = selectedIndexPath?.row
         performSegue(withIdentifier: "goToRegionRegister", sender: self)
-    }
-    
-    //次の画面へプロフィールデータの受け渡し
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        userProfile?.gender = selectedIndexPath?.row
-        
-        if let destinationVC = segue.destination as? RegionRegisterViewController {
-            destinationVC.userProfile = userProfile
-        }
     }
     
 }

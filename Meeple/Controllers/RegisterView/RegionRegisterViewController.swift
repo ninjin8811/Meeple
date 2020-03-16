@@ -13,7 +13,6 @@ class RegionRegisterViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var nextButton: UIButton!
     
-    var userProfile: UserProfileModel?
     var selectedIndexPath: IndexPath?
     let regionList = UserSelectData.regionList()
     
@@ -37,21 +36,11 @@ class RegionRegisterViewController: UIViewController {
         nextButton.backgroundColor = ColorPalette.disabledColor()
         nextButton.isUserInteractionEnabled = false
     }
-    
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        DCModel.currentUserData.region = selectedIndexPath?.row
         performSegue(withIdentifier: "goToGradeRegister", sender: self)
     }
-    
-    //次の画面へプロフィールデータの受け渡し
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        userProfile?.region = selectedIndexPath?.row
-        
-        if let destinationVC = segue.destination as? GradeRegisterViewController {
-            destinationVC.userProfile = userProfile
-        }
-    }
-
 }
 
 extension RegionRegisterViewController: UITableViewDelegate, UITableViewDataSource {

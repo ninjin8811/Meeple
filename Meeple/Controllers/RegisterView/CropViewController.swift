@@ -51,18 +51,6 @@ class CropViewController: UIViewController {
             delegate.endPickingImage(tag: tag, image: croppedImage)
         }
         presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-//        if let preVC = presentingViewController?.presentingViewController as? ProfileImageRegisterViewController {
-//            if tag == 1 {
-//                print("1人目の切り取り画像を受け渡し")
-//                preVC.userProfile?.mainImage1 = croppedImage
-//            } else {
-//                print("2人目の切り取り画像を受け渡し")
-//                preVC.userProfile?.mainImage2 = croppedImage
-//            }
-//            presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-//        } else {
-//            print("2個前のViewを取得できませんでした")
-//        }
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {

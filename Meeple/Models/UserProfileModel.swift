@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import CodableFirebase
 
-class UserProfileModel {
+class UserProfileModel: Decodable {
     var name1: String?
     var name2: String?
     var gender: Int?
     var region: Int?
     var grade1: Int?
     var grade2: Int?
-    var mainImage1: UIImage?
-    var mainImage2: UIImage?
+    var mainImageURL1: String?
+    var mainImageURL2: String?
     var isVerified: Bool = false
 }

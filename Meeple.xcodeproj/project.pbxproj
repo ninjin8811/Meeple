@@ -31,13 +31,13 @@
 		9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */; };
 		9A8AEB4D23D6C76500C31F3A /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */; };
 		9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */; };
-		9A8AEB5123D6F68200C31F3A /* RegisterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */; };
 		9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */; };
 		9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */; };
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC86D69240D742100FFA997 /* UserSelectData.swift */; };
 		9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8173A2419B47500768A04 /* CropViewController.swift */; };
+		9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A6241FAB3600042A73 /* DCModel.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,13 +72,13 @@
 		9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
 		9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRegisterViewController.swift; sourceTree = "<group>"; };
-		9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableView.swift; sourceTree = "<group>"; };
 		9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCell.swift; sourceTree = "<group>"; };
 		9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTableViewCell.xib; sourceTree = "<group>"; };
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 		9AC86D69240D742100FFA997 /* UserSelectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectData.swift; sourceTree = "<group>"; };
 		9AD8173A2419B47500768A04 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		9ADD16A6241FAB3600042A73 /* DCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +118,7 @@
 				9A8AEB4A23D6189000C31F3A /* ColorPalette.swift */,
 				9AC86D69240D742100FFA997 /* UserSelectData.swift */,
 				9A885548240E55E700BB58EF /* UserProfileModel.swift */,
+				9ADD16A6241FAB3600042A73 /* DCModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,7 +195,6 @@
 			children = (
 				9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */,
 				9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */,
-				9A8AEB5023D6F68200C31F3A /* RegisterTableView.swift */,
 				9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */,
 				9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */,
 			);
@@ -449,11 +449,11 @@
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
+				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
-				9A8AEB5123D6F68200C31F3A /* RegisterTableView.swift in Sources */,
 				9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */,

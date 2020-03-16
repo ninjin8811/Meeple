@@ -14,7 +14,6 @@ class GradeRegisterViewController: UIViewController {
     @IBOutlet weak var tableview2: UITableView!
     @IBOutlet weak var nextButton: UIButton!
     
-    var userProfile: UserProfileModel?
     var selectedIndexPath1: IndexPath?
     var selectedIndexPath2: IndexPath?
     let gradeList = UserSelectData.gradeList()
@@ -46,16 +45,9 @@ class GradeRegisterViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
+        DCModel.currentUserData.grade1 = selectedIndexPath1?.row
+        DCModel.currentUserData.grade2 = selectedIndexPath2?.row
         performSegue(withIdentifier: "goToProfileImageRegister", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        userProfile?.grade1 = selectedIndexPath1?.row
-        userProfile?.grade2 = selectedIndexPath2?.row
-        
-        if let destinationVC = segue.destination as? ProfileImageRegisterViewController {
-            destinationVC.userProfile = userProfile
-        }
     }
 }
 
