@@ -40,6 +40,8 @@
 		9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A6241FAB3600042A73 /* DCModel.swift */; };
 		9ADD16A9241FDBA500042A73 /* PersonalityRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */; };
 		9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */; };
+		9ADD16AF2420013A00042A73 /* VerifyRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */; };
+		9ADD16B12420015600042A73 /* EndRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16B02420015600042A73 /* EndRegisterViewController.swift */; };
 		C5D95AE3722C2FEE56761BCC /* Pods_Meeple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445EF727F4125388268A67D4 /* Pods_Meeple.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		9ADD16A6241FAB3600042A73 /* DCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCModel.swift; sourceTree = "<group>"; };
 		9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityRegisterViewController.swift; sourceTree = "<group>"; };
 		9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorRegisterViewController.swift; sourceTree = "<group>"; };
+		9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyRegisterViewController.swift; sourceTree = "<group>"; };
+		9ADD16B02420015600042A73 /* EndRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,8 @@
 				9AD8173A2419B47500768A04 /* CropViewController.swift */,
 				9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */,
 				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
+				9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */,
+				9ADD16B02420015600042A73 /* EndRegisterViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -454,12 +460,14 @@
 				9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */,
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
+				9ADD16B12420015600042A73 /* EndRegisterViewController.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
 				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
+				9ADD16AF2420013A00042A73 /* VerifyRegisterViewController.swift in Sources */,
 				9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */,
 				9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */,
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
