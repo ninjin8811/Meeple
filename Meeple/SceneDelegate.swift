@@ -32,8 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(uid)
             
 //            起動画面を変えてる
-//            goToRegisterView(window: window)
-            goToWelcomeView(window: window)
+            goToRegisterView(window: window)
+//            goToWelcomeView(window: window)
 //            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
@@ -66,6 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        print("SceneDelegateが呼び出されたDidconnect")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

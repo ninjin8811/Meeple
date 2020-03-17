@@ -9,7 +9,7 @@
 import UIKit
 import CodableFirebase
 
-class UserProfileModel: Decodable {
+class UserProfileModel: Codable {
     var name1: String?
     var name2: String?
     var gender: Int?
@@ -21,4 +21,5 @@ class UserProfileModel: Decodable {
     var personality: Int?
     var liquor: Int?
     var isVerified: Bool = false
+    var updateDate: TimeInterval?
 }

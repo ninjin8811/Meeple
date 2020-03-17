@@ -13,7 +13,8 @@ import CodableFirebase
 class DCModel {
     //ただ1つ保持しておくデータ
     static var currentUserData = UserProfileModel()
-    
+    //Firebaseのリファレンス
+    let firestoreDB = Firestore.firestore()
     //プロフィール画像のアップロード処理
     func uploadProfileImage(tag: Int, image: UIImage, storageRef: StorageReference, _ after: @escaping (Bool) -> Void) {
         var isStored = false
@@ -74,48 +75,30 @@ class DCModel {
         }
     }
     
-//    //位置情報をRouteDataの中に保存する時に使う
-//    func uploadLocation(_ index: Int, _ data: locationData, _ uid: String) {
-//
-//        routes[index].latestLocation = data
-//        do {
-//            let mergeLocationData = try FirestoreEncoder().encode(routes[index])
-//            firestoreDB.collection("users").document(uid).collection("routes").document(documentIDarray[index]).setData(mergeLocationData, merge: true) { (error) in
-//                if let errorMessage = error {
-//                    print("Firestoreへの位置情報のマージに失敗しました：\(errorMessage)")
-//                } else {
-//                    print("位置情報をFirestoreへマージしました")
-//                }
-//            }
-//        } catch {
-//            print("エンコードに失敗しました：\(error)")
-//        }
-//    }
-//
-//    //地点の追加時に使う
-//    func mergeSpotdata(_ index: Int, _ after: @escaping (Bool) -> Void) {
-//        var isStored = false
-//        guard let uid = Auth.auth().currentUser?.uid else {
-//            preconditionFailure("ユーザーIDの取得に失敗しました")
-//        }
-//        let sinceDate = Date().timeIntervalSince1970
-//        routes[index].updatedDate = sinceDate
-//
-//        do {
-//            let mergeData = try FirestoreEncoder().encode(routes[index])
-//            firestoreDB.collection("users").document(uid).collection("routes").document(documentIDarray[index]).setData(mergeData, merge: true) { (error) in
-//                if let errorMessage = error {
-//                    print("Firestoreへのデータのマージに失敗しました：\(errorMessage)")
-//                } else {
-//                    isStored = true
-//                    print("データをFirestoreへ追加保存,削除しました")
-//                }
-//                after(isStored)
-//            }
-//        } catch {
-//            print("エンコードに失敗しました：\(error)")
-//        }
-//    }
+    //プロフィールデータのアップロード処理
+    func mergeProfileData(_ after: @escaping (Bool) -> Void) {
+        var isMerged = false
+        guard let userID = Auth.auth().currentUser?.uid else {
+            preconditionFailure("ユーザーIDを取得できませんでした：mergeProfileData")
+        }
+        let uploadedDate = Date().timeIntervalSince1970
+        DCModel.currentUserData.updateDate = uploadedDate
+        do {
+            let mergeData = try FirestoreEncoder().encode(DCModel.currentUserData)
+            firestoreDB.collection("users").document(userID).setData(mergeData, merge: true) { (error) in
+                if let error = error {
+                    print("プロフィールデータのマージに失敗：\(error)")
+                } else {
+                    print("プロフィールデータのマージに成功")
+                    isMerged = true
+                }
+                after(isMerged)
+            }
+        } catch {
+            print("プロフィールデータのエンコードに失敗しました：\(error)")
+        }
+    }
+
 //
 //    //SchoolDataを取得する時に使う
 //    func fetchSchoolData(_ after: @escaping (Bool) -> Void) {
