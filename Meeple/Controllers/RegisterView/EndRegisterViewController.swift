@@ -29,7 +29,6 @@ class EndRegisterViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        print("プロフィールデータデータをアップロードします：EngRegisterView")
         SVProgressHUD.show()
         dcModel.mergeProfileData { (isMerged) in
             SVProgressHUD.dismiss()
@@ -41,7 +40,10 @@ class EndRegisterViewController: UIViewController {
                 alert.addAction(cancelAction)
                 self.present(alert, animated: true, completion: nil)
             } else {
-                print("マージに成功(EndRegisterView)")
+                //UserDefaultsにログイン履歴を記録
+                let ud = UserDefaults.standard
+                let loginDataDictionary: [String: Bool] = ["isLogin": true]
+                ud.set(loginDataDictionary, forKey: "loginData")
                 self.dismiss(animated: true, completion: nil)
             }
         }

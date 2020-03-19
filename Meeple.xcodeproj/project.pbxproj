@@ -10,7 +10,6 @@
 		9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A16F79023CEC21D00401506 /* Welcome.storyboard */; };
 		9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16F79223CEC25F00401506 /* WelcomeViewController.swift */; };
 		9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31AA5823CDE81E007CA906 /* Home.storyboard */; };
-		9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31AA5A23CDE867007CA906 /* HomeViewController.swift */; };
 		9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */; };
 		9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */; };
 		9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */; };
@@ -19,10 +18,10 @@
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
 		9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460D23C25B33008B6413 /* LaunchScreen.storyboard */; };
-		9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */; };
 		9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */; };
 		9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */; };
 		9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */; };
+		9A76B7CB24215BC500E671C5 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */; };
 		9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */; };
 		9A885549240E55E700BB58EF /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A885548240E55E700BB58EF /* UserProfileModel.swift */; };
 		9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */; };
@@ -36,6 +35,7 @@
 		9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */; };
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
+		9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */; };
 		9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC86D69240D742100FFA997 /* UserSelectData.swift */; };
 		9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8173A2419B47500768A04 /* CropViewController.swift */; };
 		9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A6241FAB3600042A73 /* DCModel.swift */; };
@@ -53,7 +53,6 @@
 		9A16F79023CEC21D00401506 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		9A16F79223CEC25F00401506 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9A31AA5823CDE81E007CA906 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		9A31AA5A23CDE867007CA906 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -65,10 +64,10 @@
 		9A6C460B23C25B33008B6413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A6C460E23C25B33008B6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6C461023C25B33008B6413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
+		9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameRegisterViewController.swift; sourceTree = "<group>"; };
 		9A885548240E55E700BB58EF /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionRegisterViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTableViewCell.xib; sourceTree = "<group>"; };
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
+		9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9AC86D69240D742100FFA997 /* UserSelectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectData.swift; sourceTree = "<group>"; };
 		9AD8173A2419B47500768A04 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		9ADD16A6241FAB3600042A73 /* DCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCModel.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				9A31AA5723CDA286007CA906 /* Storyboards */,
 				9A6C460B23C25B33008B6413 /* Assets.xcassets */,
 				9A6C461023C25B33008B6413 /* Info.plist */,
-				9A6C461623C25DF8008B6413 /* GoogleService-Info.plist */,
+				9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */,
 				9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */,
 				9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */,
 				9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */,
@@ -195,7 +195,7 @@
 		9A6D5B9723CEE56500CFB2B4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				9A31AA5A23CDE867007CA906 /* HomeViewController.swift */,
+				9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -224,8 +224,8 @@
 				9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */,
 				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
 				9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */,
-				9ADD16B02420015600042A73 /* EndRegisterViewController.swift */,
 				9A89131F24200AC20030818C /* CropVerifyImageViewController.swift */,
+				9ADD16B02420015600042A73 /* EndRegisterViewController.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -301,13 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */,
 				9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */,
 				9A5E172823D0CE54005000F0 /* Default-568h@2x.png in Resources */,
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
 				9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */,
 				9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
-				9A6C461723C25DF8008B6413 /* GoogleService-Info.plist in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
 				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */,
@@ -470,6 +470,7 @@
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */,
+				9A76B7CB24215BC500E671C5 /* HomeTabBarController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
 				9ADD16AF2420013A00042A73 /* VerifyRegisterViewController.swift in Sources */,
 				9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */,
@@ -477,7 +478,6 @@
 				9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */,
 				9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */,
 				9ADD16A9241FDBA500042A73 /* PersonalityRegisterViewController.swift in Sources */,
-				9A31AA5B23CDE867007CA906 /* HomeViewController.swift in Sources */,
 				9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

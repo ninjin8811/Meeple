@@ -1,17 +1,15 @@
 //
-//  HomeViewController.swift
+//  HomeTabBarController.swift
 //  Meeple
 //
-//  Created by 吉野史也 on 2020/01/14.
+//  Created by 吉野史也 on 2020/03/18.
 //  Copyright © 2020 Meeple. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class HomeViewController: UIViewController {
+class HomeTabBarController: UITabBarController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,14 +17,6 @@ class HomeViewController: UIViewController {
     }
     
 
-    @IBAction func logoutButtonPressed(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            print("サインアウトします")
-        } catch {
-            print("サインアウトエラー")
-        }
-    }
     /*
     // MARK: - Navigation
 

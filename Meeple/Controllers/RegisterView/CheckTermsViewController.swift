@@ -19,7 +19,6 @@ class CheckTermsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         //見た目を整える
         prepareDesign()
     }
@@ -76,6 +75,7 @@ class CheckTermsViewController: UIViewController {
         
     }
     
+    //一時的に画面を閉じるようにしている
     @IBAction func nextButtonPressed(_ sender: Any) {
         print("次へボタンがタップされました")
         performSegue(withIdentifier: "goToNicknameRegister", sender: self)

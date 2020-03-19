@@ -15,6 +15,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var mailButton: UIButton!
     
+    var registerVC: CustomNavigationViewController?
+    
     var authUI: FUIAuth {
         return  FUIAuth.defaultAuthUI()!
     }
@@ -30,6 +32,20 @@ class WelcomeViewController: UIViewController {
         // authUIのデリゲートを設定
         self.authUI.delegate = self
         self.authUI.providers = providers
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let presentedVC = presentedViewController as? CustomNavigationViewController {
+            registerVC = presentedVC
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if registerVC != nil {
+            performSegue(withIdentifier: "goToHome", sender: self)
+        }
     }
     
     func prepareDesign() {
@@ -51,7 +67,8 @@ class WelcomeViewController: UIViewController {
         } else {
             print("ログインデータがありませんでした")
         }
-        verifyWithFB()
+        performSegue(withIdentifier: "goToRegister", sender: self)
+//        verifyWithFB()
     }
 
     @IBAction func emailButtonPressed(_ sender: Any) {

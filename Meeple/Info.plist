@@ -20,26 +20,29 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb835319440206763</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>835319440206763</string>
-	<key>FacebookDisplayName</key>
-	<string>Meeple</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-share-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-	</array>
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb244086576632725</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>244086576632725</string>
+    <key>FacebookDisplayName</key>
+    <string>Meeple2</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+
+	
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<false/>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>

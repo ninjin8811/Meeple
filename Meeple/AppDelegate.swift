@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        //とりあえずログイン状態じゃないよって値を保存
-//        let ud = UserDefaults.standard
-//        let loginDataDictionary: [String: Bool] = ["isLogin": false]
-//        ud.set(loginDataDictionary, forKey: STORED_KEY)
-        
         //iOS12以下の対応しようと思ったけど全部SceleDelegateから実行されるからこの文いらない？
 //        if #available(iOS 13, *) {
 //        } else {

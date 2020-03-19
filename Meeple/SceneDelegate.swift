@@ -27,14 +27,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         self.window = window
         window.makeKeyAndVisible()
-        
-        if let uid = Auth.auth().currentUser?.uid {
-            print(uid)
-            
-//            起動画面を変えてる
+        //UserDafaultsからログイン状態を確認して画面を決定
+        if let loginData = UserDefaults.standard.dictionary(forKey: "loginData") {
+            if let isLogin = loginData["isLogin"] as? Bool {
+                if isLogin == true {
+                    //ログイン履歴があったとき
+                    print("ログイン履歴がありました")
+                    checkIsloginFirebase(window: window)
+                } else {
+                    //ログイン履歴がなかったとき
+                    print("ログイン履歴がありませんでした")
+                    goToWelcomeView(window: window)
+                }
+            }
+        } else {
+            //初回起動
+            print("初めての起動です")
+            goToWelcomeView(window: window)
+        }
+    }
+    
+    //Firebaseにログイン状態かどうかのチェック(履歴＋Firebase)
+    func checkIsloginFirebase(window: UIWindow) {
+        if let _ = Auth.auth().currentUser?.uid {
+            //起動画面を変えてる(本来ならHomeview)
             goToRegisterView(window: window)
-//            goToWelcomeView(window: window)
-//            goToHomeView(window: window)
+            goToWelcomeView(window: window)
+            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }
@@ -52,11 +71,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = homeVC
     }
     
-    //起動画面をテストのため一時的に変えてる
     func goToRegisterView(window: UIWindow) {
         let registerStoryboard = UIStoryboard(name: "Register", bundle: nil)
         let registerVC = registerStoryboard.instantiateViewController(identifier: "Register")
-//        let registerVC = registerStoryboard.instantiateViewController(identifier: "profileImageRegister")
 //        let registerVC = registerStoryboard.instantiateViewController(identifier: "goToCrop")
         window.rootViewController = registerVC
     }
@@ -66,7 +83,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
-        print("SceneDelegateが呼び出されたDidconnect")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

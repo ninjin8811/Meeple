@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>68700517633-quvoo3q9u377nibgihblj049hsd8asak.apps.googleusercontent.com</string>
+	<string>774240244332-rkncpur1uieuao5erq0l71j6p9307vut.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.68700517633-quvoo3q9u377nibgihblj049hsd8asak</string>
+	<string>com.googleusercontent.apps.774240244332-rkncpur1uieuao5erq0l71j6p9307vut</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBlsfxG4Gx-ZQKMWVhllEwB9WyZSv7vu5U</string>
+	<string>AIzaSyBslmDqrZKLgCo2r9nf238cz3N6cuKjyxE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>68700517633</string>
+	<string>774240244332</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Meeple.Meeple</string>
 	<key>PROJECT_ID</key>
-	<string>meeple-choimote</string>
+	<string>meeple-1af15</string>
 	<key>STORAGE_BUCKET</key>
-	<string>meeple-choimote.appspot.com</string>
+	<string>meeple-1af15.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:68700517633:ios:f9341a1796d74868101700</string>
+	<string>1:774240244332:ios:a4f99c5882d99e80773e49</string>
 	<key>DATABASE_URL</key>
-	<string>https://meeple-choimote.firebaseio.com</string>
+	<string>https://meeple-1af15.firebaseio.com</string>
 </dict>
 </plist>

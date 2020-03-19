@@ -1234,7 +1234,7 @@
         <!--End Register View Controller-->
         <scene sceneID="3fp-k8-VOa">
             <objects>
-                <viewController id="3Iw-gT-va4" customClass="EndRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hajimeru" id="3Iw-gT-va4" customClass="EndRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lNr-R8-jfU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1318,11 +1318,22 @@
                     <navigationItem key="navigationItem" id="q7C-cz-WtN"/>
                     <connections>
                         <outlet property="nextButton" destination="EGY-Z2-Xdj" id="dBh-tc-fZV"/>
+                        <segue destination="Cz7-4p-JdV" kind="show" identifier="goToHome" id="HKr-BC-wfV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axm-Zg-JND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9146" y="211"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="GOm-qp-Ghx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="Cz7-4p-JdV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8tx-lk-trl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFh-BE-0Aa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10008" y="211"/>
         </scene>
         <!--Crop View Controller-->
         <scene sceneID="aGh-EK-HNc">
@@ -1460,7 +1471,8 @@
                                 <rect key="frame" x="102.5" y="124" width="209" height="79"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">学生証を枠の中に収めてください</string>
+                                        <string key="content">学生証を枠の中に
+収めてください</string>
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <font key="NSFont" size="26" name="HiraginoSans-W6"/>
