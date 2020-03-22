@@ -31,9 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let loginData = UserDefaults.standard.dictionary(forKey: "loginData") {
             if let isLogin = loginData["isLogin"] as? Bool {
                 if isLogin == true {
-                    //ログイン履歴があったとき
+                    //ログイン履歴があったとき、checkIsLoginFirebaseから画面を選ぶ
                     print("ログイン履歴がありました")
-                    checkIsloginFirebase(window: window)
+                    checkIsLoginFirebase(window: window)
                 } else {
                     //ログイン履歴がなかったとき
                     print("ログイン履歴がありませんでした")
@@ -48,11 +48,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     //Firebaseにログイン状態かどうかのチェック(履歴＋Firebase)
-    func checkIsloginFirebase(window: UIWindow) {
+    func checkIsLoginFirebase(window: UIWindow) {
         if let _ = Auth.auth().currentUser?.uid {
             //起動画面を変えてる(本来ならHomeview)
-            goToRegisterView(window: window)
-            goToWelcomeView(window: window)
+//            goToRegisterView(window: window)
+//            goToWelcomeView(window: window)
             goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)

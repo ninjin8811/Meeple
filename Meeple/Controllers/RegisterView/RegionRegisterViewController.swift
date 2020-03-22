@@ -21,7 +21,7 @@ class RegionRegisterViewController: UIViewController {
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "regionCell")
+        tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "regionCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
     }

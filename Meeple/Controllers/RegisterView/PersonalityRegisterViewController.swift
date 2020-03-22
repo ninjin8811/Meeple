@@ -21,7 +21,7 @@ class PersonalityRegisterViewController: UIViewController {
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "personalityCell")
+        tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "personalityCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
     }

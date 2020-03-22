@@ -25,10 +25,10 @@ class GradeRegisterViewController: UIViewController {
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview1.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "gradeCell1")
+        tableview1.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "gradeCell1")
         tableview1.isScrollEnabled = false
         tableview1.separatorStyle = .none
-        tableview2.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "gradeCell2")
+        tableview2.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "gradeCell2")
         tableview2.isScrollEnabled = false
         tableview2.separatorStyle = .none
     }

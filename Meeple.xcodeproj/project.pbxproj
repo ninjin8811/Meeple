@@ -21,7 +21,15 @@
 		9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */; };
 		9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */; };
 		9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */; };
-		9A76B7CB24215BC500E671C5 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */; };
+		9A76B7CF2423952F00E671C5 /* HomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7CE2423952F00E671C5 /* HomeTab.storyboard */; };
+		9A76B7D12423954D00E671C5 /* LikeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7D02423954D00E671C5 /* LikeTab.storyboard */; };
+		9A76B7D32423955C00E671C5 /* MessageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7D22423955C00E671C5 /* MessageTab.storyboard */; };
+		9A76B7D52423958100E671C5 /* OtherTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7D42423958100E671C5 /* OtherTab.storyboard */; };
+		9A76B7DB2423980300E671C5 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76B7DA2423980300E671C5 /* HomeCollectionViewController.swift */; };
+		9A76B7DE2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76B7DC2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift */; };
+		9A76B7DF2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7DD2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib */; };
+		9A76B7E224250F0B00E671C5 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A76B7E024250F0B00E671C5 /* UserCollectionViewCell.swift */; };
+		9A76B7E324250F0B00E671C5 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A76B7E124250F0B00E671C5 /* UserCollectionViewCell.xib */; };
 		9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */; };
 		9A885549240E55E700BB58EF /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A885548240E55E700BB58EF /* UserProfileModel.swift */; };
 		9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */; };
@@ -67,7 +75,15 @@
 		9A6D5B9823CF0DA600CFB2B4 /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		9A6D5B9923CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		9A6EDE1123D5BFA900EA713C /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
-		9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		9A76B7CE2423952F00E671C5 /* HomeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTab.storyboard; sourceTree = "<group>"; };
+		9A76B7D02423954D00E671C5 /* LikeTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LikeTab.storyboard; sourceTree = "<group>"; };
+		9A76B7D22423955C00E671C5 /* MessageTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageTab.storyboard; sourceTree = "<group>"; };
+		9A76B7D42423958100E671C5 /* OtherTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherTab.storyboard; sourceTree = "<group>"; };
+		9A76B7DA2423980300E671C5 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		9A76B7DC2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		9A76B7DD2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTabHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		9A76B7E024250F0B00E671C5 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A76B7E124250F0B00E671C5 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A7C1F3123D4810000A0F472 /* NicknameRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameRegisterViewController.swift; sourceTree = "<group>"; };
 		9A885548240E55E700BB58EF /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		9A88554A240E7C7F00BB58EF /* RegionRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionRegisterViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +156,10 @@
 				9A31AA5823CDE81E007CA906 /* Home.storyboard */,
 				9A16F79023CEC21D00401506 /* Welcome.storyboard */,
 				9AA6821D23D2DA220004AD37 /* Register.storyboard */,
+				9A76B7CE2423952F00E671C5 /* HomeTab.storyboard */,
+				9A76B7D02423954D00E671C5 /* LikeTab.storyboard */,
+				9A76B7D22423955C00E671C5 /* MessageTab.storyboard */,
+				9A76B7D42423958100E671C5 /* OtherTab.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -195,7 +215,10 @@
 		9A6D5B9723CEE56500CFB2B4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				9A76B7CA24215BC500E671C5 /* HomeTabBarController.swift */,
+				9A76B7D92423971D00E671C5 /* OtherTab */,
+				9A76B7D82423971500E671C5 /* MessageTab */,
+				9A76B7D72423970700E671C5 /* LikeTab */,
+				9A76B7D6242396FE00E671C5 /* HomeTab */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -207,8 +230,41 @@
 				9A8AEB4C23D6C76500C31F3A /* TextFieldController.swift */,
 				9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */,
 				9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */,
+				9A76B7DC2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift */,
+				9A76B7DD2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib */,
+				9A76B7E024250F0B00E671C5 /* UserCollectionViewCell.swift */,
+				9A76B7E124250F0B00E671C5 /* UserCollectionViewCell.xib */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		9A76B7D6242396FE00E671C5 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				9A76B7DA2423980300E671C5 /* HomeCollectionViewController.swift */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
+		9A76B7D72423970700E671C5 /* LikeTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LikeTab;
+			sourceTree = "<group>";
+		};
+		9A76B7D82423971500E671C5 /* MessageTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MessageTab;
+			sourceTree = "<group>";
+		};
+		9A76B7D92423971D00E671C5 /* OtherTab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OtherTab;
 			sourceTree = "<group>";
 		};
 		9AA6821F23D2DA560004AD37 /* RegisterView */ = {
@@ -304,13 +360,19 @@
 				9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */,
 				9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */,
 				9A5E172823D0CE54005000F0 /* Default-568h@2x.png in Resources */,
+				9A76B7DF2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib in Resources */,
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
+				9A76B7D52423958100E671C5 /* OtherTab.storyboard in Resources */,
+				9A76B7D12423954D00E671C5 /* LikeTab.storyboard in Resources */,
 				9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */,
 				9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
+				9A76B7D32423955C00E671C5 /* MessageTab.storyboard in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
 				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				9A76B7CF2423952F00E671C5 /* HomeTab.storyboard in Resources */,
 				9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */,
+				9A76B7E324250F0B00E671C5 /* UserCollectionViewCell.xib in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
 				9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */,
@@ -460,17 +522,19 @@
 				9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */,
 				9A88554F240EE35500BB58EF /* ProfileImageRegisterViewController.swift in Sources */,
 				9A885549240E55E700BB58EF /* UserProfileModel.swift in Sources */,
+				9A76B7E224250F0B00E671C5 /* UserCollectionViewCell.swift in Sources */,
 				9A6EDE1223D5BFA900EA713C /* CustomNavigationViewController.swift in Sources */,
 				9A7C1F3223D4810000A0F472 /* NicknameRegisterViewController.swift in Sources */,
 				9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */,
+				9A76B7DE2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift in Sources */,
 				9ADD16B12420015600042A73 /* EndRegisterViewController.swift in Sources */,
+				9A76B7DB2423980300E671C5 /* HomeCollectionViewController.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
 				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */,
-				9A76B7CB24215BC500E671C5 /* HomeTabBarController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,
 				9ADD16AF2420013A00042A73 /* VerifyRegisterViewController.swift in Sources */,
 				9ADD16AB241FDDC500042A73 /* LiquorRegisterViewController.swift in Sources */,

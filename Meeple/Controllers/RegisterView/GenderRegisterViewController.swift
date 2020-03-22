@@ -21,7 +21,7 @@ class GenderRegisterViewController: UIViewController {
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview.register(UINib(nibName: "RegisterTableViewCell", bundle: nil), forCellReuseIdentifier: "genderCell")
+        tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "genderCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
     }

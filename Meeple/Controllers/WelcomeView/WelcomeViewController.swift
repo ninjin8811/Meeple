@@ -67,8 +67,7 @@ class WelcomeViewController: UIViewController {
         } else {
             print("ログインデータがありませんでした")
         }
-        performSegue(withIdentifier: "goToRegister", sender: self)
-//        verifyWithFB()
+        verifyWithFB()
     }
 
     @IBAction func emailButtonPressed(_ sender: Any) {
