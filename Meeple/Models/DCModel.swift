@@ -13,8 +13,11 @@ import CodableFirebase
 class DCModel {
     //ただ1つ保持しておくデータ
     static var currentUserData = UserProfileModel()
+    static var userList = [UserProfileModel]()
     //Firebaseのリファレンス
     let firestoreDB = Firestore.firestore()
+    //ユーザーの選択データ配列
+    let genderList = UserSelectData.genderList()
     //プロフィール画像のアップロード処理
     func uploadProfileImage(tag: Int, image: UIImage, storageRef: StorageReference, _ after: @escaping (Bool) -> Void) {
         var isStored = false
@@ -75,17 +78,20 @@ class DCModel {
         }
     }
     
-    //プロフィールデータのアップロード処理
-    func mergeProfileData(_ after: @escaping (Bool) -> Void) {
+    //プロフィールデータのアップロード処理(RegisterViewで使うから性別の取得方法はこれでいい)
+    func mergeProfileData(people: String, _ after: @escaping (Bool) -> Void) {
         var isMerged = false
         guard let userID = Auth.auth().currentUser?.uid else {
             preconditionFailure("ユーザーIDを取得できませんでした：mergeProfileData")
         }
         let uploadedDate = Date().timeIntervalSince1970
         DCModel.currentUserData.updateDate = uploadedDate
+        guard let genderIndex = DCModel.currentUserData.gender else {
+            preconditionFailure("性別データがありませんでした：mergeProfileData")
+        }
         do {
             let mergeData = try FirestoreEncoder().encode(DCModel.currentUserData)
-            firestoreDB.collection("users").document(userID).setData(mergeData, merge: true) { (error) in
+            firestoreDB.collection("users").document(genderList[genderIndex]).collection(people).document(userID).setData(mergeData, merge: true) { (error) in
                 if let error = error {
                     print("プロフィールデータのマージに失敗：\(error)")
                 } else {
@@ -98,88 +104,61 @@ class DCModel {
             print("プロフィールデータのエンコードに失敗しました：\(error)")
         }
     }
-
-//
-//    //SchoolDataを取得する時に使う
-//    func fetchSchoolData(_ after: @escaping (Bool) -> Void) {
-//        var isFetched = false
-//
-//        firestoreDB.collection("schools").getDocuments { (snapshots, error) in
-//            if let error = error {
-//                print("自動車学校データの取得に失敗しました：\(error)")
-//            } else {
-//                print("自動車学校データを取得しました")
-//                self.schools.removeAll()
-//
-//                guard let fetchedSchoolData = snapshots else {
-//                    preconditionFailure("snapshotsに自動車学校データが存在しませんでした")
-//                }
-//                for document in fetchedSchoolData.documents {
-//                    do {
-//                        let addSchoolData = try FirestoreDecoder().decode(SchoolData.self, from: document.data())
-//                        self.schools.append(addSchoolData)
-//                        isFetched = true
-//                    } catch {
-//                        print("取得した自動車学校データのデコードに失敗しました")
-//                    }
-//                }
-//                print(self.schools)
-//            }
-//            after(isFetched)
-//        }
-//    }
-//
-//    //各自動車学校の路線データを全て取得する時に使う
-//    func fetchRouteData(_ schoolID: String, _ after: @escaping (Bool) -> Void) {
-//        var isFetched = false
-//
-//        firestoreDB.collection("users").document(schoolID).collection("routes").getDocuments { (snapshots, error) in
-//            if let error = error {
-//                print("路線データの取得に失敗しました：\(error)")
-//            } else {
-//                print("路線データを取得しました")
-//                self.routes.removeAll()
-//                self.documentIDarray.removeAll()
-//
-//                guard let fetchedData = snapshots else {
-//                    preconditionFailure("snapshotsにデータが存在しませんでした")
-//                }
-//                for document in fetchedData.documents {
-//                    do {
-//                        let addRouteData = try FirestoreDecoder().decode(RouteData.self, from: document.data())
-//                        self.routes.append(addRouteData)
-//                        self.documentIDarray.append(document.documentID)
-//                        isFetched = true
-//                    } catch {
-//                        print("Firestoreから取得したドキュメントのデコードに失敗しました")
-//                    }
-//                }
-//                print(self.routes)
-//            }
-//            after(isFetched)
-//        }
-//    }
-//
     
-//    func storeData(_ data: Any, _ after: @escaping (Bool) -> Void) {
-//        var isStored = false
-//        guard let uid = Auth.auth().currentUser?.uid else {
-//            preconditionFailure("ユーザーIDの取得に失敗しました")
-//        }
-//        guard var dictionaryData = data as? [String: Any] else {
-//            preconditionFailure("保存する路線データを辞書型に変換できませんでした")
-//        }
-//        let sinceDate = Date().timeIntervalSince1970
-//        dictionaryData["updatedDate"] = sinceDate
-//        firestoreDB.collection("users").document(uid).collection("routes").addDocument(data: dictionaryData) { (error) in
-//            if let errorMessege = error {
-//                print("FireStoreへのデータの保存に失敗しました：\(errorMessege)")
-//            } else {
-//                isStored = true
-//                print("データをFirestoreへ保存しました")
-//            }
-//            after(isStored)
-//        }
+    //ユーザーデータを取得する処理
+    func fetchHomeUserData(_ after: @escaping (Bool) -> Void) {
+        var isFetched = false
+        //UserDefaultsから性別データを取得する処理を書く
+        let genderData = UserSelectData.selectedGenderString()
+        guard let youGender = genderData["youGender"] as? String else {
+            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
+        }
+        //とりあえず2人グループで指定してユーザーデータを取得
+        firestoreDB.collection("users").document(youGender).collection("two").getDocuments { (snapshots, error) in
+            if error != nil {
+                print("ユーザーデータの取得に失敗しました：fetchHomeUserData")
+            } else {
+                isFetched = true
+                guard let snap = snapshots else {
+                    preconditionFailure("snapshotsデータが存在しませんでした：fetchHomeUserData")
+                }
+                for document in snap.documents {
+                    do {
+                        let data = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
+                        DCModel.userList.append(data)
+                    } catch {
+                        print("取得したデータのデコードに失敗しました！")
+                    }
+                }
+            }
+            after(isFetched)
+        }
+    }
+//
+//    var ref = db.collection("users") as Query
+//
+//    for i in 0..<child.count {
+//        let temp = ref.whereField(child[i], isEqualTo: equelValue[i])
+//        ref = temp
 //    }
+//    ref.getDocuments { (snapshots, error) in
+//        if error != nil {
+//            print("ユーザーの検索に失敗しました！")
+//        } else {
+//            guard let snap = snapshots else {
+//                preconditionFailure("データの取得に失敗しました！")
+//            }
+//            for document in snap.documents {
+//                do {
+//                    let data = try FirestoreDecoder().decode(Profile.self, from: document.data())
+//                    self.list.append(data)
+//                } catch {
+//                    print("取得したデータのデコードに失敗しました！")
+//                }
+//            }
+//        }
+//        self.goToPreviousView()
+//    }
+
 }
 

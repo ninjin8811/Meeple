@@ -59,5 +59,13 @@ final class UserSelectData: NSObject {
         ]
         return liquorArray
     }
+    
+    class func selectedGenderString() -> [String: Any] {
+        if let genderData = UserDefaults.standard.dictionary(forKey: "genderData") {
+            return genderData
+        } else {
+            return [String: Any]()
+        }
+    }
 }
 

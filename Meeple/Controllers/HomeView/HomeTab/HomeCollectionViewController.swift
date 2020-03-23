@@ -16,12 +16,28 @@ private let reuseIdentifier = "homeUserCell"
 
 class HomeCollectionViewController: UICollectionViewController {
     
+    let dcModel = DCModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //見た目を整える
         prepareDesign()
         self.collectionView.register(UserCollectionViewCell.nib(), forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView.register(HomeTabHeaderCollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeTabHeaderCollectionReusableView.identifier)
+    }
+    
+    //とりあえず全ユーザーデータ取得
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dcModel.fetchHomeUserData { (isFetched) in
+            if isFetched == false {
+                print("ユーザーデータの取得に失敗：HomeCollectionView")
+            } else {
+                print("ユーザーデータの取得に成功：HomeCollectionView")
+                print(DCModel.userList)
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func prepareDesign() {

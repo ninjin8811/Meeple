@@ -30,7 +30,8 @@ class EndRegisterViewController: UIViewController {
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         SVProgressHUD.show()
-        dcModel.mergeProfileData { (isMerged) in
+        //グループ人数にはとりあえず2人を指定
+        dcModel.mergeProfileData(people: "two") { (isMerged) in
             SVProgressHUD.dismiss()
             if isMerged == false {
                 print("マージに失敗しました(EndRegisterView)")
@@ -44,6 +45,21 @@ class EndRegisterViewController: UIViewController {
                 let ud = UserDefaults.standard
                 let loginDataDictionary: [String: Bool] = ["isLogin": true]
                 ud.set(loginDataDictionary, forKey: "loginData")
+                self.dismiss(animated: true, completion: nil)
+                //UserDefaultsに性別を記録
+                let genderList = UserSelectData.gradeList()
+                guard let myGenderIndex = DCModel.currentUserData.gender else {
+                    preconditionFailure("DCModelにgenderデータが存在しませんでした")
+                }
+                var youGenderIndex = 0
+                if myGenderIndex == 0 {
+                    youGenderIndex += 1
+                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "youGender": genderList[youGenderIndex]]
+                    ud.set(genderDataDictionary, forKey: "genderData")
+                } else {
+                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "youGender": genderList[youGenderIndex]]
+                    ud.set(genderDataDictionary, forKey: "genderData")
+                }
                 self.dismiss(animated: true, completion: nil)
             }
         }
