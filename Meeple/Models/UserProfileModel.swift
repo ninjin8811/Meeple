@@ -20,6 +20,9 @@ class UserProfileModel: Codable {
     var mainImageURL2: String?
     var personality: Int?
     var liquor: Int?
-    var isVerified: Bool = false
+    var verifyImageURL1: String?
+    var verifyImageURL2: String?
+    var isVerified1: Bool = false
+    var isVerified2: Bool = false
     var updateDate: TimeInterval?
 }

@@ -1,0 +1,6 @@
+framework module Pods_Meeple {
+  umbrella header "Pods-Meeple-umbrella.h"
+
+  export *
+  module * { export * }
+}
