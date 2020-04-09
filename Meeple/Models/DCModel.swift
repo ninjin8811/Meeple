@@ -18,6 +18,8 @@ class DCModel {
     let firestoreDB = Firestore.firestore()
     //ユーザーの選択データ配列
     let genderList = UserSelectData.genderList()
+    
+    //MARK:- データのアップロード
     //プロフィール画像のアップロード処理
     func uploadProfileImage(tag: Int, image: UIImage, storageRef: StorageReference, _ after: @escaping (Bool) -> Void) {
         var isStored = false
@@ -71,10 +73,78 @@ class DCModel {
             if let error = error {
                 print("画像のアップロードに失敗しました\(error)")
             } else {
-                print("画像をアップロードしました")
-                isStored = true
+                print("画像をアップロードしました:DCModel.uploadVerifyImage")
+                storageRef.downloadURL { (url, error) in
+                    if let error = error {
+                        print("画像のダウンロードURLの取得に失敗しました\(error)")
+                    } else {
+                        guard let downloadURL = url?.absoluteString else {
+                            preconditionFailure("URLからStringの変換に失敗しました")
+                        }
+                        //downloadURLの保存
+                        if tag == 1 {
+                            DCModel.currentUserData.verifyImageURL1 = downloadURL
+                        } else if tag == 2 {
+                            DCModel.currentUserData.verifyImageURL2 = downloadURL
+                        }
+                        //保存成功フラグ
+                        isStored = true
+                    }
+                    after(isStored)
+                }
             }
-            after(isStored)
+        }
+    }
+    //画像認証メールを送る
+    func sendVerifyEmail(_ after: @escaping (Bool) -> Void) {
+        var isSent = false
+        guard let userID = Auth.auth().currentUser?.uid else {
+            preconditionFailure("ユーザーIDの取得に失敗：DCModel, sendVerifyEmail")
+        }
+        //UserDefaultsから性別データを取得
+        let genderData = UserSelectData.selectedGenderString()
+        guard let myGender = genderData["myGender"] as? String else {
+            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
+        }
+        //メールを送るリスト
+        let mailList: [String] = [
+            "fumiya8811@gmail.com",
+            "stratoyamao@gmail.com",
+            "chomo1ungma.zwei@gmail.com",
+            "kindsun884.730@gmail.com"
+        ]
+        //urlを生成
+        let verifyURL1 = "https://meeple-1af15.web.app/verify.html?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=1"
+        let verifyURL2 = "https://meeple-1af15.web.app/verify.html?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=2"
+        guard let name1 = DCModel.currentUserData.name1, let name2 = DCModel.currentUserData.name2 else {
+            preconditionFailure("ユーザーの名前を取得できませんでした:DCModel:sendVerifyEmail")
+        }
+        //メール本文
+        let messageData: [String: Any] = [
+            "message": "認証待ち / \(name1)&\(name2)",
+            "text": "新たなユーザーが学生証を登録しました。\nURLから認証作業を行ってください。\n\n1人目: \(verifyURL1)\n\n,2人目: \(verifyURL2)",
+            "html": "新たなユーザーが学生証を登録しました。\nURLから認証作業を行ってください。\n\n1人目: <a href='\(verifyURL1)'>ここをクリック</a>\n\n,2人目: <a href='\(verifyURL2)'>ここをクリック</a>"
+        ]
+        //ユーザードキュメントまでのパス
+        let userPath: [String: Any] = [
+            "gender": myGender,
+            "numOfPeople": "two",
+            "userID": userID
+        ]
+        //Firestoreにアップするメールデータ
+        let mailData: [String: Any] = [
+            "to": mailList,
+            "message": messageData,
+            "path": userPath
+        ]
+        firestoreDB.collection("mail").addDocument(data: mailData) { (error) in
+            if let error = error {
+                print("メールデータをアップロードしました：（DCModel）→\(error)")
+            } else {
+                print("メールデータをアップロードしました")
+                isSent = true
+            }
+            after(isSent)
         }
     }
     
@@ -105,16 +175,17 @@ class DCModel {
         }
     }
     
+    //MARK:- データのダウンロード
     //ユーザーデータを取得する処理
     func fetchHomeUserData(_ after: @escaping (Bool) -> Void) {
         var isFetched = false
-        //UserDefaultsから性別データを取得する処理を書く
+        //UserDefaultsから性別データを取得
         let genderData = UserSelectData.selectedGenderString()
-        guard let youGender = genderData["youGender"] as? String else {
+        guard let yourGender = genderData["yourGender"] as? String else {
             preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
         }
         //とりあえず2人グループで指定してユーザーデータを取得
-        firestoreDB.collection("users").document(youGender).collection("two").getDocuments { (snapshots, error) in
+        firestoreDB.collection("users").document(yourGender).collection("two").getDocuments { (snapshots, error) in
             if error != nil {
                 print("ユーザーデータの取得に失敗しました：fetchHomeUserData")
             } else {
@@ -122,8 +193,10 @@ class DCModel {
                 guard let snap = snapshots else {
                     preconditionFailure("snapshotsデータが存在しませんでした：fetchHomeUserData")
                 }
+                print("取得したデータの個数：\(snap.documents.count)")
                 for document in snap.documents {
                     do {
+                        print("データの取得に成功：fetchHomeUserData")
                         let data = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
                         DCModel.userList.append(data)
                     } catch {

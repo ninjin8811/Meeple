@@ -13,7 +13,7 @@ class GenderRegisterViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
-    let genderList = UserSelectData.genderList()
+    let genderList = UserSelectData.jpnGenderList()
     var selectedIndexPath: IndexPath?
 
     override func viewDidLoad() {

@@ -84,7 +84,7 @@ class VerifyRegisterViewController: UIViewController {
         //画像の更新を確認してからアップロード
         if isSetImage1 == true && isSetImage2 == true {
             SVProgressHUD.show()
-            dcModel.uploadProfileImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored1) in
+            dcModel.uploadVerifyImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored1) in
                 if isStored1 == false {
                     //アラートを出す
                     alert.title = "画像のアップロードに\n失敗しました"
@@ -92,7 +92,7 @@ class VerifyRegisterViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     SVProgressHUD.dismiss()
                 } else {
-                    dcModel.uploadProfileImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored2) in
+                    dcModel.uploadVerifyImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored2) in
                         SVProgressHUD.dismiss()
                         if isStored2 == false {
                             //アラートを出す
@@ -113,7 +113,7 @@ class VerifyRegisterViewController: UIViewController {
             //アラートでOKが押されたときの処理
             let okAction = UIAlertAction(title: "次へ進む", style: .default) { (_) in
                 SVProgressHUD.show()
-                dcModel.uploadProfileImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored) in
+                dcModel.uploadVerifyImage(tag: 1, image: image1, storageRef: storageRef1) { (isStored) in
                     SVProgressHUD.dismiss()
                     if isStored == false {
                         //アラートを出す
@@ -135,7 +135,7 @@ class VerifyRegisterViewController: UIViewController {
             //アラートでOKが押されたときの処理
             let okAction = UIAlertAction(title: "次へ進む", style: .default) { (_) in
                 SVProgressHUD.show()
-                dcModel.uploadProfileImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored) in
+                dcModel.uploadVerifyImage(tag: 2, image: image2, storageRef: storageRef2) { (isStored) in
                     SVProgressHUD.dismiss()
                     if isStored == false {
                         alert.title = "画像のアップロードに\n失敗しました"

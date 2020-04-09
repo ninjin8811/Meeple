@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uSq-C6-qKw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uSq-C6-qKw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1318,7 +1318,7 @@
                     <navigationItem key="navigationItem" id="q7C-cz-WtN"/>
                     <connections>
                         <outlet property="nextButton" destination="EGY-Z2-Xdj" id="dBh-tc-fZV"/>
-                        <segue destination="Cz7-4p-JdV" kind="show" identifier="goToHome" id="HKr-BC-wfV"/>
+                        <segue destination="Cz7-4p-JdV" kind="show" identifier="goToHomeFromRegister" id="HKr-BC-wfV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axm-Zg-JND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

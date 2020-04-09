@@ -18,11 +18,16 @@ class UserProfileModel: Codable {
     var grade2: Int?
     var mainImageURL1: String?
     var mainImageURL2: String?
-    var personality: Int?
-    var liquor: Int?
+    var detailProfile: DetailProfileModel?
     var verifyImageURL1: String?
     var verifyImageURL2: String?
     var isVerified1: Bool = false
     var isVerified2: Bool = false
     var updateDate: TimeInterval?
+    var tweet: String?
+}
+
+class DetailProfileModel: Codable {
+    var personality: Int?
+    var liquor: Int?
 }

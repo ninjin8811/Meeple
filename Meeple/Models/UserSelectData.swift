@@ -10,8 +10,13 @@ import UIKit
 
 final class UserSelectData: NSObject {
     
+    class func jpnGenderList() -> [String] {
+        let jpnGenderArray: [String] = ["男", "女"]
+        return jpnGenderArray
+    }
+    
     class func genderList() -> [String] {
-        let genderArray: [String] = ["男", "女"]
+        let genderArray: [String] = ["male", "female"]
         return genderArray
     }
     
@@ -67,5 +72,57 @@ final class UserSelectData: NSObject {
             return [String: Any]()
         }
     }
+    
+    class func selectedGradeString(opIndex: Int?) -> String {
+        if let index = opIndex {
+            let gradeList = self.gradeList()
+            return gradeList[index]
+        } else {
+            return ""
+        }
+    }
+    
+    class func selectedRegionString(opIndex: Int?) -> String {
+        if let index = opIndex {
+            let regionList = self.regionList()
+            return regionList[index]
+        } else {
+            return ""
+        }
+    }
+    
+    class func verifyIconImage(opIsVerified: Bool?) -> UIImage? {
+        if let isVerified = opIsVerified, isVerified {
+            return #imageLiteral(resourceName: "verifyIcon")
+        } else {
+            return nil
+        }
+    }
+    
+    class func tweetString(opTweet: String?) -> String {
+        if let tweet = opTweet {
+            return tweet
+        } else {
+            return ""
+        }
+    }
+    
+    class func stringToURL(opString: String?) -> URL? {
+        if let urlString = opString {
+            return URL(string: urlString)
+        } else {
+            return nil
+        }
+    }
+    
+//    class func selectedPersonalityString(opIndex: Int?) -> String {
+//        if let index = opIndex {
+//            let personalityList = self.personalityList()
+//            return personalityList[index]
+//        } else {
+//            return ""
+//        }
+//    }
+    
 }
 

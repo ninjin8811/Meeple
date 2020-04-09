@@ -44,7 +44,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if registerVC != nil {
-            performSegue(withIdentifier: "goToHome", sender: self)
+            performSegue(withIdentifier: "goToHomeFromWelcome", sender: self)
         }
     }
     
@@ -106,7 +106,6 @@ extension WelcomeViewController: FUIAuthDelegate {
         if let phoneProvider = FUIAuth.defaultAuthUI()?.providers[1] as? FUIPhoneAuth {
             phoneProvider.signIn(withPresenting: self, phoneNumber: nil)
         }
-        
     }
 
 //    //認証画面から離れた時に呼ばれる関数

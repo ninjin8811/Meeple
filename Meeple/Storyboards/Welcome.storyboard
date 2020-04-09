@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gIF-BY-DjP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gIF-BY-DjP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,7 +85,7 @@
                         <outlet property="facebookButton" destination="d1U-71-nzO" id="59V-nT-H5t"/>
                         <outlet property="mailButton" destination="zFr-H4-Oay" id="RIT-Mt-QHB"/>
                         <segue destination="XAc-fu-F7h" kind="show" identifier="goToRegister" id="1Xu-eJ-a7C"/>
-                        <segue destination="TjA-Dn-8nu" kind="show" identifier="goToHome" id="og1-Y4-2HG"/>
+                        <segue destination="TjA-Dn-8nu" kind="show" identifier="goToHomeFromWelcome" id="og1-Y4-2HG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkV-FZ-etC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

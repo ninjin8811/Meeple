@@ -13,7 +13,6 @@
 		9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */; };
 		9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */; };
 		9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */; };
-		9A5E172823D0CE54005000F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5E172723D0CE54005000F0 /* Default-568h@2x.png */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
@@ -44,6 +43,7 @@
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */; };
+		9AC18F652437803600D60B0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5E172723D0CE54005000F0 /* Default-568h@2x.png */; };
 		9AC86D6A240D742100FFA997 /* UserSelectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC86D69240D742100FFA997 /* UserSelectData.swift */; };
 		9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8173A2419B47500768A04 /* CropViewController.swift */; };
 		9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD16A6241FAB3600042A73 /* DCModel.swift */; };
@@ -278,8 +278,8 @@
 				9A88554E240EE35500BB58EF /* ProfileImageRegisterViewController.swift */,
 				9AD8173A2419B47500768A04 /* CropViewController.swift */,
 				9ADD16A8241FDBA500042A73 /* PersonalityRegisterViewController.swift */,
-				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
 				9ADD16AE2420013A00042A73 /* VerifyRegisterViewController.swift */,
+				9ADD16AA241FDDC500042A73 /* LiquorRegisterViewController.swift */,
 				9A89131F24200AC20030818C /* CropVerifyImageViewController.swift */,
 				9ADD16B02420015600042A73 /* EndRegisterViewController.swift */,
 			);
@@ -359,7 +359,6 @@
 			files = (
 				9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */,
 				9A6D5B9B23CF0DAA00CFB2B4 /* NotoSansJP-Regular.otf in Resources */,
-				9A5E172823D0CE54005000F0 /* Default-568h@2x.png in Resources */,
 				9A76B7DF2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib in Resources */,
 				9A31AA5923CDE81E007CA906 /* Home.storyboard in Resources */,
 				9A76B7D52423958100E671C5 /* OtherTab.storyboard in Resources */,
@@ -370,6 +369,7 @@
 				9A76B7D32423955C00E671C5 /* MessageTab.storyboard in Resources */,
 				9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */,
 				9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				9AC18F652437803600D60B0F /* Default-568h@2x.png in Resources */,
 				9A76B7CF2423952F00E671C5 /* HomeTab.storyboard in Resources */,
 				9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */,
 				9A76B7E324250F0B00E671C5 /* UserCollectionViewCell.xib in Resources */,

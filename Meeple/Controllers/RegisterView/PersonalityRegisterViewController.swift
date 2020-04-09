@@ -38,7 +38,7 @@ class PersonalityRegisterViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        DCModel.currentUserData.personality = selectedIndexPath?.row
+        DCModel.currentUserData.detailProfile?.personality = selectedIndexPath?.row
         performSegue(withIdentifier: "goToLiquorRegister", sender: self)
     }
 }

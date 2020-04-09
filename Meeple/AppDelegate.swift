@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import Nuke
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,16 +21,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        //iOS12以下の対応しようと思ったけど全部SceleDelegateから実行されるからこの文いらない？
-//        if #available(iOS 13, *) {
-//        } else {
-//            let window = UIWindow(frame: UIScreen.main.bounds)
-//            self.window = window
-//            window.makeKeyAndVisible()
-//
-//            let vc = HomeViewController()
-//            window.rootViewController = vc
-//        }
+        //画像のキャッシュ設定
+        DataLoader.sharedUrlCache.diskCapacity = 0
+
+        let pipeline = ImagePipeline {
+            do {
+                let dataCache = try DataCache(name: "com.Meeple.datacache")
+                dataCache.sizeLimit = 200 * 1024 * 1024
+                $0.dataCache = dataCache
+            } catch {
+                print("キャッシュ設定のトライエラー:AppDelegate")
+            }
+        }
+        ImagePipeline.shared = pipeline
+
+        let contentMode = ImageLoadingOptions.ContentModes(success: .scaleAspectFill, failure: .scaleAspectFill, placeholder: .scaleAspectFill)
+        ImageLoadingOptions.shared.contentModes = contentMode
+        ImageLoadingOptions.shared.placeholder = #imageLiteral(resourceName: "noneAvatarImage")
+        ImageLoadingOptions.shared.failureImage = #imageLiteral(resourceName: "noneAvatarImage")
+        ImageLoadingOptions.shared.transition = .fadeIn(duration: 0.5)
+        //デフォルトのキャッシュ容量を0にする
+        DataLoader.sharedUrlCache.diskCapacity = 0
+        
         return true
     }
     

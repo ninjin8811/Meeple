@@ -51,9 +51,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func checkIsLoginFirebase(window: UIWindow) {
         if let _ = Auth.auth().currentUser?.uid {
             //起動画面を変えてる(本来ならHomeview)
-//            goToRegisterView(window: window)
+            goToRegisterView(window: window)
 //            goToWelcomeView(window: window)
-            goToHomeView(window: window)
+//            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }

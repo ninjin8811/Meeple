@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class UserCollectionViewCell: UICollectionViewCell {
 
@@ -49,6 +50,23 @@ class UserCollectionViewCell: UICollectionViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: "UserCollectionViewCell", bundle: nil)
+    }
+    
+    class func homeCell(cell: UserCollectionViewCell, indexPath: IndexPath) -> UserCollectionViewCell {
+        cell.gradeLabel1.text = UserSelectData.selectedGradeString(opIndex: DCModel.userList[indexPath.row].grade1)
+        cell.gradeLabel2.text = UserSelectData.selectedGradeString(opIndex: DCModel.userList[indexPath.row].grade2)
+        cell.regionLabel.text = UserSelectData.selectedRegionString(opIndex: DCModel.userList[indexPath.row].region)
+        cell.verifyIconView1.image = UserSelectData.verifyIconImage(opIsVerified: DCModel.userList[indexPath.row].isVerified1)
+        cell.verifyIconView2.image = UserSelectData.verifyIconImage(opIsVerified: DCModel.userList[indexPath.row].isVerified2)
+        cell.tweetTextView.text = UserSelectData.tweetString(opTweet: DCModel.userList[indexPath.row].tweet)
+        //NukeでImageをダウンロード
+        if let avatarImageURL1 = UserSelectData.stringToURL(opString: DCModel.userList[indexPath.row].mainImageURL1) {
+            loadImage(with: avatarImageURL1, into: cell.profileImageView1)
+        }
+        if let avatarImageURL2 = UserSelectData.stringToURL(opString: DCModel.userList[indexPath.row].mainImageURL2) {
+            loadImage(with: avatarImageURL2, into: cell.profileImageView2)
+        }
+        return cell
     }
 
 }

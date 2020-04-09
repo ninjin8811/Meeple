@@ -47,20 +47,30 @@ class EndRegisterViewController: UIViewController {
                 ud.set(loginDataDictionary, forKey: "loginData")
                 self.dismiss(animated: true, completion: nil)
                 //UserDefaultsに性別を記録
-                let genderList = UserSelectData.gradeList()
+                let genderList = UserSelectData.genderList()
                 guard let myGenderIndex = DCModel.currentUserData.gender else {
                     preconditionFailure("DCModelにgenderデータが存在しませんでした")
                 }
-                var youGenderIndex = 0
+                var yourGenderIndex = 0
                 if myGenderIndex == 0 {
-                    youGenderIndex += 1
-                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "youGender": genderList[youGenderIndex]]
+                    yourGenderIndex += 1
+                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "yourGender": genderList[yourGenderIndex]]
                     ud.set(genderDataDictionary, forKey: "genderData")
                 } else {
-                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "youGender": genderList[youGenderIndex]]
+                    let genderDataDictionary: [String: String] = ["myGender": genderList[myGenderIndex], "yourGender": genderList[yourGenderIndex]]
                     ud.set(genderDataDictionary, forKey: "genderData")
                 }
-                self.dismiss(animated: true, completion: nil)
+                
+                //userDefaultsの性別データを利用してメールを送信する処理
+                self.dcModel.sendVerifyEmail { (isSent) in
+                    if isSent == false {
+                        print("メールデータの保存に失敗：EngRegisterView")
+                        //ここにアラート出す処理書く
+                    } else {
+                        print("メールデータの保存に成功：EngRegisterView")
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
     }

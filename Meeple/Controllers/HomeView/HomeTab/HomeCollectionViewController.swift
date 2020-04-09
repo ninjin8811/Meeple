@@ -34,7 +34,6 @@ class HomeCollectionViewController: UICollectionViewController {
                 print("ユーザーデータの取得に失敗：HomeCollectionView")
             } else {
                 print("ユーザーデータの取得に成功：HomeCollectionView")
-                print(DCModel.userList)
                 self.collectionView.reloadData()
             }
         }
@@ -59,13 +58,13 @@ class HomeCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return DCModel.userList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? UserCollectionViewCell {
             //セルの設定を書く
-            return cell
+            return UserCollectionViewCell.homeCell(cell: cell, indexPath: indexPath)
         }
         return UICollectionViewCell()
     }
