@@ -1081,7 +1081,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="学生証のご登録">
                                         <attributes>
-                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="26" name="HiraginoSans-W6"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>

@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchBarDelegate: class {
     func searchBarTapped()
+    func sortImageViewTapped()
 }
 
 private let reuseIdentifier = "homeUserCell"
@@ -99,6 +100,7 @@ class HomeCollectionViewController: UICollectionViewController {
     
 }
 
+//MARK:- さがすヘッダーのDelegate
 extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
     //ヘッダーの横幅と高さ指定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -108,8 +110,29 @@ extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeCollectionViewController: SearchBarDelegate {
     func searchBarTapped() {
-        //サーチバーがタップされたときの処理
+        print("サーチバーがタップされました")
+        performSegue(withIdentifier: "goToSetTerm", sender: self)
     }
-    
+    func sortImageViewTapped() {
+        print("ソートイメージがタップされました")
+        //メニューアラートを設定
+        let alert = UIAlertController(title: "どの順に並び替えますか？", message: "", preferredStyle: .actionSheet)
+        let sortReccomendedAction = UIAlertAction(title: "おすすめ順", style: .default) { _ in
+            print("おすすめ順がタップされました")
+        }
+        let sortLatestLoginAction = UIAlertAction(title: "ログインが新しい順", style: .default) { _ in
+            print("ログインが新しい順がタップされました")
+        }
+        let sortLikeAction = UIAlertAction(title: "いいねが多い順", style: .default) { _ in
+            print("いいねが多い順がタップされました")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(sortReccomendedAction)
+        alert.addAction(sortLatestLoginAction)
+        alert.addAction(sortLikeAction)
+        alert.addAction(cancelAction)
+        //メニューアラートを表示
+        present(alert, animated: true, completion: nil)
+    }
     
 }

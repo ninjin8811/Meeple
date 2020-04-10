@@ -40,6 +40,7 @@
 		9A8AEB4F23D6EFB100C31F3A /* GenderRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */; };
 		9A8AEB5423D71E1C00C31F3A /* RegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */; };
 		9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */; };
+		9AA137582440C67D009A4606 /* SetTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA137572440C67C009A4606 /* SetTermViewController.swift */; };
 		9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA6821D23D2DA220004AD37 /* Register.storyboard */; };
 		9AA6822123D2DBD80004AD37 /* CheckTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */; };
 		9AB7F8A824214E0C0070FB3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */; };
@@ -95,6 +96,7 @@
 		9A8AEB4E23D6EFB100C31F3A /* GenderRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRegisterViewController.swift; sourceTree = "<group>"; };
 		9A8AEB5223D71E1C00C31F3A /* RegisterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCell.swift; sourceTree = "<group>"; };
 		9A8AEB5323D71E1C00C31F3A /* RegisterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTableViewCell.xib; sourceTree = "<group>"; };
+		9AA137572440C67C009A4606 /* SetTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTermViewController.swift; sourceTree = "<group>"; };
 		9AA6821D23D2DA220004AD37 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9AA6822023D2DBD80004AD37 /* CheckTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTermsViewController.swift; sourceTree = "<group>"; };
 		9AB7F8A724214E0C0070FB3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				9A76B7DA2423980300E671C5 /* HomeCollectionViewController.swift */,
+				9AA137572440C67C009A4606 /* SetTermViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
+				9AA137582440C67D009A4606 /* SetTermViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */,
 				9A88554D240E8DF300BB58EF /* GradeRegisterViewController.swift in Sources */,

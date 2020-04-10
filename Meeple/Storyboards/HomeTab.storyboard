@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Osv-0v-FkK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Osv-0v-FkK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,14 +53,15 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boN-ar-zvY">
-                                    <rect key="frame" x="47" y="33" width="320" height="26"/>
-                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="39.5" y="33" width="335" height="26"/>
+                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="320" id="E6v-lq-kFY"/>
+                                        <constraint firstAttribute="width" constant="335" id="tac-jV-dvs"/>
                                     </constraints>
                                     <attributedString key="attributedText">
                                         <fragment content="さがす">
                                             <attributes>
+                                                <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="26" name="HiraginoSans-W6"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -67,14 +69,14 @@
                                     </attributedString>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i46-Bb-bA0">
-                                    <rect key="frame" x="47" y="79" width="320" height="20"/>
+                                    <rect key="frame" x="39.5" y="79" width="335" height="20"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-Sp-UNE">
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSG-61-w49">
                                                     <rect key="frame" x="15" y="5" width="89.5" height="10"/>
-                                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="条件を指定して検索">
                                                             <attributes>
@@ -112,11 +114,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Cxk-Sp-UNE" secondAttribute="bottom" id="33C-qn-Rxh"/>
+                                        <constraint firstAttribute="width" constant="335" id="CWT-fh-nQB"/>
                                         <constraint firstItem="Oz0-fQ-cBf" firstAttribute="centerY" secondItem="i46-Bb-bA0" secondAttribute="centerY" id="Ccx-Ia-lOQ"/>
                                         <constraint firstAttribute="height" constant="20" id="D1l-Jj-qkS"/>
                                         <constraint firstItem="Cxk-Sp-UNE" firstAttribute="top" secondItem="i46-Bb-bA0" secondAttribute="top" id="Hcv-vh-xhF"/>
                                         <constraint firstItem="Cxk-Sp-UNE" firstAttribute="leading" secondItem="i46-Bb-bA0" secondAttribute="leading" id="YcS-qJ-5rj"/>
-                                        <constraint firstAttribute="width" constant="320" id="ffS-cj-AAQ"/>
                                         <constraint firstItem="Oz0-fQ-cBf" firstAttribute="leading" secondItem="Cxk-Sp-UNE" secondAttribute="trailing" constant="15" id="ftV-7a-AvV"/>
                                     </constraints>
                                 </view>
@@ -138,11 +140,67 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="8HU-7J-1st" id="cWR-qD-2Fa"/>
+                        <segue destination="TRa-MA-UfT" kind="presentation" identifier="goToSetTerm" id="2bD-l5-DIJ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPv-eU-3B2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="147.99107142857142"/>
+        </scene>
+        <!--Set Term View Controller-->
+        <scene sceneID="KCY-eu-crd">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="TRa-MA-UfT" customClass="SetTermViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EGu-lq-Ajv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEX-Lu-VD5">
+                                <rect key="frame" x="0.0" y="54" width="414" height="26"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qE-Zv-Zkr">
+                                        <rect key="frame" x="155" y="0.0" width="104.5" height="26"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="検索条件">
+                                                <attributes>
+                                                    <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kfr-m9-AqA">
+                                        <rect key="frame" x="373" y="2.5" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="JeU-JI-ZSF" userLabel="width = 23"/>
+                                            <constraint firstAttribute="height" constant="21" id="xEr-aj-Vy7" userLabel="height = 23"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="0qE-Zv-Zkr" firstAttribute="centerY" secondItem="nEX-Lu-VD5" secondAttribute="centerY" id="EzV-vn-OCM"/>
+                                    <constraint firstItem="kfr-m9-AqA" firstAttribute="centerY" secondItem="nEX-Lu-VD5" secondAttribute="centerY" id="b44-SJ-7GY"/>
+                                    <constraint firstItem="0qE-Zv-Zkr" firstAttribute="centerX" secondItem="nEX-Lu-VD5" secondAttribute="centerX" id="hD3-sn-179"/>
+                                    <constraint firstAttribute="trailing" secondItem="kfr-m9-AqA" secondAttribute="trailing" constant="20" id="ivE-is-qpA"/>
+                                    <constraint firstAttribute="height" constant="26" id="rqW-P3-ujt" userLabel="height = 30"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nEX-Lu-VD5" firstAttribute="leading" secondItem="Lhl-bs-iEY" secondAttribute="leading" id="PJS-XG-xpr"/>
+                            <constraint firstItem="nEX-Lu-VD5" firstAttribute="top" secondItem="Lhl-bs-iEY" secondAttribute="top" constant="10" id="Sxf-de-XLb"/>
+                            <constraint firstItem="Lhl-bs-iEY" firstAttribute="trailing" secondItem="nEX-Lu-VD5" secondAttribute="trailing" id="xa0-0h-tCe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lhl-bs-iEY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g7o-0E-oSv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLM-nd-Lls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153.6231884057972" y="147.99107142857142"/>
         </scene>
     </scenes>
     <resources>

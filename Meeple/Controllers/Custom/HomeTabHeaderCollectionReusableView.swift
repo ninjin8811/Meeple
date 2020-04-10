@@ -46,8 +46,9 @@ class HomeTabHeaderCollectionReusableView: UICollectionReusableView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            if touch.view == searchBarView || touch.view == searchMoreImageView {
+            if touch.view == searchBarView {
                 highlightView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.2992829623)
+            } else if touch.view == searchMoreImageView {
                 searchMoreImageView.isHighlighted = true
             }
         }
@@ -56,15 +57,13 @@ class HomeTabHeaderCollectionReusableView: UICollectionReusableView {
     @objc
     func searchBarViewTapped(_ sender: UITapGestureRecognizer) {
         highlightView.backgroundColor = .clear
-        searchMoreImageView.isHighlighted = false
         delegate?.searchBarTapped()
     }
     
     @objc
     func searchMoreImageViewTapped(_ sender: UITapGestureRecognizer) {
-        highlightView.backgroundColor = .clear
         searchMoreImageView.isHighlighted = false
-        delegate?.searchBarTapped()
+        delegate?.sortImageViewTapped()
     }
     
 }

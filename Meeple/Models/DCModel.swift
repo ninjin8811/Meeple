@@ -122,6 +122,7 @@ class DCModel {
         //メール本文
         let messageData: [String: Any] = [
             "message": "認証待ち / \(name1)&\(name2)",
+            "subject": "認証待ち / \(name1)&\(name2)",
             "text": "新たなユーザーが学生証を登録しました。\nURLから認証作業を行ってください。\n\n1人目: \(verifyURL1)\n\n,2人目: \(verifyURL2)",
             "html": "新たなユーザーが学生証を登録しました。\nURLから認証作業を行ってください。\n\n1人目: <a href='\(verifyURL1)'>ここをクリック</a>\n\n,2人目: <a href='\(verifyURL2)'>ここをクリック</a>"
         ]
