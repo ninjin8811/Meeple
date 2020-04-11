@@ -10,9 +10,16 @@ import UIKit
 
 class SetTermTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var termTitleLabel: UILabel!
+    @IBOutlet weak var selectedTermLabel: UILabel!
+    @IBOutlet weak var rightArrowImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "SetTermTableViewCell", bundle: nil)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

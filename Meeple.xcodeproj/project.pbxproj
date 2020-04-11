@@ -13,6 +13,8 @@
 		9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEE23D08C8E006C35AD /* Font Awesome 5 Brands-Regular-400.otf */; };
 		9A5C6BF223D08C90006C35AD /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BEF23D08C8F006C35AD /* Font Awesome 5 Free-Regular-400.otf */; };
 		9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */; };
+		9A62A0FE24419BF600D6B3B3 /* SetTermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A62A0FC24419BF600D6B3B3 /* SetTermTableViewCell.swift */; };
+		9A62A0FF24419BF600D6B3B3 /* SetTermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A62A0FD24419BF600D6B3B3 /* SetTermTableViewCell.xib */; };
 		9A6C460323C25B32008B6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460223C25B32008B6413 /* AppDelegate.swift */; };
 		9A6C460523C25B32008B6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C460423C25B32008B6413 /* SceneDelegate.swift */; };
 		9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6C460B23C25B33008B6413 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		9A5C6BF023D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
 		9A5E172723D0CE54005000F0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9A5E172923D0D3F0005000F0 /* Meeple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meeple.entitlements; sourceTree = "<group>"; };
+		9A62A0FC24419BF600D6B3B3 /* SetTermTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTermTableViewCell.swift; sourceTree = "<group>"; };
+		9A62A0FD24419BF600D6B3B3 /* SetTermTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetTermTableViewCell.xib; sourceTree = "<group>"; };
 		9A6C45FF23C25B32008B6413 /* Meeple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6C460223C25B32008B6413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6C460423C25B32008B6413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				9A76B7DD2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.xib */,
 				9A76B7E024250F0B00E671C5 /* UserCollectionViewCell.swift */,
 				9A76B7E124250F0B00E671C5 /* UserCollectionViewCell.xib */,
+				9A62A0FC24419BF600D6B3B3 /* SetTermTableViewCell.swift */,
+				9A62A0FD24419BF600D6B3B3 /* SetTermTableViewCell.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				9A76B7CF2423952F00E671C5 /* HomeTab.storyboard in Resources */,
 				9A8AEB5523D71E1C00C31F3A /* RegisterTableViewCell.xib in Resources */,
 				9A76B7E324250F0B00E671C5 /* UserCollectionViewCell.xib in Resources */,
+				9A62A0FF24419BF600D6B3B3 /* SetTermTableViewCell.xib in Resources */,
 				9A6C460C23C25B33008B6413 /* Assets.xcassets in Resources */,
 				9A5C6BF323D08C90006C35AD /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				9AA6821E23D2DA220004AD37 /* Register.storyboard in Resources */,
@@ -532,6 +539,7 @@
 				9A76B7DE2425024F00E671C5 /* HomeTabHeaderCollectionReusableView.swift in Sources */,
 				9ADD16B12420015600042A73 /* EndRegisterViewController.swift in Sources */,
 				9A76B7DB2423980300E671C5 /* HomeCollectionViewController.swift in Sources */,
+				9A62A0FE24419BF600D6B3B3 /* SetTermTableViewCell.swift in Sources */,
 				9A8AEB4B23D6189000C31F3A /* ColorPalette.swift in Sources */,
 				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
