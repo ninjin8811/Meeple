@@ -23,13 +23,12 @@ class HomeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         //見た目を整える
         prepareDesign()
-        self.collectionView.register(UserCollectionViewCell.nib(), forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView.register(HomeTabHeaderCollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeTabHeaderCollectionReusableView.identifier)
+        //ユーザーデータを取得
+        loadAllUsers()
     }
     
     //とりあえず全ユーザーデータ取得
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func loadAllUsers() {
         dcModel.fetchHomeUserData { (isFetched) in
             if isFetched == false {
                 print("ユーザーデータの取得に失敗：HomeCollectionView")
@@ -41,6 +40,9 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     func prepareDesign() {
+        //コレクションビューにカスタムセルを登録
+        self.collectionView.register(UserCollectionViewCell.nib(), forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.register(HomeTabHeaderCollectionReusableView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeTabHeaderCollectionReusableView.identifier)
         //コレクションビューのレイアウトの設定
         let collectionViewWidth: CGFloat = 160 * 2 + 15
         let paddingLeftRight = (view.bounds.width - collectionViewWidth) / 2
