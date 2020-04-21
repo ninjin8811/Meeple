@@ -65,6 +65,32 @@ final class UserSelectData: NSObject {
         return liquorArray
     }
     
+    class func cigaretteList() -> [String] {
+        let cigaretteArray: [String] = [
+            "吸う",
+            "たまに吸う",
+            "吸わない"
+        ]
+        return cigaretteArray
+    }
+    
+    class func ageList() -> [Int] {
+        var ageArray = [Int]()
+        for age in 18...29 {
+            ageArray.append(age)
+        }
+        return ageArray
+    }
+    
+    class func heightList() -> [Int] {
+        var heightArray = [Int]()
+        for count in 130...200 {
+            heightArray.append(count)
+        }
+        return heightArray
+    }
+    
+    
     class func selectedGenderString() -> [String: Any] {
         if let genderData = UserDefaults.standard.dictionary(forKey: "genderData") {
             return genderData
@@ -113,6 +139,36 @@ final class UserSelectData: NSObject {
         } else {
             return nil
         }
+    }
+    
+    //検索条件設定のテーブルビューに使う
+    class func termLists() -> [DetailProfileData] {
+        var lists = [DetailProfileData]()
+        let data1 = DetailProfileData()
+        let data2 = DetailProfileData()
+        let data3 = DetailProfileData()
+        let data4 = DetailProfileData()
+        let data5 = DetailProfileData()
+        let data6 = DetailProfileData()
+        data1.title = "年齢"
+        data2.title = "学年"
+        data3.title = "居住地"
+        data4.title = "身長"
+        data5.title = "性格"
+        data6.title = "たばこ"
+        data1.termArray = self.ageList()
+        data2.termArray = self.gradeList()
+        data3.termArray = self.regionList()
+        data4.termArray = self.heightList()
+        data5.termArray = self.personalityList()
+        data6.termArray = self.cigaretteList()
+        lists.append(data1)
+        lists.append(data2)
+        lists.append(data3)
+        lists.append(data4)
+        lists.append(data5)
+        lists.append(data6)
+        return lists
     }
     
 //    class func selectedPersonalityString(opIndex: Int?) -> String {

@@ -31,3 +31,10 @@ class DetailProfileModel: Codable {
     var personality: Int?
     var liquor: Int?
 }
+
+//検索条件設定、プロフィール設定のテーブルビューに使う
+class DetailProfileData {
+    var title = ""
+    var termArray = [Any]()
+    var setArray = [Int]()
+}

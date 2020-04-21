@@ -354,11 +354,116 @@
                         <outlet property="resetButton" destination="0cY-62-4t9" id="WH8-yA-G2G"/>
                         <outlet property="searchButton" destination="J2e-U2-0x2" id="rpe-zP-dkV"/>
                         <outlet property="tableview" destination="CXt-oo-5O4" id="ylh-6K-Y4C"/>
+                        <segue destination="TV4-Ca-Ewq" kind="show" identifier="goToSetTermDetail" id="tfa-z8-v6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLM-nd-Lls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1153.6231884057972" y="147.99107142857142"/>
+        </scene>
+        <!--Set Term Detail View Controller-->
+        <scene sceneID="mQx-oP-1KH">
+            <objects>
+                <viewController id="TV4-Ca-Ewq" customClass="SetTermDetailViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T25-wr-MWG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdc-iE-efl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem id="jgl-eC-EdK">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Cpo-7o-gUT">
+                                            <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="TV4-Ca-Ewq" id="PNo-Eo-7AU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="こだわらない" id="S36-h8-FOZ">
+                                            <color key="tintColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="kodawaranaiButtonPressed:" destination="TV4-Ca-Ewq" id="nSR-Bi-iJq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSS-4f-bUK">
+                                <rect key="frame" x="47" y="106" width="320" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="8jP-qy-kp9"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="居住地を絞る">
+                                        <attributes>
+                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="26" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-uu-uTV">
+                                <rect key="frame" x="47" y="742" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aOH-Fh-jUd"/>
+                                    <constraint firstAttribute="width" constant="320" id="zl5-2l-9Ab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="設定する">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setButtonPressed:" destination="TV4-Ca-Ewq" eventType="touchUpInside" id="qqV-Ru-VGy"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhd-lA-HBi">
+                                <rect key="frame" x="47" y="172" width="320" height="550"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0tO-1w-oel"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="termCell" id="3T2-Ht-EtO" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3T2-Ht-EtO" id="NO3-Mn-8hC" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sdc-iE-efl" firstAttribute="trailing" secondItem="dBf-gd-rEy" secondAttribute="trailing" id="3oa-b9-BA1"/>
+                            <constraint firstItem="kSS-4f-bUK" firstAttribute="centerX" secondItem="T25-wr-MWG" secondAttribute="centerX" id="9eu-sl-NsG"/>
+                            <constraint firstItem="dBf-gd-rEy" firstAttribute="bottom" secondItem="yoQ-uu-uTV" secondAttribute="bottom" constant="16" id="EV5-Av-psU"/>
+                            <constraint firstItem="yoQ-uu-uTV" firstAttribute="centerX" secondItem="T25-wr-MWG" secondAttribute="centerX" id="R33-VN-PlL"/>
+                            <constraint firstItem="sdc-iE-efl" firstAttribute="leading" secondItem="dBf-gd-rEy" secondAttribute="leading" id="TnM-ed-lHp"/>
+                            <constraint firstItem="Xhd-lA-HBi" firstAttribute="top" secondItem="kSS-4f-bUK" secondAttribute="bottom" constant="40" id="Whl-61-4Uw"/>
+                            <constraint firstItem="sdc-iE-efl" firstAttribute="top" secondItem="dBf-gd-rEy" secondAttribute="top" id="dMV-ts-LEB"/>
+                            <constraint firstItem="kSS-4f-bUK" firstAttribute="top" secondItem="sdc-iE-efl" secondAttribute="bottom" constant="50" id="dWG-Gh-4ES"/>
+                            <constraint firstItem="Xhd-lA-HBi" firstAttribute="centerX" secondItem="T25-wr-MWG" secondAttribute="centerX" id="jTP-FT-YLR"/>
+                            <constraint firstItem="yoQ-uu-uTV" firstAttribute="top" secondItem="Xhd-lA-HBi" secondAttribute="bottom" constant="20" id="kbz-n9-dsJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dBf-gd-rEy"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="Cpo-7o-gUT" id="PyU-uu-wR0"/>
+                        <outlet property="kodawaranaiButton" destination="S36-h8-FOZ" id="gNa-F1-pqf"/>
+                        <outlet property="setButton" destination="yoQ-uu-uTV" id="Zte-UY-FhD"/>
+                        <outlet property="tableview" destination="Xhd-lA-HBi" id="HDG-dH-E7r"/>
+                        <outlet property="titleLabel" destination="kSS-4f-bUK" id="1VD-Ba-X45"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEK-CG-9KW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2032" y="148"/>
         </scene>
     </scenes>
     <resources>

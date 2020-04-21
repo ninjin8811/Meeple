@@ -51,7 +51,7 @@ extension PersonalityRegisterViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "personalityCell") as? RegisterTableViewCell {
-            cell.titleLabel.text = personalityList[indexPath.row]
+            cell.titleLabel.text = "\(indexPath.row). \(personalityList[indexPath.row])"
             cell.titleLabel.textColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
             cell.checkmarkImage.image = nil
             cell.selectionStyle = .none
