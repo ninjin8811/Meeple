@@ -8,6 +8,12 @@
 
 import UIKit
 
+//MARK:　-　詳細条件設定画面Protocol
+protocol SetTermDetailViewDelegate: class {
+    func resetTermDetail()
+    func setTermDetail()
+}
+
 class SetTermViewController: UIViewController {
     
     @IBOutlet weak var checkBlockView: UIView!
@@ -88,6 +94,7 @@ class SetTermViewController: UIViewController {
     }
 
     @IBAction func resetButtonPressed(_ sender: Any) {
+        resetTerm()
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -128,6 +135,7 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //完了ボタンの処理のためにselectedRowはnilにしておく
         selectedRow = nil
         tableView.deselectRow(at: indexPath, animated: true)
         selectedIndexPath = indexPath
@@ -171,11 +179,15 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? SetTermDetailViewController {
+            //詳細条件設定画面に条件の名前リストと選択リストを渡す
             if let stringTermList = termLists[selectedIndexPath.row].termArray as? [String] {
-                destinationVC.termTitle = termLists[selectedIndexPath.row].title
                 destinationVC.stringTermList = stringTermList
-                destinationVC.selectedIndexList = termLists[selectedIndexPath.row].setArray
+            } else {
+                destinationVC.stringTermList = ["もう一度選択してください"]
             }
+            destinationVC.termTitle = termLists[selectedIndexPath.row].title
+            destinationVC.selectedIndexList = termLists[selectedIndexPath.row].setArray
+            destinationVC.delegate = self
         }
     }
 }
@@ -311,10 +323,25 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func resetTerm() {
         for cell in tableview.visibleCells {
             if let termCell = cell as? SetTermTableViewCell {
-                //termlistsのsetarrayも消す
                 termCell.selectedTermLabel.text = "こだわらない"
                 termCell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
+                termCell.rightArrowImageView.isHighlighted = false
+            }
+            for termList in termLists {
+                termList.setArray.removeAll()
             }
         }
+    }
+}
+
+//MARK:- 詳細条件設定画面のDelegate
+extension SetTermViewController: SetTermDetailViewDelegate {
+    //selectedIndexPathは画面遷移から更新されていない
+    func resetTermDetail() {
+        print("リセット")
+    }
+    
+    func setTermDetail() {
+        print("セット")
     }
 }

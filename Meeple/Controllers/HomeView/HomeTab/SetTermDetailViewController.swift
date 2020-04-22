@@ -19,6 +19,7 @@ class SetTermDetailViewController: UIViewController {
     var termTitle = "タイトル"
     var stringTermList = [String]()
     var selectedIndexList = [Int]()
+    weak var delegate: SetTermDetailViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +47,19 @@ class SetTermDetailViewController: UIViewController {
     }
     
     @IBAction func kodawaranaiButtonPressed(_ sender: Any) {
+        guard let delegate = delegate else {
+            preconditionFailure("delegateが存在しませんでした")
+        }
+        delegate.resetTermDetail()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func setButtonPressed(_ sender: Any) {
+        guard let delegate = delegate else {
+            preconditionFailure("delegateが存在しませんでした")
+        }
+        delegate.setTermDetail()
+        dismiss(animated: true, completion: nil)
     }
     
 }
@@ -92,9 +103,14 @@ extension SetTermDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "termCell") as? RegisterTableViewCell {
+            if selectedIndexList.contains(indexPath.row) {
+                cell.titleLabel.textColor = ColorPalette.meepleColor()
+                cell.checkmarkImage.image = #imageLiteral(resourceName: "checkmark-60")
+            } else {
+                cell.titleLabel.textColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
+                cell.checkmarkImage.image = nil
+            }
             cell.titleLabel.text = stringTermList[indexPath.row]
-            cell.titleLabel.textColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
-            cell.checkmarkImage.image = nil
             cell.selectionStyle = .none
             return cell
         }

@@ -6,9 +6,10 @@
 //  Copyright © 2020 Meeple. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import CodableFirebase
 
+//検索とホーム表示に使うデータは1段階目に置いておく
 class UserProfileModel: Codable {
     var name1: String?
     var name2: String?
@@ -18,17 +19,19 @@ class UserProfileModel: Codable {
     var grade2: Int?
     var mainImageURL1: String?
     var mainImageURL2: String?
-    var detailProfile: DetailProfileModel?
     var verifyImageURL1: String?
     var verifyImageURL2: String?
     var isVerified1: Bool = false
     var isVerified2: Bool = false
     var updateDate: TimeInterval?
     var tweet: String?
+    var syntality: Int?
+    var cigarette: Int?
+    var detailProfile: DetailProfileModel?
 }
 
+//プロフィールの詳細表示で使うデータ
 class DetailProfileModel: Codable {
-    var personality: Int?
     var liquor: Int?
 }
 
