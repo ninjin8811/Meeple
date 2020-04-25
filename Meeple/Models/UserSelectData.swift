@@ -45,15 +45,15 @@ final class UserSelectData: NSObject {
         return gradeArray
     }
     
-    class func personalityList() -> [String] {
-        let personalityArray: [String] = [
+    class func syntalityList() -> [String] {
+        let syntalityArray: [String] = [
             "おとなしい",
             "おとなしい方",
             "普通",
             "明るい方",
             "明るい"
         ]
-        return personalityArray
+        return syntalityArray
     }
     
     class func liquorList() -> [String] {
@@ -156,11 +156,20 @@ final class UserSelectData: NSObject {
         data4.title = "身長"
         data5.title = "性格"
         data6.title = "たばこ"
+        data1.fieldArray.append("age1")
+        data1.fieldArray.append("age2")
+        data2.fieldArray.append("grade1")
+        data2.fieldArray.append("grade2")
+        data3.fieldArray.append("region")
+        data4.fieldArray.append("height1")
+        data4.fieldArray.append("height2")
+        data5.fieldArray.append("syntality")
+        data6.fieldArray.append("cigarette")
         data1.termArray = self.ageList()
         data2.termArray = self.gradeList()
         data3.termArray = self.regionList()
         data4.termArray = self.heightList()
-        data5.termArray = self.personalityList()
+        data5.termArray = self.syntalityList()
         data6.termArray = self.cigaretteList()
         lists.append(data1)
         lists.append(data2)
@@ -171,10 +180,10 @@ final class UserSelectData: NSObject {
         return lists
     }
     
-//    class func selectedPersonalityString(opIndex: Int?) -> String {
+//    class func selectedsyntalityString(opIndex: Int?) -> String {
 //        if let index = opIndex {
-//            let personalityList = self.personalityList()
-//            return personalityList[index]
+//            let syntalityList = self.syntalityList()
+//            return syntalityList[index]
 //        } else {
 //            return ""
 //        }

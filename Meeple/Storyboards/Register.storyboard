@@ -846,17 +846,17 @@
                         <outlet property="profileImage2" destination="K3Q-DR-5GZ" id="PZw-mI-aaK"/>
                         <outlet property="skipButton" destination="peV-Na-Tq1" id="nCG-2K-xMW"/>
                         <outlet property="uploadButton" destination="Cu3-pC-vZ1" id="7bs-8K-sXC"/>
-                        <segue destination="TgF-bj-ZcD" kind="show" identifier="goToPersonalityRegister" id="yLj-Nf-3VX"/>
+                        <segue destination="TgF-bj-ZcD" kind="show" identifier="goTosyntalityRegister" id="yLj-Nf-3VX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGZ-SU-Hcw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5851" y="211"/>
         </scene>
-        <!--Personality Register View Controller-->
+        <!--Syntality Register View Controller-->
         <scene sceneID="RZa-He-PQ0">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="TgF-bj-ZcD" customClass="PersonalityRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="TgF-bj-ZcD" customClass="syntalityRegisterViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CZp-8L-CVr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -919,7 +919,7 @@
                                     <constraint firstAttribute="width" constant="320" id="0sL-vB-UrP"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalityCell" id="a6J-1S-rrS" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="syntalityCell" id="a6J-1S-rrS" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a6J-1S-rrS" id="o9b-c5-1rQ" customClass="RegisterTableViewCell" customModule="Meeple" customModuleProvider="target">

@@ -159,7 +159,7 @@ class ProfileImageRegisterViewController: UIViewController {
     }
     
     func goToNextView() {
-        performSegue(withIdentifier: "goToPersonalityRegister", sender: self)
+        performSegue(withIdentifier: "goTosyntalityRegister", sender: self)
     }
 }
 

@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 //MARK:　-　詳細条件設定画面Protocol
 protocol SetTermDetailViewDelegate: class {
     func resetTermDetail()
-    func setTermDetail()
+    func setTermDetail(selectedTermList: [Int])
 }
 
 class SetTermViewController: UIViewController {
@@ -37,6 +38,8 @@ class SetTermViewController: UIViewController {
     var rightSelectedRow = 0
     var leftSelectedRow = 0
     var selectedRow: Int?
+    //2人合致の条件で探すかのBool値
+    private static var isTwoPepleChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +47,6 @@ class SetTermViewController: UIViewController {
         prepareDesign()
         //テーブルビューに載せるリストを作成
         termLists = UserSelectData.termLists()
-        //pickerviewを隠すジェスチャーを追加
-//        addGestureToView()
     }
     
     func prepareDesign() {
@@ -66,8 +67,7 @@ class SetTermViewController: UIViewController {
         checkBlockView.isUserInteractionEnabled = true
         checkBlockView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkBlockTapped(_:))))
         //ピッカービューの設定
-        pickerView = UIPickerView(frame:CGRect(x: 0, y: self.view.frame.height + toolbarHeight,
-                                               width: self.view.frame.width, height: pickerViewHeight))
+        pickerView = UIPickerView(frame:CGRect(x: 0, y: self.view.frame.height + toolbarHeight, width: self.view.frame.width, height: pickerViewHeight))
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
@@ -110,12 +110,33 @@ class SetTermViewController: UIViewController {
     func checkBlockTapped(_ sender: UITapGestureRecognizer) {
         print("チェックボタンが押されました")
         checkImageView.isHighlighted = !checkImageView.isHighlighted
+        SetTermViewController.isTwoPepleChecked = !SetTermViewController.isTwoPepleChecked
     }
     
     @objc
     func resignPickerView(_ sender: UITapGestureRecognizer) {
         print("画面がタップされたからPickerviewを隠す")
         hidePickerView()
+    }
+    
+    
+    //MARK:- Firestoreに送る条件を設定
+    func sendTerm() {
+        //UserDefaultsから性別データを取得
+        let genderData = UserSelectData.selectedGenderString()
+        guard let yourGender = genderData["yourGender"] as? String else {
+            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
+        }
+        //暫定のドキュメントパスを用意してクエリを作成
+        var ref = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
+        for termList in termLists {
+            if termList.setArray.isEmpty != false {
+                for field in termList.fieldArray {
+                    let tempRef = ref.whereField(field, in: termList.setArray)
+                    ref = tempRef
+                }
+            }
+        }
     }
     
 }
@@ -307,14 +328,23 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 }
                 let leftTerm = termLists[selectedIndexPath.row].termArray[leftSelectedRow]
                 let rightTerm = termLists[selectedIndexPath.row].termArray[rightSelectedRow]
-                cell.selectedTermLabel.text = "\(leftTerm)〜\(rightTerm)"
+                switch selectedIndexPath.row {
+                case 0:
+                    //年齢のとき
+                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)歳"
+                case 3:
+                    //身長のとき
+                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)cm"
+                default:
+                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)"
+                }
                 //配列をクリアしてから条件リストを作成
                 termLists[selectedIndexPath.row].setArray.removeAll()
                 termLists[selectedIndexPath.row].setArray.append(leftSelectedRow)
                 termLists[selectedIndexPath.row].setArray.append(rightSelectedRow)
             }
             cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
-            cell.rightArrowImageView.image = #imageLiteral(resourceName: "rightArrowIconOn")
+            cell.rightArrowImageView.isHighlighted = true
         } else {
             print("ラベルを変えるセルが見つかりませんでした")
         }
@@ -338,10 +368,28 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension SetTermViewController: SetTermDetailViewDelegate {
     //selectedIndexPathは画面遷移から更新されていない
     func resetTermDetail() {
-        print("リセット")
+        termLists[selectedIndexPath.row].setArray.removeAll()
+        if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
+            cell.selectedTermLabel.text = "こだわらない"
+            cell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
+            cell.rightArrowImageView.isHighlighted = false
+        }
     }
     
-    func setTermDetail() {
-        print("セット")
+    func setTermDetail(selectedTermList: [Int]) {
+        termLists[selectedIndexPath.row].setArray = selectedTermList
+        if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
+            if selectedTermList.count == 1 {
+                let termIndex = selectedTermList[0]
+                cell.selectedTermLabel.text = "\(termLists[selectedIndexPath.row].termArray[termIndex])"
+            } else {
+                guard let termIndex = selectedTermList.min() else {
+                    preconditionFailure("最小値が見つかりませんでした")
+                }
+                cell.selectedTermLabel.text = "\(termLists[selectedIndexPath.row].termArray[termIndex]) ..."
+            }
+            cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
+            cell.rightArrowImageView.isHighlighted = true
+        }
     }
 }

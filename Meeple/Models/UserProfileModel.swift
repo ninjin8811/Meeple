@@ -13,10 +13,14 @@ import CodableFirebase
 class UserProfileModel: Codable {
     var name1: String?
     var name2: String?
+    var age1: Int?
+    var age2: Int?
     var gender: Int?
     var region: Int?
     var grade1: Int?
     var grade2: Int?
+    var height1: Int?
+    var height2: Int?
     var mainImageURL1: String?
     var mainImageURL2: String?
     var verifyImageURL1: String?
@@ -38,6 +42,7 @@ class DetailProfileModel: Codable {
 //検索条件設定、プロフィール設定のテーブルビューに使う
 class DetailProfileData {
     var title = ""
+    var fieldArray = [String]()
     var termArray = [Any]()
     var setArray = [Int]()
 }

@@ -35,9 +35,15 @@ class SetTermDetailViewController: UIViewController {
         tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "termCell")
         //設定ボタン
         setButton.layer.cornerRadius = 25
-        setButton.isUserInteractionEnabled = false
-        setButton.setTitleColor(ColorPalette.textColor(), for: .normal)
-        setButton.backgroundColor = ColorPalette.disabledColor()
+        if selectedIndexList.isEmpty {
+            setButton.isUserInteractionEnabled = false
+            setButton.setTitleColor(ColorPalette.textColor(), for: .normal)
+            setButton.backgroundColor = ColorPalette.disabledColor()
+        } else {
+            setButton.isUserInteractionEnabled = true
+            setButton.setTitleColor(UIColor.white, for: .normal)
+            setButton.backgroundColor = ColorPalette.meepleColor()
+        }
         //タイトルの設定
         titleLabel.text = termTitle
     }
@@ -58,10 +64,9 @@ class SetTermDetailViewController: UIViewController {
         guard let delegate = delegate else {
             preconditionFailure("delegateが存在しませんでした")
         }
-        delegate.setTermDetail()
+        delegate.setTermDetail(selectedTermList: selectedIndexList)
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension SetTermDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,13 +83,13 @@ extension SetTermDetailViewController: UITableViewDelegate, UITableViewDataSourc
             preconditionFailure("セルを取得できませんでした：SetTermDetail:didSelectRowAt")
         }
         if let index = selectedIndexList.firstIndex(of: indexPath.row) {
+            //選択済みのセルをタップしたとき
             selectedIndexList.remove(at: index)
-            //選択されていたセルがタップされたらデザインを元に戻す
             cell.titleLabel.textColor = ColorPalette.lightTextColor()
             cell.checkmarkImage.image = nil
         } else {
+            //新しくセルがタップされたとき
             selectedIndexList.append(indexPath.row)
-            //新しく選択されたセルのデザインをチェック済みにする
             cell.titleLabel.textColor = ColorPalette.meepleColor()
             cell.checkmarkImage.image = #imageLiteral(resourceName: "checkmark-60")
         }

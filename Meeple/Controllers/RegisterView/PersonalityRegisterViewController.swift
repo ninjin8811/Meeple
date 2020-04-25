@@ -1,5 +1,5 @@
 //
-//  PersonalityRegisterViewController.swift
+//  syntalityRegisterViewController.swift
 //  Meeple
 //
 //  Created by 吉野史也 on 2020/03/17.
@@ -13,7 +13,7 @@ class PersonalityRegisterViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var nextButton: UIButton!
     
-    let personalityList = UserSelectData.personalityList()
+    let syntalityList = UserSelectData.syntalityList()
     var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class PersonalityRegisterViewController: UIViewController {
         //見た目を整える
         prepareDesign()
         //テーブルビューの設定
-        tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "personalityCell")
+        tableview.register(RegisterTableViewCell.nib(), forCellReuseIdentifier: "syntalityCell")
         tableview.isScrollEnabled = false
         tableview.separatorStyle = .none
     }
@@ -38,7 +38,7 @@ class PersonalityRegisterViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        DCModel.currentUserData.detailProfile?.personality = selectedIndexPath?.row
+        DCModel.currentUserData.syntality = selectedIndexPath?.row
         performSegue(withIdentifier: "goToLiquorRegister", sender: self)
     }
 }
@@ -46,12 +46,12 @@ class PersonalityRegisterViewController: UIViewController {
 extension PersonalityRegisterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return personalityList.count
+        return syntalityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "personalityCell") as? RegisterTableViewCell {
-            cell.titleLabel.text = "\(indexPath.row). \(personalityList[indexPath.row])"
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "syntalityCell") as? RegisterTableViewCell {
+            cell.titleLabel.text = "\(indexPath.row). \(syntalityList[indexPath.row])"
             cell.titleLabel.textColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
             cell.checkmarkImage.image = nil
             cell.selectionStyle = .none
