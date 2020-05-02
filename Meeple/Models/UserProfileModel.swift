@@ -10,7 +10,7 @@ import Foundation
 import CodableFirebase
 
 //検索とホーム表示に使うデータは1段階目に置いておく
-class UserProfileModel: Codable {
+class UserProfileModel: Codable, Equatable {
     var name1: String?
     var name2: String?
     var age1: Int?
@@ -32,6 +32,11 @@ class UserProfileModel: Codable {
     var syntality: Int?
     var cigarette: Int?
     var detailProfile: DetailProfileModel?
+}
+
+//オブジェクト配列の中の更新日プロパティを比較する関数
+func == (left: UserProfileModel, right: UserProfileModel) -> Bool {
+    return left.updateDate == right.updateDate
 }
 
 //プロフィールの詳細表示で使うデータ

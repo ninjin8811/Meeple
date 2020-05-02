@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 //MARK:　-　詳細条件設定画面Protocol
 protocol SetTermDetailViewDelegate: class {
@@ -24,6 +25,7 @@ class SetTermViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var crossImageView: UIImageView!
     
+    let dcModel = DCModel()
     //ピッカービュー
     private var pickerView: UIPickerView!
     private let pickerViewHeight: CGFloat = 230
@@ -98,6 +100,12 @@ class SetTermViewController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
+        if sendTerm() {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            //失敗アラートを出す
+            print("失敗：searchButtonPressed")
+        }
     }
     
     @objc
@@ -121,22 +129,49 @@ class SetTermViewController: UIViewController {
     
     
     //MARK:- Firestoreに送る条件を設定
-    func sendTerm() {
+    func sendTerm() -> Bool {
+        var isSuccess = false
         //UserDefaultsから性別データを取得
         let genderData = UserSelectData.selectedGenderString()
         guard let yourGender = genderData["yourGender"] as? String else {
             preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
         }
         //暫定のドキュメントパスを用意してクエリを作成
-        var ref = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
+        var ref1 = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
+        var ref2 = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
         for termList in termLists {
-            if termList.setArray.isEmpty != false {
-                for field in termList.fieldArray {
-                    let tempRef = ref.whereField(field, in: termList.setArray)
-                    ref = tempRef
+            if termList.setArray.isEmpty == false {
+                for term in termList.setArray {
+                    //1人目の検索クエリ
+                    let tempRef1 = ref1.whereField(termList.fieldArray[0], isEqualTo: term)
+                    ref1 = tempRef1
+                    //2人目の検索クエリ
+                    if termList.fieldArray.count == 2 {
+                        let tempRef2 = ref2.whereField(termList.fieldArray[1], isEqualTo: term)
+                        ref2 = tempRef2
+                    } else {
+                        let tempRef2 = ref2.whereField(termList.fieldArray[0], isEqualTo: term)
+                        ref2 = tempRef2
+                    }
                 }
             }
         }
+        SVProgressHUD.show()
+        dcModel.searchUserFirestore(query: ref1) { (isFetched1) in
+            if isFetched1 == false {
+                print("ユーザーの検索に失敗：setTermView")
+            } else {
+                self.dcModel.searchUserFirestore(query: ref2) { (isFetched2) in
+                    if isFetched2 == false {
+                        print("ユーザーの検索に失敗：setTermView")
+                    } else {
+                        isSuccess = true
+                    }
+                }
+            }
+            SVProgressHUD.dismiss()
+        }
+        return isSuccess
     }
     
 }
@@ -160,7 +195,7 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
         selectedRow = nil
         tableView.deselectRow(at: indexPath, animated: true)
         selectedIndexPath = indexPath
-        if selectedIndexPath.row == 2 || selectedIndexPath.row == 4 {
+        if selectedIndexPath.row == 1 || selectedIndexPath.row == 2 || selectedIndexPath.row == 4 {
             //居住地か性格がタップされたとき
             performSegue(withIdentifier: "goToSetTermDetail", sender: self)
         } else {
@@ -168,7 +203,7 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
             pickerView.reloadAllComponents()
             //ピッカービューを選択した状態で更新して表示
             switch indexPath.row {
-            case 0, 1, 3:
+            case 0, 3:
                 if termLists[indexPath.row].setArray.isEmpty == false {
                     leftSelectedRow = termLists[indexPath.row].setArray[0]
                     rightSelectedRow = termLists[indexPath.row].setArray[1]
@@ -237,10 +272,6 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             if let termText = termLists[selectedIndexPath.row].termArray[row] as? Int {
                 label.text = "\(termText)歳"
             }
-        case 1:
-            if let termText = termLists[selectedIndexPath.row].termArray[row] as? String {
-                label.text = termText
-            }
         case 3:
             if let termText = termLists[selectedIndexPath.row].termArray[row] as? Int {
                 label.text = "\(termText)cm"
@@ -265,7 +296,7 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch selectedIndexPath.row {
-        case 0, 1, 3:
+        case 0, 3:
             if component == 0 {
                 leftSelectedRow = row
             } else if component == 1 {

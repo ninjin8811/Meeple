@@ -190,6 +190,7 @@ class DCModel {
             if error != nil {
                 print("ユーザーデータの取得に失敗しました：fetchHomeUserData")
             } else {
+                DCModel.userList.removeAll()
                 isFetched = true
                 guard let snap = snapshots else {
                     preconditionFailure("snapshotsデータが存在しませんでした：fetchHomeUserData")
@@ -209,43 +210,47 @@ class DCModel {
         }
     }
     
-//    var name1: String?
-//    var name2: String?
-//    var age1: Int?
-//    var gender: Int?
-//    var region: Int?
-//    var grade1: Int?
-//    var grade2: Int?
-//    var mainImageURL1: String?
-//    var mainImageURL2: String?
-//    var verifyImageURL1: String?
-//    var verifyImageURL2: String?
-//    var isVerified1: Bool = false
-//    var isVerified2: Bool = false
-//    var updateDate: TimeInterval?
-//    var tweet: String?
-//    var syntality: Int?
-//    var cigarette: Int?
-//    var detailProfile: DetailProfileModel?
+    func searchUserFirestore(query: Query, _ after: @escaping (Bool) -> Void) {
+        var isFetched = false
+        query.getDocuments { (snapshots, _) in
+            if let snapshots = snapshots {
+                for document in snapshots.documents {
+                    do {
+                        let userData = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
+                        //かぶったドキュメントはappendしない
+                        if DCModel.userList.contains(userData) == false {
+                            DCModel.userList.append(userData)
+                        }
+                        isFetched = true
+                    } catch {
+                        print("取得したデータのデコードに失敗しました：searchUserFirestore")
+                    }
+                }
+            }
+            after(isFetched)
+        }
+    }
     
+    //MARK:- ユーザーを送りまくる
     //ユーザーを送りまくる
     func sendUsers() {
         for i in 1...3 {
             let addData = UserProfileModel()
-            addData.name1 = "女\(i)"
-            addData.name2 = "女\(i)-2"
-            addData.age1 = 18 + i
-            addData.age2 = 19 + i
-            addData.height1 = 150 + i * 3
-            addData.height2 = 155 + i * 3
+            addData.name1 = "男\(i)"
+            addData.name2 = "男\(i)-2"
+            addData.age1 = 20 + i
+            addData.age2 = 21 + i
+            addData.height1 = 165 + i * 3
+            addData.height2 = 175 + i * 3
             addData.gender = 0
-            addData.grade1 = 4
+            addData.grade1 = 3
             addData.grade2 = 2
             addData.isVerified1 = true
             addData.isVerified2 = true
             addData.tweet = "よろしくお願いします-\(i)"
+            addData.updateDate = Date().timeIntervalSince1970
             addData.syntality = 1 + i
-            addData.cigarette = 2
+            addData.cigarette = 1
             addData.detailProfile?.liquor = 1
             do {
                 let encodedData = try FirestoreEncoder().encode(addData)
@@ -260,30 +265,6 @@ class DCModel {
                 print("プロフィールデータのエンコードに失敗しました：\(error)")
             }
         }
-        
-//        var isMerged = false
-//        guard let userID = Auth.auth().currentUser?.uid else {
-//            preconditionFailure("ユーザーIDを取得できませんでした：mergeProfileData")
-//        }
-//        let uploadedDate = Date().timeIntervalSince1970
-//        DCModel.currentUserData.updateDate = uploadedDate
-//        guard let genderIndex = DCModel.currentUserData.gender else {
-//            preconditionFailure("性別データがありませんでした：mergeProfileData")
-//        }
-//        do {
-//            let mergeData = try FirestoreEncoder().encode(DCModel.currentUserData)
-//            firestoreDB.collection("users").document(genderList[genderIndex]).collection(people).document(userID).setData(mergeData, merge: true) { (error) in
-//                if let error = error {
-//                    print("プロフィールデータのマージに失敗：\(error)")
-//                } else {
-//                    print("プロフィールデータのマージに成功")
-//                    isMerged = true
-//                }
-//                after(isMerged)
-//            }
-//        } catch {
-//            print("プロフィールデータのエンコードに失敗しました：\(error)")
-//        }
     }
 //
 //    var ref = db.collection("users") as Query
@@ -311,5 +292,9 @@ class DCModel {
 //        self.goToPreviousView()
 //    }
 
+    
+    //MARK:- アップロードデータの作成
+
 }
+
 
