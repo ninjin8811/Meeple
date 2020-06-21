@@ -45,7 +45,6 @@ class EndRegisterViewController: UIViewController {
                 let ud = UserDefaults.standard
                 let loginDataDictionary: [String: Bool] = ["isLogin": true]
                 ud.set(loginDataDictionary, forKey: "loginData")
-                self.dismiss(animated: true, completion: nil)
                 //UserDefaultsに性別を記録
                 let genderList = UserSelectData.genderList()
                 guard let myGenderIndex = DCModel.currentUserData.gender else {

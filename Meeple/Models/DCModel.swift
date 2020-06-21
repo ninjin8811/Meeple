@@ -251,7 +251,7 @@ class DCModel {
             addData.updateDate = Date().timeIntervalSince1970
             addData.syntality = 1 + i
             addData.cigarette = 1
-            addData.detailProfile?.liquor = 1
+            addData.liquor = 1
             do {
                 let encodedData = try FirestoreEncoder().encode(addData)
                 firestoreDB.collection("users").document("female").collection("two").addDocument(data: encodedData) { (error) in

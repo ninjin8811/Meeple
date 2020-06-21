@@ -38,7 +38,7 @@ class LiquorRegisterViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        DCModel.currentUserData.detailProfile?.liquor = selectedIndexPath?.row
+        DCModel.currentUserData.liquor = selectedIndexPath?.row
         performSegue(withIdentifier: "goToVerifyRegister", sender: self)
     }
 }

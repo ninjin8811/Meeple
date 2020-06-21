@@ -31,6 +31,7 @@ class UserProfileModel: Codable, Equatable {
     var tweet: String?
     var syntality: Int?
     var cigarette: Int?
+    var liquor: Int?
     var detailProfile: DetailProfileModel?
 }
 
@@ -41,7 +42,6 @@ func == (left: UserProfileModel, right: UserProfileModel) -> Bool {
 
 //プロフィールの詳細表示で使うデータ
 class DetailProfileModel: Codable {
-    var liquor: Int?
 }
 
 //検索条件設定、プロフィール設定のテーブルビューに使う
