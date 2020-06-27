@@ -52,8 +52,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let _ = Auth.auth().currentUser?.uid {
             //起動画面を変えてる(本来ならHomeview)
 //            goToRegisterView(window: window)
-            goToWelcomeView(window: window)
-//            goToHomeView(window: window)
+//            goToWelcomeView(window: window)
+            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }

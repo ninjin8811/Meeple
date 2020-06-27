@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CodableFirebase
+import InstantSearchClient
 
 class DCModel {
     //ただ1つ保持しておくデータ
@@ -18,6 +19,8 @@ class DCModel {
     let firestoreDB = Firestore.firestore()
     //ユーザーの選択データ配列
     let genderList = UserSelectData.genderList()
+    //Algoliaの接続情報
+    let algoliaClient = Client(appID: "9BTYNTVIW6", apiKey: "ffa7f3242daf752c68e137ff2dc36763")
     
     //MARK:- データのアップロード
     //プロフィール画像のアップロード処理
@@ -210,22 +213,36 @@ class DCModel {
         }
     }
     
-    func searchUserFirestore(query: Query, _ after: @escaping (Bool) -> Void) {
+//    func searchUserFirestore(query: Query, _ after: @escaping (Bool) -> Void) {
+//        var isFetched = false
+//        query.getDocuments { (snapshots, _) in
+//            if let snapshots = snapshots {
+//                for document in snapshots.documents {
+//                    do {
+//                        let userData = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
+//                        //かぶったドキュメントはappendしない
+//                        if DCModel.userList.contains(userData) == false {
+//                            DCModel.userList.append(userData)
+//                        }
+//                        isFetched = true
+//                    } catch {
+//                        print("取得したデータのデコードに失敗しました：searchUserFirestore")
+//                    }
+//                }
+//            }
+//            after(isFetched)
+//        }
+//    }
+    
+    func searchUserAlgolia(query: InstantSearchClient.Query, indexName: String, _ after: @escaping (Bool) -> Void) {
         var isFetched = false
-        query.getDocuments { (snapshots, _) in
-            if let snapshots = snapshots {
-                for document in snapshots.documents {
-                    do {
-                        let userData = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
-                        //かぶったドキュメントはappendしない
-                        if DCModel.userList.contains(userData) == false {
-                            DCModel.userList.append(userData)
-                        }
-                        isFetched = true
-                    } catch {
-                        print("取得したデータのデコードに失敗しました：searchUserFirestore")
-                    }
-                }
+        let index = algoliaClient.index(withName: indexName)
+        index.search(query) { (res, err) in
+            if let err = err {
+                print("検索に失敗：\(err)")
+            } else {
+                isFetched = true
+                print(res)
             }
             after(isFetched)
         }
