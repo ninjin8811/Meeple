@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import InstantSearchClient
 
 //MARK:　-　詳細条件設定画面Protocol
 protocol SetTermDetailViewDelegate: class {
@@ -100,7 +101,7 @@ class SetTermViewController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
-        if sendTerm() {
+        if setTermsAndSearch() {
             self.dismiss(animated: true, completion: nil)
         } else {
             //失敗アラートを出す
@@ -129,51 +130,27 @@ class SetTermViewController: UIViewController {
     
     
     //MARK:- Firestoreに送る条件を設定
-    func sendTerm() -> Bool {
+    func setTermsAndSearch() -> Bool {
         var isSuccess = false
         //UserDefaultsから性別データを取得
         let genderData = UserSelectData.selectedGenderString()
         guard let yourGender = genderData["yourGender"] as? String else {
             preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
         }
-        //暫定のドキュメントパスを用意してクエリを作成
-        var ref1 = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
-        var ref2 = Firestore.firestore().collection("users").document(yourGender).collection("two") as Query
-        for termList in termLists {
-            if termList.setArray.isEmpty == false {
-                for term in termList.setArray {
-                    //1人目の検索クエリ
-                    let tempRef1 = ref1.whereField(termList.fieldArray[0], isEqualTo: term)
-                    ref1 = tempRef1
-                    //2人目の検索クエリ
-                    if termList.fieldArray.count == 2 {
-                        let tempRef2 = ref2.whereField(termList.fieldArray[1], isEqualTo: term)
-                        ref2 = tempRef2
-                    } else {
-                        let tempRef2 = ref2.whereField(termList.fieldArray[0], isEqualTo: term)
-                        ref2 = tempRef2
-                    }
-                }
-            }
-        }
+
+        let indexName = yourGender == UserSelectData.gender.male.rawValue ? UserSelectData.algoliaIndexName.male.rawValue : UserSelectData.algoliaIndexName.female.rawValue
         SVProgressHUD.show()
-        dcModel.searchUserFirestore(query: ref1) { (isFetched1) in
-            if isFetched1 == false {
+        let query = Query(query: "query")
+        query.filters = "height1 > 170"
+        dcModel.searchUserAlgolia(query: query, indexName: indexName) { (isFetched) in
+            if isFetched == false {
                 print("ユーザーの検索に失敗：setTermView")
-            } else {
-                self.dcModel.searchUserFirestore(query: ref2) { (isFetched2) in
-                    if isFetched2 == false {
-                        print("ユーザーの検索に失敗：setTermView")
-                    } else {
-                        isSuccess = true
-                    }
-                }
             }
+            isSuccess = isFetched
             SVProgressHUD.dismiss()
         }
         return isSuccess
     }
-    
 }
 
 //MARK:- テーブルビューDelegate

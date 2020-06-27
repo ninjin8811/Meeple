@@ -177,7 +177,18 @@ final class UserSelectData: NSObject {
         lists.append(data4)
         lists.append(data5)
         lists.append(data6)
+        
         return lists
+    }
+    
+    enum algoliaIndexName: String {
+        case male = "male-users"
+        case female = "female-users"
+    }
+    
+    enum gender: String {
+        case male = "male"
+        case female = "female"
     }
     
 //    class func selectedsyntalityString(opIndex: Int?) -> String {

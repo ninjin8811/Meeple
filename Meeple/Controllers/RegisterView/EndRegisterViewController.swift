@@ -61,6 +61,7 @@ class EndRegisterViewController: UIViewController {
                 }
                 
                 //userDefaultsの性別データを利用してメールを送信する処理
+                //認証画像がある場合のみ実行するようにする
                 self.dcModel.sendVerifyEmail { (isSent) in
                     if isSent == false {
                         print("メールデータの保存に失敗：EngRegisterView")
