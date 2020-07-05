@@ -20,7 +20,7 @@ class DCModel {
     //ユーザーの選択データ配列
     let genderList = UserSelectData.genderList()
     //Algoliaの接続情報
-    let algoliaClient = Client(appID: "9BTYNTVIW6", apiKey: "ffa7f3242daf752c68e137ff2dc36763")
+    let algoliaClient = Client(appID: "9BTYNTVIW6", apiKey: "63f858fb93ab8d443357c11110da388f")
     
     //MARK:- データのアップロード
     //プロフィール画像のアップロード処理
@@ -213,52 +213,45 @@ class DCModel {
         }
     }
     
-//    func searchUserFirestore(query: Query, _ after: @escaping (Bool) -> Void) {
-//        var isFetched = false
-//        query.getDocuments { (snapshots, _) in
-//            if let snapshots = snapshots {
-//                for document in snapshots.documents {
-//                    do {
-//                        let userData = try FirestoreDecoder().decode(UserProfileModel.self, from: document.data())
-//                        //かぶったドキュメントはappendしない
-//                        if DCModel.userList.contains(userData) == false {
-//                            DCModel.userList.append(userData)
-//                        }
-//                        isFetched = true
-//                    } catch {
-//                        print("取得したデータのデコードに失敗しました：searchUserFirestore")
-//                    }
-//                }
-//            }
-//            after(isFetched)
-//        }
-//    }
-    
+    //Algoliaから検索用データを取得
     func searchUserAlgolia(query: InstantSearchClient.Query, indexName: String, _ after: @escaping (Bool) -> Void) {
         var isFetched = false
         let index = algoliaClient.index(withName: indexName)
-        index.search(query) { (res, err) in
+        index.search(query) { (opRes, err) in
             if let err = err {
                 print("検索に失敗：\(err)")
             } else {
                 isFetched = true
-                print(res)
+                guard let res = opRes else {
+                    preconditionFailure("レスポンスが存在しませんでした：searchUserAlgolia")
+                }
+                if let hits = res["hits"] as? NSArray {
+                    print("array:\(hits)")
+                    
+                }
+                print(res["nbHits"])
             }
             after(isFetched)
         }
     }
     
+    //Algoliaのデータをホーム画面表示用に変更
+    func parseAlgoliaUserData() {
+        
+    }
+    
+    
     //MARK:- ユーザーを送りまくる
     //ユーザーを送りまくる
     func sendUsers() {
-        for i in 1...3 {
+        for i in 1...40 {
             let addData = UserProfileModel()
             addData.name1 = "男\(i)"
             addData.name2 = "男\(i)-2"
-            addData.age1 = 20 + i
-            addData.age2 = 21 + i
-            addData.height1 = 165 + i * 3
-            addData.height2 = 175 + i * 3
+            addData.age1 = 20
+            addData.age2 = 21
+            addData.height1 = 165 + i
+            addData.height2 = 170 + i
             addData.gender = 0
             addData.grade1 = 3
             addData.grade2 = 2
@@ -266,7 +259,7 @@ class DCModel {
             addData.isVerified2 = true
             addData.tweet = "よろしくお願いします-\(i)"
             addData.updateDate = Date().timeIntervalSince1970
-            addData.syntality = 1 + i
+            addData.syntality = 3
             addData.cigarette = 1
             addData.liquor = 1
             do {

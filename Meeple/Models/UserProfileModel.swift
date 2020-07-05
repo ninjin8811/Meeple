@@ -45,9 +45,12 @@ class DetailProfileModel: Codable {
 }
 
 //検索条件設定、プロフィール設定のテーブルビューに使う
-class DetailProfileData {
+class SelectedProfileData {
     var title = ""
     var fieldArray = [String]()
     var termArray = [Any]()
     var setArray = [Int]()
 }
+
+
+

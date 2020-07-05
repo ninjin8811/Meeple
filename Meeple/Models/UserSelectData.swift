@@ -142,14 +142,14 @@ final class UserSelectData: NSObject {
     }
     
     //検索条件設定のテーブルビューに使う
-    class func termLists() -> [DetailProfileData] {
-        var lists = [DetailProfileData]()
-        let data1 = DetailProfileData()
-        let data2 = DetailProfileData()
-        let data3 = DetailProfileData()
-        let data4 = DetailProfileData()
-        let data5 = DetailProfileData()
-        let data6 = DetailProfileData()
+    class func termLists() -> [SelectedProfileData] {
+        var lists = [SelectedProfileData]()
+        let data1 = SelectedProfileData()
+        let data2 = SelectedProfileData()
+        let data3 = SelectedProfileData()
+        let data4 = SelectedProfileData()
+        let data5 = SelectedProfileData()
+        let data6 = SelectedProfileData()
         data1.title = "年齢"
         data2.title = "学年"
         data3.title = "居住地"
@@ -181,14 +181,14 @@ final class UserSelectData: NSObject {
         return lists
     }
     
-    enum algoliaIndexName: String {
-        case male = "male-users"
-        case female = "female-users"
+    enum AlgoliaIndexName: String {
+        case MALE = "male-users"
+        case FEMALE = "female-users"
     }
     
-    enum gender: String {
-        case male = "male"
-        case female = "female"
+    enum Gender: String {
+        case MALE = "male"
+        case FEMALE = "female"
     }
     
 //    class func selectedsyntalityString(opIndex: Int?) -> String {

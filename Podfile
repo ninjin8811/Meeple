@@ -21,5 +21,6 @@ pod 'Crashlytics'
 pod 'Firebase/Analytics'
 pod 'Nuke'
 pod 'Protobuf', :inhibit_warnings => true
+pod 'InstantSearchClient', '~> 7.0'
 
 end

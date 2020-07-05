@@ -26,15 +26,15 @@ class SetTermViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var crossImageView: UIImageView!
     
+    //検索条件リスト
+    static var termLists = [SelectedProfileData]()
+    
     let dcModel = DCModel()
-    //ピッカービュー
     private var pickerView: UIPickerView!
     private let pickerViewHeight: CGFloat = 230
     //ピッカービューの上にのせるtoolbar
     private var pickerToolbar: UIToolbar!
     private let toolbarHeight: CGFloat = 40.0
-    //検索条件リスト
-    var termLists = [DetailProfileData]()
     //選択中のインデックスパス（初期値）
     var selectedIndexPath = IndexPath(row: 0, section: 0)
     //選択されたpickerviewのインデックス
@@ -49,7 +49,10 @@ class SetTermViewController: UIViewController {
         //デザインを整える
         prepareDesign()
         //テーブルビューに載せるリストを作成
-        termLists = UserSelectData.termLists()
+        if SetTermViewController.termLists.isEmpty {
+            SetTermViewController.termLists = UserSelectData.termLists()
+        }
+        tableview.reloadData()
     }
     
     func prepareDesign() {
@@ -95,18 +98,90 @@ class SetTermViewController: UIViewController {
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
-
+    
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetTerm()
     }
     
+    //MARK:- Algoliaからユーザーを検索
     @IBAction func searchButtonPressed(_ sender: Any) {
-        if setTermsAndSearch() {
-            self.dismiss(animated: true, completion: nil)
-        } else {
-            //失敗アラートを出す
-            print("失敗：searchButtonPressed")
+        //UserDefaultsから性別データを取得
+        let genderData = UserSelectData.selectedGenderString()
+        guard let yourGender = genderData["yourGender"] as? String else {
+            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
         }
+
+        let indexName = yourGender == UserSelectData.Gender.MALE.rawValue ? UserSelectData.AlgoliaIndexName.MALE.rawValue : UserSelectData.AlgoliaIndexName.FEMALE.rawValue
+        print(indexName)
+        let query = Query(query: "")
+        query.filters = getAlgoliaQuery()
+        SVProgressHUD.show()
+        dcModel.searchUserAlgolia(query: query, indexName: indexName) { (isFetched) in
+            if isFetched == false {
+                print("ユーザーの検索に失敗：setTermView")
+            }
+            SVProgressHUD.dismiss()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    func getAlgoliaQuery() -> String {
+        var query = ""
+        //それぞれの年齢（範囲指定）
+        if !SetTermViewController.termLists[0].setArray.isEmpty && SetTermViewController.termLists[0].setArray.count == 2 {
+            query += query.isEmpty ? "" : " AND "
+            let term = "\(UserSelectData.ageList()[ SetTermViewController.termLists[0].setArray[0]]) TO \(UserSelectData.ageList()[SetTermViewController.termLists[0].setArray[1]])"
+            query += "(age1:\(term) OR age2:\(term))"
+        }
+        //それぞれの学年（複数指定）
+        if !SetTermViewController.termLists[1].setArray.isEmpty {
+            query += query.isEmpty ? "" : " AND "
+            query += "("
+            var isFirstItem = true
+            for selectedValue in SetTermViewController.termLists[1].setArray {
+                query += isFirstItem ? "" : " OR "
+                query += "grade1:\(selectedValue) OR grade2:\(selectedValue)"
+                isFirstItem = false
+            }
+            query += ")"
+        }
+        //グループの地域（複数指定）
+        if !SetTermViewController.termLists[2].setArray.isEmpty {
+            query += query.isEmpty ? "" : " AND "
+            query += "("
+            var isFirstItem = true
+            for selectedValue in SetTermViewController.termLists[2].setArray {
+                query += isFirstItem ? "" : " OR "
+                query += "region:\(selectedValue)"
+                isFirstItem = false
+            }
+            query += ")"
+        }
+        //それぞれの身長（範囲指定）
+        if !SetTermViewController.termLists[3].setArray.isEmpty && SetTermViewController.termLists[3].setArray.count == 2 {
+            query += query.isEmpty ? "" : " AND "
+            let term = "\(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[0]]) TO \(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[1]])"
+            query += "(height1:\(term) OR height2:\(term))"
+        }
+        //グループの性格（複数指定）
+        if !SetTermViewController.termLists[4].setArray.isEmpty {
+            query += query.isEmpty ? "" : " AND "
+            query += "("
+            var isFirstItem = true
+            for selectedValue in SetTermViewController.termLists[4].setArray {
+                query += isFirstItem ? "" : " OR "
+                query += "syntality:\(selectedValue)"
+                isFirstItem = false
+            }
+            query += ")"
+        }
+        //グループのたばこ（1つだけ）
+        if !SetTermViewController.termLists[5].setArray.isEmpty {
+            query += query.isEmpty ? "" : " AND "
+            query += "(cigarette:\(SetTermViewController.termLists[5].setArray[0]))"
+        }
+        print(query)
+        return query
     }
     
     @objc
@@ -128,40 +203,31 @@ class SetTermViewController: UIViewController {
         hidePickerView()
     }
     
-    
-    //MARK:- Firestoreに送る条件を設定
-    func setTermsAndSearch() -> Bool {
-        var isSuccess = false
-        //UserDefaultsから性別データを取得
-        let genderData = UserSelectData.selectedGenderString()
-        guard let yourGender = genderData["yourGender"] as? String else {
-            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
-        }
-
-        let indexName = yourGender == UserSelectData.gender.male.rawValue ? UserSelectData.algoliaIndexName.male.rawValue : UserSelectData.algoliaIndexName.female.rawValue
-        SVProgressHUD.show()
-        let query = Query(query: "query")
-        query.filters = "height1 > 170"
-        dcModel.searchUserAlgolia(query: query, indexName: indexName) { (isFetched) in
-            if isFetched == false {
-                print("ユーザーの検索に失敗：setTermView")
-            }
-            isSuccess = isFetched
-            SVProgressHUD.dismiss()
-        }
-        return isSuccess
-    }
 }
 
 //MARK:- テーブルビューDelegate
 extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return termLists.count
+        return SetTermViewController.termLists.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 46.5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "setTermCell") as? SetTermTableViewCell {
-            cell.termTitleLabel.text = termLists[indexPath.row].title
+            cell.termTitleLabel.text = SetTermViewController.termLists[indexPath.row].title
+            
+            if !SetTermViewController.termLists[indexPath.row].setArray.isEmpty {
+                //選択された内容をラベルに表示
+            }
+            
+//            termCell.selectedTermLabel.text = "こだわらない"
+//            termCell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
+//            termCell.rightArrowImageView.isHighlighted = false
+            
+            
             return cell
         }
         return UITableViewCell()
@@ -181,9 +247,9 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
             //ピッカービューを選択した状態で更新して表示
             switch indexPath.row {
             case 0, 3:
-                if termLists[indexPath.row].setArray.isEmpty == false {
-                    leftSelectedRow = termLists[indexPath.row].setArray[0]
-                    rightSelectedRow = termLists[indexPath.row].setArray[1]
+                if SetTermViewController.termLists[indexPath.row].setArray.isEmpty == false {
+                    leftSelectedRow = SetTermViewController.termLists[indexPath.row].setArray[0]
+                    rightSelectedRow = SetTermViewController.termLists[indexPath.row].setArray[1]
                     pickerView.selectRow(leftSelectedRow, inComponent: 0, animated: false)
                     pickerView.selectRow(rightSelectedRow, inComponent: 1, animated: false)
                 } else {
@@ -193,9 +259,9 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
                     rightSelectedRow = 0
                 }
             case 5:
-                if termLists[indexPath.row].setArray.isEmpty == false {
-                    pickerView.selectRow(termLists[indexPath.row].setArray[0], inComponent: 0, animated: false)
-                    selectedRow = termLists[indexPath.row].setArray[0]
+                if SetTermViewController.termLists[indexPath.row].setArray.isEmpty == false {
+                    pickerView.selectRow(SetTermViewController.termLists[indexPath.row].setArray[0], inComponent: 0, animated: false)
+                    selectedRow = SetTermViewController.termLists[indexPath.row].setArray[0]
                 } else {
                     pickerView.selectRow(0, inComponent: 0, animated: false)
                     selectedRow = 0
@@ -213,13 +279,13 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? SetTermDetailViewController {
             //詳細条件設定画面に条件の名前リストと選択リストを渡す
-            if let stringTermList = termLists[selectedIndexPath.row].termArray as? [String] {
+            if let stringTermList = SetTermViewController.termLists[selectedIndexPath.row].termArray as? [String] {
                 destinationVC.stringTermList = stringTermList
             } else {
                 destinationVC.stringTermList = ["もう一度選択してください"]
             }
-            destinationVC.termTitle = termLists[selectedIndexPath.row].title
-            destinationVC.selectedIndexList = termLists[selectedIndexPath.row].setArray
+            destinationVC.termTitle = SetTermViewController.termLists[selectedIndexPath.row].title
+            destinationVC.selectedIndexList = SetTermViewController.termLists[selectedIndexPath.row].setArray
             destinationVC.delegate = self
         }
     }
@@ -229,7 +295,7 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
 extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
-        if selectedIndexPath.row == termLists.count - 1 {
+        if selectedIndexPath.row == SetTermViewController.termLists.count - 1 {
             return 1
         } else {
             return 2
@@ -237,7 +303,7 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return termLists[selectedIndexPath.row].termArray.count
+        return SetTermViewController.termLists[selectedIndexPath.row].termArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -246,15 +312,15 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         label.font = UIFont(name: "Hiragino Sans", size: 16)
         switch selectedIndexPath.row {
         case 0:
-            if let termText = termLists[selectedIndexPath.row].termArray[row] as? Int {
+            if let termText = SetTermViewController.termLists[selectedIndexPath.row].termArray[row] as? Int {
                 label.text = "\(termText)歳"
             }
         case 3:
-            if let termText = termLists[selectedIndexPath.row].termArray[row] as? Int {
+            if let termText = SetTermViewController.termLists[selectedIndexPath.row].termArray[row] as? Int {
                 label.text = "\(termText)cm"
             }
         case 5:
-            if let termText = termLists[selectedIndexPath.row].termArray[row] as? String {
+            if let termText = SetTermViewController.termLists[selectedIndexPath.row].termArray[row] as? String {
                 label.text = termText
             }
         default:
@@ -285,7 +351,6 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             print("デフォルト")
         }
-        
     }
     
     @objc
@@ -321,21 +386,21 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
             //1列と2列のときに条件を分けてセルのラベルを変える処理
             if let row = selectedRow {
-                guard let termString = termLists[selectedIndexPath.row].termArray[row] as? String else {
+                guard let termString = SetTermViewController.termLists[selectedIndexPath.row].termArray[row] as? String else {
                     preconditionFailure("文字列に変換できませんでした：setTerm")
                 }
                 cell.selectedTermLabel.text = termString
                 //配列をクリアしてから条件リストを作成
-                termLists[selectedIndexPath.row].setArray.removeAll()
-                termLists[selectedIndexPath.row].setArray.append(row)
+                SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
+                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(row)
             } else {
                 if leftSelectedRow > rightSelectedRow {
                     let temp = leftSelectedRow
                     leftSelectedRow = rightSelectedRow
                     rightSelectedRow = temp
                 }
-                let leftTerm = termLists[selectedIndexPath.row].termArray[leftSelectedRow]
-                let rightTerm = termLists[selectedIndexPath.row].termArray[rightSelectedRow]
+                let leftTerm = SetTermViewController.termLists[selectedIndexPath.row].termArray[leftSelectedRow]
+                let rightTerm = SetTermViewController.termLists[selectedIndexPath.row].termArray[rightSelectedRow]
                 switch selectedIndexPath.row {
                 case 0:
                     //年齢のとき
@@ -347,9 +412,9 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                     cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)"
                 }
                 //配列をクリアしてから条件リストを作成
-                termLists[selectedIndexPath.row].setArray.removeAll()
-                termLists[selectedIndexPath.row].setArray.append(leftSelectedRow)
-                termLists[selectedIndexPath.row].setArray.append(rightSelectedRow)
+                SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
+                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(leftSelectedRow)
+                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(rightSelectedRow)
             }
             cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
             cell.rightArrowImageView.isHighlighted = true
@@ -365,7 +430,7 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 termCell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
                 termCell.rightArrowImageView.isHighlighted = false
             }
-            for termList in termLists {
+            for termList in SetTermViewController.termLists {
                 termList.setArray.removeAll()
             }
         }
@@ -376,7 +441,7 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension SetTermViewController: SetTermDetailViewDelegate {
     //selectedIndexPathは画面遷移から更新されていない
     func resetTermDetail() {
-        termLists[selectedIndexPath.row].setArray.removeAll()
+        SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
         if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
             cell.selectedTermLabel.text = "こだわらない"
             cell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
@@ -385,16 +450,16 @@ extension SetTermViewController: SetTermDetailViewDelegate {
     }
     
     func setTermDetail(selectedTermList: [Int]) {
-        termLists[selectedIndexPath.row].setArray = selectedTermList
+        SetTermViewController.termLists[selectedIndexPath.row].setArray = selectedTermList
         if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
             if selectedTermList.count == 1 {
                 let termIndex = selectedTermList[0]
-                cell.selectedTermLabel.text = "\(termLists[selectedIndexPath.row].termArray[termIndex])"
+                cell.selectedTermLabel.text = "\(SetTermViewController.termLists[selectedIndexPath.row].termArray[termIndex])"
             } else {
                 guard let termIndex = selectedTermList.min() else {
                     preconditionFailure("最小値が見つかりませんでした")
                 }
-                cell.selectedTermLabel.text = "\(termLists[selectedIndexPath.row].termArray[termIndex]) ..."
+                cell.selectedTermLabel.text = "\(SetTermViewController.termLists[selectedIndexPath.row].termArray[termIndex]) ..."
             }
             cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
             cell.rightArrowImageView.isHighlighted = true

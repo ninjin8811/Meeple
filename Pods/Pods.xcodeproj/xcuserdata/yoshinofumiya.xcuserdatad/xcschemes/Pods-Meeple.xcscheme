@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC5539DEE9D0E5746D3DC8F2E36EFC68"
+               BlueprintIdentifier = "9542A58B3DB071D31A5FF1EDAE0748C2"
                BuildableName = "Pods_Meeple.framework"
                BlueprintName = "Pods-Meeple"
                ReferencedContainer = "container:Pods.xcodeproj">

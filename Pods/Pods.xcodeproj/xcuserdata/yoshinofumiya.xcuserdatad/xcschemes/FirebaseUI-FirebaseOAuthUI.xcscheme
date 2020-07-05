@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "29256C5BACF57E76A03FB5B99706AE92"
+               BlueprintIdentifier = "801AD094DB54EA1434531474E27B59CA"
                BuildableName = "FirebaseOAuthUI.bundle"
                BlueprintName = "FirebaseUI-FirebaseOAuthUI"
                ReferencedContainer = "container:Pods.xcodeproj">

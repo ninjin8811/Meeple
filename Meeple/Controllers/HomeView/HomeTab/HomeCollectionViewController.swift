@@ -24,7 +24,7 @@ class HomeCollectionViewController: UICollectionViewController {
         //見た目を整える
         prepareDesign()
         //ユーザーデータを取得
-        loadAllUsers()
+//        loadAllUsers()
     }
     
     //とりあえず全ユーザーデータ取得
