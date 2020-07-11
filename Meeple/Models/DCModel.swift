@@ -217,6 +217,8 @@ class DCModel {
     func searchUserAlgolia(query: InstantSearchClient.Query, indexName: String, _ after: @escaping (Bool) -> Void) {
         var isFetched = false
         let index = algoliaClient.index(withName: indexName)
+        query.hitsPerPage = 10
+        query.page =
         index.search(query) { (opRes, err) in
             if let err = err {
                 print("検索に失敗：\(err)")
@@ -225,11 +227,10 @@ class DCModel {
                 guard let res = opRes else {
                     preconditionFailure("レスポンスが存在しませんでした：searchUserAlgolia")
                 }
-                if let hits = res["hits"] as? NSArray {
-                    print("array:\(hits)")
-                    
-                }
-                print(res["nbHits"])
+//                if let hits = res["hits"] as? NSArray {
+//                    print("array:\(hits)")
+//                }
+                print(res)
             }
             after(isFetched)
         }

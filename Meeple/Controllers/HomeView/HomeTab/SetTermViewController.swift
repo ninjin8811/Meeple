@@ -37,10 +37,6 @@ class SetTermViewController: UIViewController {
     private let toolbarHeight: CGFloat = 40.0
     //選択中のインデックスパス（初期値）
     var selectedIndexPath = IndexPath(row: 0, section: 0)
-    //選択されたpickerviewのインデックス
-    var rightSelectedRow = 0
-    var leftSelectedRow = 0
-    var selectedRow: Int?
     //2人合致の条件で探すかのBool値
     private static var isTwoPepleChecked = false
     
@@ -219,23 +215,52 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "setTermCell") as? SetTermTableViewCell {
             cell.termTitleLabel.text = SetTermViewController.termLists[indexPath.row].title
             
-            if !SetTermViewController.termLists[indexPath.row].setArray.isEmpty {
-                //選択された内容をラベルに表示
+            let termList = SetTermViewController.termLists[indexPath.row]
+            if !termList.setArray.isEmpty {
+                switch indexPath.row {
+                case 0:
+                    if termList.setArray.count >= 2 {
+                        guard let minIndex = termList.setArray.min(), let maxIndex = termList.setArray.max() else {
+                            preconditionFailure("最小、最大が見つけられませんでした：cellForRowAt")
+                        }
+                        cell.selectedTermLabel.text = "\(termList.termArray[minIndex]) 〜 \(termList.termArray[maxIndex])歳"
+                    } else {
+                        cell.selectedTermLabel.text = "こだわらない"
+                    }
+                case 3:
+                    if termList.setArray.count >= 2 {
+                        guard let minIndex = termList.setArray.min(), let maxIndex = termList.setArray.max() else {
+                            preconditionFailure("最小、最大が見つけられませんでした：cellForRowAt")
+                        }
+                        cell.selectedTermLabel.text = "\(termList.termArray[minIndex]) 〜 \(termList.termArray[maxIndex])cm"
+                    } else {
+                        cell.selectedTermLabel.text = "こだわらない"
+                    }
+                case 5:
+                    cell.selectedTermLabel.text = "\(termList.termArray[0])"
+                default:
+                    if termList.setArray.count == 1 {
+                        cell.selectedTermLabel.text = "\(termList.termArray[termList.setArray[0]])"
+                    } else {
+                        guard let minIndex = termList.setArray.min() else {
+                            preconditionFailure("最小値が見つかりませんでした：cellForRowAt")
+                        }
+                        cell.selectedTermLabel.text = "\(termList.termArray[minIndex]) ..."
+                    }
+                }
+                cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
+                cell.rightArrowImageView.isHighlighted = true
+            } else {
+                cell.selectedTermLabel.text = "こだわらない"
+                cell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
+                cell.rightArrowImageView.isHighlighted = false
             }
-            
-//            termCell.selectedTermLabel.text = "こだわらない"
-//            termCell.selectedTermLabel.textColor = ColorPalette.lightTextColor()
-//            termCell.rightArrowImageView.isHighlighted = false
-            
-            
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //完了ボタンの処理のためにselectedRowはnilにしておく
-        selectedRow = nil
         tableView.deselectRow(at: indexPath, animated: true)
         selectedIndexPath = indexPath
         if selectedIndexPath.row == 1 || selectedIndexPath.row == 2 || selectedIndexPath.row == 4 {
@@ -247,24 +272,24 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
             //ピッカービューを選択した状態で更新して表示
             switch indexPath.row {
             case 0, 3:
-                if SetTermViewController.termLists[indexPath.row].setArray.isEmpty == false {
-                    leftSelectedRow = SetTermViewController.termLists[indexPath.row].setArray[0]
-                    rightSelectedRow = SetTermViewController.termLists[indexPath.row].setArray[1]
-                    pickerView.selectRow(leftSelectedRow, inComponent: 0, animated: false)
-                    pickerView.selectRow(rightSelectedRow, inComponent: 1, animated: false)
+                if !SetTermViewController.termLists[indexPath.row].setArray.isEmpty && SetTermViewController.termLists[indexPath.row].setArray.count >= 2 {
+                    guard let leftIndexRow = SetTermViewController.termLists[indexPath.row].setArray.min(), let rightIndexRow = SetTermViewController.termLists[indexPath.row].setArray.max() else {
+                        preconditionFailure("選択済みの条件が見つかりませんでした：didSelectRowAt")
+                    }
+                    pickerView.selectRow(leftIndexRow, inComponent: 0, animated: false)
+                    pickerView.selectRow(rightIndexRow, inComponent: 1, animated: false)
                 } else {
                     pickerView.selectRow(0, inComponent: 0, animated: false)
                     pickerView.selectRow(0, inComponent: 1, animated: false)
-                    leftSelectedRow = 0
-                    rightSelectedRow = 0
+                    SetTermViewController.termLists[indexPath.row].setArray.append(0)
+                    SetTermViewController.termLists[indexPath.row].setArray.append(0)
                 }
             case 5:
-                if SetTermViewController.termLists[indexPath.row].setArray.isEmpty == false {
+                if !SetTermViewController.termLists[indexPath.row].setArray.isEmpty {
                     pickerView.selectRow(SetTermViewController.termLists[indexPath.row].setArray[0], inComponent: 0, animated: false)
-                    selectedRow = SetTermViewController.termLists[indexPath.row].setArray[0]
                 } else {
                     pickerView.selectRow(0, inComponent: 0, animated: false)
-                    selectedRow = 0
+                    SetTermViewController.termLists[indexPath.row].setArray.append(0)
                 }
             default:
                 pickerView.selectRow(0, inComponent: 0, animated: false)
@@ -338,24 +363,35 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let termList = SetTermViewController.termLists[selectedIndexPath.row]
+        if termList.setArray.isEmpty || termList.setArray.count < 2 {
+            termList.setArray.append(0)
+            termList.setArray.append(0)
+        }
+        
         switch selectedIndexPath.row {
         case 0, 3:
             if component == 0 {
-                leftSelectedRow = row
-            } else if component == 1 {
-                rightSelectedRow = row
+                termList.setArray[0] = row
             }
-            selectedRow = nil
+            if component == 1 {
+                termList.setArray[1] = row
+            }
+            if termList.setArray[0] > termList.setArray[1] {
+                let temp = termList.setArray[0]
+                termList.setArray[0] = termList.setArray[1]
+                termList.setArray[1] = temp
+            }
         case 5:
-            selectedRow = row
+            termList.setArray.append(row)
         default:
-            print("デフォルト")
+            print("デフォルト（エラー）：didSelectRow")
         }
     }
     
     @objc
     func doneTapped(_ sender: UIBarButtonItem) {
-        setTerm()
+        tableview.reloadData()
         hidePickerView()
     }
     
@@ -378,48 +414,6 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             self.pickerToolbar.frame.origin.y = self.view.frame.height
             self.pickerView.frame.origin.y = self.view.frame.height + self.toolbarHeight
             self.tableview.contentOffset.y = 0
-        }
-    }
-    
-    //完了ボタンが押されたときに呼ばれた
-    func setTerm() {
-        if let cell = tableview.cellForRow(at: selectedIndexPath) as? SetTermTableViewCell {
-            //1列と2列のときに条件を分けてセルのラベルを変える処理
-            if let row = selectedRow {
-                guard let termString = SetTermViewController.termLists[selectedIndexPath.row].termArray[row] as? String else {
-                    preconditionFailure("文字列に変換できませんでした：setTerm")
-                }
-                cell.selectedTermLabel.text = termString
-                //配列をクリアしてから条件リストを作成
-                SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
-                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(row)
-            } else {
-                if leftSelectedRow > rightSelectedRow {
-                    let temp = leftSelectedRow
-                    leftSelectedRow = rightSelectedRow
-                    rightSelectedRow = temp
-                }
-                let leftTerm = SetTermViewController.termLists[selectedIndexPath.row].termArray[leftSelectedRow]
-                let rightTerm = SetTermViewController.termLists[selectedIndexPath.row].termArray[rightSelectedRow]
-                switch selectedIndexPath.row {
-                case 0:
-                    //年齢のとき
-                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)歳"
-                case 3:
-                    //身長のとき
-                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)cm"
-                default:
-                    cell.selectedTermLabel.text = "\(leftTerm) 〜 \(rightTerm)"
-                }
-                //配列をクリアしてから条件リストを作成
-                SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
-                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(leftSelectedRow)
-                SetTermViewController.termLists[selectedIndexPath.row].setArray.append(rightSelectedRow)
-            }
-            cell.selectedTermLabel.textColor = ColorPalette.meepleColor()
-            cell.rightArrowImageView.isHighlighted = true
-        } else {
-            print("ラベルを変えるセルが見つかりませんでした")
         }
     }
     
