@@ -15,6 +15,8 @@ class DCModel {
     //ただ1つ保持しておくデータ
     static var currentUserData = UserProfileModel()
     static var userList = [UserProfileModel]()
+    static var query = Query()
+    static var loadable = false
     //Firebaseのリファレンス
     let firestoreDB = Firestore.firestore()
     //ユーザーの選択データ配列
@@ -214,31 +216,54 @@ class DCModel {
     }
     
     //Algoliaから検索用データを取得
-    func searchUserAlgolia(query: InstantSearchClient.Query, indexName: String, _ after: @escaping (Bool) -> Void) {
+    func searchUserAlgolia(_ after: @escaping (Bool) -> Void) {
         var isFetched = false
-        let index = algoliaClient.index(withName: indexName)
-        query.hitsPerPage = 10
-        query.page =
-        index.search(query) { (opRes, err) in
+        let index = algoliaClient.index(withName: UserSelectData.getAlgoliaIndexName())
+        DCModel.query.page = 0
+        if let currentPage = DCModel.query.page {
+            DCModel.query.page = currentPage + 1
+        } else {
+            DCModel.query.page = 0
+        }
+        
+        index.search(DCModel.query) { (opRes, err) in
             if let err = err {
                 print("検索に失敗：\(err)")
             } else {
                 isFetched = true
-                guard let res = opRes else {
+                guard let res = opRes, let nbHits = res["nbHits"] as? Int else {
                     preconditionFailure("レスポンスが存在しませんでした：searchUserAlgolia")
                 }
-//                if let hits = res["hits"] as? NSArray {
-//                    print("array:\(hits)")
-//                }
-                print(res)
+                
+                if nbHits == 0 {
+                    print("結果が0でした")
+                } else {
+                    guard let userNSArray = res["hits"] as? NSArray else {
+                        preconditionFailure("jsonデータをStringに変換できませんでした：searchUserAlgolia")
+                    }
+                    print("ヒット数：\(nbHits)")
+                    self.parseAlgoliaUserData(userNSArray: userNSArray)
+                }
+                //最後のページ読み込みの場合これ以上読み込めないようにする
+                DCModel.loadable = nbHits > DCModel.userList.count
             }
             after(isFetched)
         }
     }
     
     //Algoliaのデータをホーム画面表示用に変更
-    func parseAlgoliaUserData() {
-        
+    func parseAlgoliaUserData(userNSArray: NSArray) {
+        let decoder = JSONDecoder()
+        do {
+            guard let userDicArray = userNSArray as? [[String: Any]] else {
+                preconditionFailure("変換に失敗：parseAlgoliaUserData")
+            }
+            let jsonData = try JSONSerialization.data(withJSONObject: userDicArray)
+            let decodedData = try decoder.decode([UserProfileModel].self, from: jsonData)
+            DCModel.userList.append(contentsOf: decodedData)
+        } catch {
+            print("JSONのデコードに失敗しました：parseAlgoliaUserData")
+        }
     }
     
     

@@ -181,6 +181,15 @@ final class UserSelectData: NSObject {
         return lists
     }
     
+    class func getAlgoliaIndexName() -> String {
+        let genderData = self.selectedGenderString()
+        guard let yourGender = genderData["yourGender"] as? String else {
+            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
+        }
+        let indexName = yourGender == self.Gender.MALE.rawValue ? self.AlgoliaIndexName.MALE.rawValue : self.AlgoliaIndexName.FEMALE.rawValue
+        return indexName
+    }
+    
     enum AlgoliaIndexName: String {
         case MALE = "male-users"
         case FEMALE = "female-users"

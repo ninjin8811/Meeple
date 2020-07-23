@@ -50,6 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //Firebaseにログイン状態かどうかのチェック(履歴＋Firebase)
     func checkIsLoginFirebase(window: UIWindow) {
         if let _ = Auth.auth().currentUser?.uid {
+            //ここにログイン試行処理も書く（FBのパスワードを変えた時に変になる）
             //起動画面を変えてる(本来ならHomeview)
 //            goToRegisterView(window: window)
 //            goToWelcomeView(window: window)

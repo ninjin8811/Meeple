@@ -18,6 +18,7 @@ private let reuseIdentifier = "homeUserCell"
 class HomeCollectionViewController: UICollectionViewController {
     
     let dcModel = DCModel()
+    var loadStatus = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,11 @@ class HomeCollectionViewController: UICollectionViewController {
         prepareDesign()
         //ユーザーデータを取得
 //        loadAllUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     //とりあえず全ユーザーデータ取得
@@ -99,6 +105,22 @@ class HomeCollectionViewController: UICollectionViewController {
         }
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffsetY = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.height
+        let distanceToBottom = maximumOffset - currentOffsetY
+
+        if distanceToBottom <= 0 && DCModel.loadable && loadStatus == false {
+            loadStatus = true
+            dcModel.searchUserAlgolia { (isFetched) in
+                if isFetched == false {
+                    print("ユーザーの検索に失敗：homeview")
+                }
+                self.loadStatus = false
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
 }
 
@@ -136,5 +158,6 @@ extension HomeCollectionViewController: SearchBarDelegate {
         //メニューアラートを表示
         present(alert, animated: true, completion: nil)
     }
-    
 }
+
+

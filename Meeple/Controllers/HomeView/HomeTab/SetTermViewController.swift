@@ -28,6 +28,8 @@ class SetTermViewController: UIViewController {
     
     //検索条件リスト
     static var termLists = [SelectedProfileData]()
+    //2人合致の条件で探すかのBool値
+    private static var isTwoPepleChecked = false
     
     let dcModel = DCModel()
     private var pickerView: UIPickerView!
@@ -37,8 +39,6 @@ class SetTermViewController: UIViewController {
     private let toolbarHeight: CGFloat = 40.0
     //選択中のインデックスパス（初期値）
     var selectedIndexPath = IndexPath(row: 0, section: 0)
-    //2人合致の条件で探すかのBool値
-    private static var isTwoPepleChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,7 @@ class SetTermViewController: UIViewController {
         crossImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(crossImageViewTapped(_:))))
         //チェックマークviewの設定
         checkImageView.highlightedImage = #imageLiteral(resourceName: "checked-105")
+        checkImageView.isHighlighted = SetTermViewController.isTwoPepleChecked
         checkBlockView.isUserInteractionEnabled = true
         checkBlockView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkBlockTapped(_:))))
         //ピッカービューの設定
@@ -101,18 +102,10 @@ class SetTermViewController: UIViewController {
     
     //MARK:- Algoliaからユーザーを検索
     @IBAction func searchButtonPressed(_ sender: Any) {
-        //UserDefaultsから性別データを取得
-        let genderData = UserSelectData.selectedGenderString()
-        guard let yourGender = genderData["yourGender"] as? String else {
-            preconditionFailure("UserDefaultsにgenderDataが存在しませんでした")
-        }
-
-        let indexName = yourGender == UserSelectData.Gender.MALE.rawValue ? UserSelectData.AlgoliaIndexName.MALE.rawValue : UserSelectData.AlgoliaIndexName.FEMALE.rawValue
-        print(indexName)
-        let query = Query(query: "")
-        query.filters = getAlgoliaQuery()
+        DCModel.userList.removeAll()
+        setAlgoliaFilter()
         SVProgressHUD.show()
-        dcModel.searchUserAlgolia(query: query, indexName: indexName) { (isFetched) in
+        dcModel.searchUserAlgolia { (isFetched) in
             if isFetched == false {
                 print("ユーザーの検索に失敗：setTermView")
             }
@@ -121,63 +114,95 @@ class SetTermViewController: UIViewController {
         }
     }
 
-    func getAlgoliaQuery() -> String {
-        var query = ""
+    func setAlgoliaFilter() {
+        var filter = ""
         //それぞれの年齢（範囲指定）
         if !SetTermViewController.termLists[0].setArray.isEmpty && SetTermViewController.termLists[0].setArray.count == 2 {
-            query += query.isEmpty ? "" : " AND "
+            filter += filter.isEmpty ? "" : " AND "
             let term = "\(UserSelectData.ageList()[ SetTermViewController.termLists[0].setArray[0]]) TO \(UserSelectData.ageList()[SetTermViewController.termLists[0].setArray[1]])"
-            query += "(age1:\(term) OR age2:\(term))"
+            //2人共合致かどちらかで分ける
+            if SetTermViewController.isTwoPepleChecked {
+                filter += "age1:\(term) AND age2:\(term)"
+            } else {
+                filter += "(age1:\(term) OR age2:\(term))"
+            }
         }
         //それぞれの学年（複数指定）
         if !SetTermViewController.termLists[1].setArray.isEmpty {
-            query += query.isEmpty ? "" : " AND "
-            query += "("
+            filter += filter.isEmpty ? "" : " AND "
+            //2人共合致かどちらかで分ける
             var isFirstItem = true
-            for selectedValue in SetTermViewController.termLists[1].setArray {
-                query += isFirstItem ? "" : " OR "
-                query += "grade1:\(selectedValue) OR grade2:\(selectedValue)"
-                isFirstItem = false
+            if SetTermViewController.isTwoPepleChecked {
+                filter += "("
+                for selectedValue in SetTermViewController.termLists[1].setArray {
+                    filter += isFirstItem ? "" : " OR "
+                    filter += "grade1:\(selectedValue)"
+                    isFirstItem = false
+                }
+                filter += ") AND ("
+                isFirstItem = true
+                for selectedValue in SetTermViewController.termLists[1].setArray {
+                    filter += isFirstItem ? "" : " OR "
+                    filter += "grade2:\(selectedValue)"
+                    isFirstItem = false
+                }
+                filter += ")"
+            } else {
+                filter += "("
+                isFirstItem = true
+                for selectedValue in SetTermViewController.termLists[1].setArray {
+                    filter += isFirstItem ? "" : " OR "
+                    filter += "grade1:\(selectedValue) OR grade2:\(selectedValue)"
+                    isFirstItem = false
+                }
+                filter += ")"
             }
-            query += ")"
         }
         //グループの地域（複数指定）
         if !SetTermViewController.termLists[2].setArray.isEmpty {
-            query += query.isEmpty ? "" : " AND "
-            query += "("
+            filter += filter.isEmpty ? "" : " AND "
+            filter += "("
             var isFirstItem = true
             for selectedValue in SetTermViewController.termLists[2].setArray {
-                query += isFirstItem ? "" : " OR "
-                query += "region:\(selectedValue)"
+                filter += isFirstItem ? "" : " OR "
+                filter += "region:\(selectedValue)"
                 isFirstItem = false
             }
-            query += ")"
+            filter += ")"
         }
         //それぞれの身長（範囲指定）
         if !SetTermViewController.termLists[3].setArray.isEmpty && SetTermViewController.termLists[3].setArray.count == 2 {
-            query += query.isEmpty ? "" : " AND "
-            let term = "\(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[0]]) TO \(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[1]])"
-            query += "(height1:\(term) OR height2:\(term))"
+            filter += filter.isEmpty ? "" : " AND "
+            //2人共合致かどちらかで分ける
+            if SetTermViewController.isTwoPepleChecked {
+                let term = "\(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[0]]) TO \(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[1]])"
+                filter += "height1:\(term) AND height2:\(term)"
+            } else {
+                let term = "\(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[0]]) TO \(UserSelectData.heightList()[SetTermViewController.termLists[3].setArray[1]])"
+                filter += "(height1:\(term) OR height2:\(term))"
+            }
         }
         //グループの性格（複数指定）
         if !SetTermViewController.termLists[4].setArray.isEmpty {
-            query += query.isEmpty ? "" : " AND "
-            query += "("
+            filter += filter.isEmpty ? "" : " AND "
+            filter += "("
             var isFirstItem = true
             for selectedValue in SetTermViewController.termLists[4].setArray {
-                query += isFirstItem ? "" : " OR "
-                query += "syntality:\(selectedValue)"
+                filter += isFirstItem ? "" : " OR "
+                filter += "syntality:\(selectedValue)"
                 isFirstItem = false
             }
-            query += ")"
+            filter += ")"
         }
         //グループのたばこ（1つだけ）
         if !SetTermViewController.termLists[5].setArray.isEmpty {
-            query += query.isEmpty ? "" : " AND "
-            query += "(cigarette:\(SetTermViewController.termLists[5].setArray[0]))"
+            filter += filter.isEmpty ? "" : " AND "
+            filter += "cigarette:\(SetTermViewController.termLists[5].setArray[0])"
         }
-        print(query)
-        return query
+        print(filter)
+        DCModel.query.page = nil
+        DCModel.query.hitsPerPage = 10
+        DCModel.query.filters = filter
     }
     
     @objc
@@ -397,6 +422,8 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     @objc
     func cancelTapped(_ sender: UIBarButtonItem) {
+        SetTermViewController.termLists[selectedIndexPath.row].setArray.removeAll()
+        tableview.reloadData()
         hidePickerView()
     }
     
