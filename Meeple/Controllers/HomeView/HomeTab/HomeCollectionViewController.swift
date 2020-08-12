@@ -97,6 +97,7 @@ class HomeCollectionViewController: UICollectionViewController {
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell {
             cell.highlightView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.5)
         }
+        performSegue(withIdentifier: "goToProfileDetail", sender: self)
     }
     //セルのタップが終わったときのハイライトを消す処理
     override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
@@ -115,6 +116,8 @@ class HomeCollectionViewController: UICollectionViewController {
             dcModel.searchUserAlgolia { (isFetched) in
                 if isFetched == false {
                     print("ユーザーの検索に失敗：homeview")
+                    //もう一度検索するまではロードを禁止する
+                    DCModel.loadable = false
                 }
                 self.loadStatus = false
                 self.collectionView.reloadData()

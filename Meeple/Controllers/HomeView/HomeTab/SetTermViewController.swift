@@ -103,6 +103,8 @@ class SetTermViewController: UIViewController {
     //MARK:- Algoliaからユーザーを検索
     @IBAction func searchButtonPressed(_ sender: Any) {
         DCModel.userList.removeAll()
+        DCModel.userObjectIDList.removeAll()
+        DCModel.loadable = true
         setAlgoliaFilter()
         SVProgressHUD.show()
         dcModel.searchUserAlgolia { (isFetched) in
@@ -136,14 +138,14 @@ class SetTermViewController: UIViewController {
                 filter += "("
                 for selectedValue in SetTermViewController.termLists[1].setArray {
                     filter += isFirstItem ? "" : " OR "
-                    filter += "grade1:\(selectedValue)"
+                    filter += "grade1=\(selectedValue)"
                     isFirstItem = false
                 }
                 filter += ") AND ("
                 isFirstItem = true
                 for selectedValue in SetTermViewController.termLists[1].setArray {
                     filter += isFirstItem ? "" : " OR "
-                    filter += "grade2:\(selectedValue)"
+                    filter += "grade2=\(selectedValue)"
                     isFirstItem = false
                 }
                 filter += ")"
@@ -152,7 +154,7 @@ class SetTermViewController: UIViewController {
                 isFirstItem = true
                 for selectedValue in SetTermViewController.termLists[1].setArray {
                     filter += isFirstItem ? "" : " OR "
-                    filter += "grade1:\(selectedValue) OR grade2:\(selectedValue)"
+                    filter += "grade1=\(selectedValue) OR grade2=\(selectedValue)"
                     isFirstItem = false
                 }
                 filter += ")"
@@ -165,7 +167,7 @@ class SetTermViewController: UIViewController {
             var isFirstItem = true
             for selectedValue in SetTermViewController.termLists[2].setArray {
                 filter += isFirstItem ? "" : " OR "
-                filter += "region:\(selectedValue)"
+                filter += "region=\(selectedValue)"
                 isFirstItem = false
             }
             filter += ")"
@@ -189,7 +191,7 @@ class SetTermViewController: UIViewController {
             var isFirstItem = true
             for selectedValue in SetTermViewController.termLists[4].setArray {
                 filter += isFirstItem ? "" : " OR "
-                filter += "syntality:\(selectedValue)"
+                filter += "syntality=\(selectedValue)"
                 isFirstItem = false
             }
             filter += ")"
@@ -197,11 +199,10 @@ class SetTermViewController: UIViewController {
         //グループのたばこ（1つだけ）
         if !SetTermViewController.termLists[5].setArray.isEmpty {
             filter += filter.isEmpty ? "" : " AND "
-            filter += "cigarette:\(SetTermViewController.termLists[5].setArray[0])"
+            filter += "cigarette=\(SetTermViewController.termLists[5].setArray[0])"
         }
         print(filter)
-        DCModel.query.page = nil
-        DCModel.query.hitsPerPage = 10
+        DCModel.query.hitsPerPage = 6
         DCModel.query.filters = filter
     }
     
@@ -262,7 +263,7 @@ extension SetTermViewController: UITableViewDelegate, UITableViewDataSource {
                         cell.selectedTermLabel.text = "こだわらない"
                     }
                 case 5:
-                    cell.selectedTermLabel.text = "\(termList.termArray[0])"
+                    cell.selectedTermLabel.text = "\(termList.termArray[termList.setArray[0]])"
                 default:
                     if termList.setArray.count == 1 {
                         cell.selectedTermLabel.text = "\(termList.termArray[termList.setArray[0]])"
@@ -408,6 +409,7 @@ extension SetTermViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 termList.setArray[1] = temp
             }
         case 5:
+            termList.setArray.removeAll()
             termList.setArray.append(row)
         default:
             print("デフォルト（エラー）：didSelectRow")

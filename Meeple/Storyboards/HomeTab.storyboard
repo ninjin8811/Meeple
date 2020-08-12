@@ -141,11 +141,22 @@
                     <connections>
                         <outlet property="collectionView" destination="8HU-7J-1st" id="cWR-qD-2Fa"/>
                         <segue destination="TRa-MA-UfT" kind="presentation" identifier="goToSetTerm" id="2bD-l5-DIJ"/>
+                        <segue destination="hjp-yG-94k" kind="show" identifier="goToProfileDetail" id="1IL-aC-K2w"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPv-eU-3B2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327.536231884058" y="147.99107142857142"/>
+            <point key="canvasLocation" x="333" y="148"/>
+        </scene>
+        <!--ProfileDetail-->
+        <scene sceneID="YXq-Fu-IlL">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="profileDetail" storyboardName="ProfileDetail" id="hjp-yG-94k" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T68-i7-3op"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Alp-5d-9eK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="591"/>
         </scene>
         <!--Set Term View Controller-->
         <scene sceneID="KCY-eu-crd">

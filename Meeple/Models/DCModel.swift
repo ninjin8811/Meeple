@@ -15,6 +15,7 @@ class DCModel {
     //ただ1つ保持しておくデータ
     static var currentUserData = UserProfileModel()
     static var userList = [UserProfileModel]()
+    static var userObjectIDList = [String]()
     static var query = Query()
     static var loadable = false
     //Firebaseのリファレンス
@@ -183,6 +184,7 @@ class DCModel {
     
     //MARK:- データのダウンロード
     //ユーザーデータを取得する処理
+    //今は使っていない
     func fetchHomeUserData(_ after: @escaping (Bool) -> Void) {
         var isFetched = false
         //UserDefaultsから性別データを取得
@@ -196,6 +198,7 @@ class DCModel {
                 print("ユーザーデータの取得に失敗しました：fetchHomeUserData")
             } else {
                 DCModel.userList.removeAll()
+                DCModel.userObjectIDList.removeAll()
                 isFetched = true
                 guard let snap = snapshots else {
                     preconditionFailure("snapshotsデータが存在しませんでした：fetchHomeUserData")
@@ -219,14 +222,7 @@ class DCModel {
     func searchUserAlgolia(_ after: @escaping (Bool) -> Void) {
         var isFetched = false
         let index = algoliaClient.index(withName: UserSelectData.getAlgoliaIndexName())
-        DCModel.query.page = 0
-        if let currentPage = DCModel.query.page {
-            DCModel.query.page = currentPage + 1
-        } else {
-            DCModel.query.page = 0
-        }
-        
-        index.search(DCModel.query) { (opRes, err) in
+        index.search(exceptUserQuery()) { (opRes, err) in
             if let err = err {
                 print("検索に失敗：\(err)")
             } else {
@@ -237,18 +233,35 @@ class DCModel {
                 
                 if nbHits == 0 {
                     print("結果が0でした")
+                    DCModel.loadable = false
                 } else {
                     guard let userNSArray = res["hits"] as? NSArray else {
-                        preconditionFailure("jsonデータをStringに変換できませんでした：searchUserAlgolia")
+                        preconditionFailure("jsonデータをNSArrayに変換できませんでした：searchUserAlgolia")
                     }
                     print("ヒット数：\(nbHits)")
                     self.parseAlgoliaUserData(userNSArray: userNSArray)
                 }
-                //最後のページ読み込みの場合これ以上読み込めないようにする
-                DCModel.loadable = nbHits > DCModel.userList.count
             }
             after(isFetched)
         }
+    }
+    
+    func exceptUserQuery() -> InstantSearchClient.Query {
+        guard var newFilters = DCModel.query.filters else {
+            preconditionFailure("filterを文字列に変換できませんでした")
+        }
+        for objectID in DCModel.userObjectIDList {
+            if newFilters != "" {
+                newFilters += " AND "
+            }
+            newFilters += "NOT objectID:\(objectID)"
+        }
+        //クエリのコピー（値渡しするため）
+        let newQuery = InstantSearchClient.Query()
+        newQuery.hitsPerPage = DCModel.query.hitsPerPage
+        newQuery.filters = DCModel.query.filters
+        newQuery.filters = newFilters
+        return newQuery
     }
     
     //Algoliaのデータをホーム画面表示用に変更
@@ -261,6 +274,12 @@ class DCModel {
             let jsonData = try JSONSerialization.data(withJSONObject: userDicArray)
             let decodedData = try decoder.decode([UserProfileModel].self, from: jsonData)
             DCModel.userList.append(contentsOf: decodedData)
+            //除外設定に使用するユーザーのIDリストを作成
+            for userDic in userDicArray {
+                if let objectID = userDic["objectID"] as? String {
+                    DCModel.userObjectIDList.append(objectID)
+                }
+            }
         } catch {
             print("JSONのデコードに失敗しました：parseAlgoliaUserData")
         }

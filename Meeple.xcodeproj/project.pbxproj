@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0D776524E0256700692689 /* ProfileDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0D776424E0256700692689 /* ProfileDetail.storyboard */; };
+		9A0D776724E0627700692689 /* HomeProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D776624E0627700692689 /* HomeProfileDetailViewController.swift */; };
 		9A0D9C992445E82F00F2113A /* SetTermDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D9C982445E82F00F2113A /* SetTermDetailViewController.swift */; };
 		9A16F79123CEC21D00401506 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A16F79023CEC21D00401506 /* Welcome.storyboard */; };
 		9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16F79223CEC25F00401506 /* WelcomeViewController.swift */; };
@@ -61,6 +63,8 @@
 		016B2C6A47961704F5EFBA1B /* Pods-Meeple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.debug.xcconfig"; sourceTree = "<group>"; };
 		445EF727F4125388268A67D4 /* Pods_Meeple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meeple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CA202DBF08F8ACA4B78F5C /* Pods-Meeple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meeple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meeple/Pods-Meeple.release.xcconfig"; sourceTree = "<group>"; };
+		9A0D776424E0256700692689 /* ProfileDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileDetail.storyboard; sourceTree = "<group>"; };
+		9A0D776624E0627700692689 /* HomeProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileDetailViewController.swift; sourceTree = "<group>"; };
 		9A0D9C982445E82F00F2113A /* SetTermDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTermDetailViewController.swift; sourceTree = "<group>"; };
 		9A16F79023CEC21D00401506 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		9A16F79223CEC25F00401506 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				9A76B7D02423954D00E671C5 /* LikeTab.storyboard */,
 				9A76B7D22423955C00E671C5 /* MessageTab.storyboard */,
 				9A76B7D42423958100E671C5 /* OtherTab.storyboard */,
+				9A0D776424E0256700692689 /* ProfileDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				9A76B7DA2423980300E671C5 /* HomeCollectionViewController.swift */,
 				9AA137572440C67C009A4606 /* SetTermViewController.swift */,
 				9A0D9C982445E82F00F2113A /* SetTermDetailViewController.swift */,
+				9A0D776624E0627700692689 /* HomeProfileDetailViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				9A76B7D52423958100E671C5 /* OtherTab.storyboard in Resources */,
 				9A76B7D12423954D00E671C5 /* LikeTab.storyboard in Resources */,
 				9A6D5B9A23CF0DAA00CFB2B4 /* NotoSansJP-Bold.otf in Resources */,
+				9A0D776524E0256700692689 /* ProfileDetail.storyboard in Resources */,
 				9A5C6BF123D08C90006C35AD /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				9A6C460F23C25B33008B6413 /* LaunchScreen.storyboard in Resources */,
 				9A76B7D32423955C00E671C5 /* MessageTab.storyboard in Resources */,
@@ -488,6 +495,7 @@
 				9ADD16A7241FAB3600042A73 /* DCModel.swift in Sources */,
 				9AD8173B2419B47500768A04 /* CropViewController.swift in Sources */,
 				9A88554B240E7C7F00BB58EF /* RegionRegisterViewController.swift in Sources */,
+				9A0D776724E0627700692689 /* HomeProfileDetailViewController.swift in Sources */,
 				9AA137582440C67D009A4606 /* SetTermViewController.swift in Sources */,
 				9A16F79323CEC25F00401506 /* WelcomeViewController.swift in Sources */,
 				9A89132024200AC20030818C /* CropVerifyImageViewController.swift in Sources */,
