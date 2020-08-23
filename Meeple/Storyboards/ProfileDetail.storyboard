@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="2422"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NS-HK-YE2" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2008"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1806"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9eX-6C-Xug" userLabel="ProfileImageStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="543.5"/>
@@ -36,10 +36,10 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lze-PR-bdP" userLabel="Profile Detail Content View">
-                                                <rect key="frame" x="0.0" y="533.5" width="414" height="1474.5"/>
+                                                <rect key="frame" x="0.0" y="533.5" width="414" height="1272.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fI-oL-brp" userLabel="Top Content View">
-                                                        <rect key="frame" x="10" y="20" width="394" height="303.5"/>
+                                                        <rect key="frame" x="10" y="20" width="394" height="154"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-E8-9mH">
                                                                 <rect key="frame" x="10" y="0.0" width="32" height="16"/>
@@ -154,7 +154,7 @@
                                                                     <constraint firstItem="aEc-a6-Vlr" firstAttribute="top" secondItem="rD3-K8-566" secondAttribute="top" id="xEq-dQ-fte"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcD-t9-UEt" userLabel="Online Condition View">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcD-t9-UEt" userLabel="Online Status View">
                                                                 <rect key="frame" x="10" y="82" width="374" height="8"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ce0-fG-nJJ" userLabel="Online Condition">
@@ -194,12 +194,18 @@
                                                                     <constraint firstItem="Ce0-fG-nJJ" firstAttribute="leading" secondItem="NcD-t9-UEt" secondAttribute="leading" id="yyc-eR-GKI"/>
                                                                 </constraints>
                                                             </view>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyB-Ci-NPU">
-                                                                <rect key="frame" x="10" y="110" width="374" height="183.5"/>
-                                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyB-Ci-NPU">
+                                                                <rect key="frame" x="10" y="110" width="374" height="34"/>
+                                                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="今週末いけます！いいね待ってます！！">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="charWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                         </subviews>
@@ -223,7 +229,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xp-2d-5Bz" userLabel="Introduce Content View">
-                                                        <rect key="frame" x="10" y="353.5" width="394" height="234.5"/>
+                                                        <rect key="frame" x="10" y="204" width="394" height="182"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07V-D3-ZiI">
                                                                 <rect key="frame" x="10" y="0.0" width="64" height="16"/>
@@ -238,12 +244,18 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-Ki-pRu">
-                                                                <rect key="frame" x="10" y="31" width="374" height="183.5"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-Ki-pRu">
+                                                                <rect key="frame" x="10" y="31" width="374" height="131"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment>
+                                                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="12" name="HiraginoSans-W4"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                         </subviews>
@@ -258,7 +270,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-aR-dSZ" userLabel="Group Info View">
-                                                        <rect key="frame" x="10" y="618" width="394" height="244.5"/>
+                                                        <rect key="frame" x="10" y="416" width="394" height="244.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-rk-Quf">
                                                                 <rect key="frame" x="10" y="0.0" width="110" height="16"/>
@@ -286,7 +298,7 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three-dots-1-600-min" translatesAutoresizingMaskIntoConstraints="NO" id="fAL-Hj-wmX">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three-dots-1-600-min" translatesAutoresizingMaskIntoConstraints="NO" id="fAL-Hj-wmX">
                                                                 <rect key="frame" x="40" y="70" width="314" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="fAL-Hj-wmX" secondAttribute="height" multiplier="15:1" id="KvB-74-plE"/>
@@ -353,7 +365,7 @@
                                                                 </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="five-dots-1-600-min" translatesAutoresizingMaskIntoConstraints="NO" id="MTt-LG-8Bu">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="five-dots-1-600-min" translatesAutoresizingMaskIntoConstraints="NO" id="MTt-LG-8Bu">
                                                                 <rect key="frame" x="40" y="177" width="314" height="20.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="MTt-LG-8Bu" secondAttribute="height" multiplier="15:1" id="fmO-bV-p7D"/>
@@ -442,7 +454,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQg-gN-6zf" userLabel="Detail Info View">
-                                                        <rect key="frame" x="10" y="892.5" width="394" height="582"/>
+                                                        <rect key="frame" x="10" y="690.5" width="394" height="582"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zr-Sz-ZsX">
                                                                 <rect key="frame" x="10" y="0.0" width="64" height="16"/>
@@ -488,73 +500,79 @@
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-cg-dpe">
-                                                                                <rect key="frame" x="0.0" y="27" width="71.5" height="12"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-cg-dpe" userLabel="年齢">
+                                                                                <rect key="frame" x="0.0" y="27" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="年齢">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-k1-lsZ">
-                                                                                <rect key="frame" x="0.0" y="54" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="54" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="学年">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-l6-EVI">
-                                                                                <rect key="frame" x="0.0" y="81" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="81" width="36" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="居住地">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-qL-tLp">
-                                                                                <rect key="frame" x="0.0" y="108" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="108" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="身長">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcR-Qq-iYp">
-                                                                                <rect key="frame" x="0.0" y="135" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="135" width="35.5" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="タバコ">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-OE-TiC">
-                                                                                <rect key="frame" x="0.0" y="162" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="162" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="趣味">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
@@ -565,7 +583,7 @@
                                                                             <constraint firstAttribute="width" constant="140" id="1bx-IQ-ozf"/>
                                                                         </constraints>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nYu-1r-cTh" userLabel="Detail Title Stack View">
+                                                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nYu-1r-cTh" userLabel="Detail Data Stack View">
                                                                         <rect key="frame" x="140" y="0.0" width="234" height="174"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ki3-tw-fSM">
@@ -691,72 +709,78 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYp-eO-SOH">
-                                                                                <rect key="frame" x="0.0" y="27" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="27" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="年齢">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtA-Uf-7zA">
-                                                                                <rect key="frame" x="0.0" y="54" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="54" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="学年">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVY-nx-IFr">
-                                                                                <rect key="frame" x="0.0" y="81" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="81" width="36" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="居住地">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dn-14-a6S">
-                                                                                <rect key="frame" x="0.0" y="108" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="108" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="身長">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTl-SD-F6h">
-                                                                                <rect key="frame" x="0.0" y="135" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="135" width="35.5" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="タバコ">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLr-cm-1Lg">
-                                                                                <rect key="frame" x="0.0" y="162" width="71.5" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="162" width="24" height="12"/>
                                                                                 <attributedString key="attributedText">
-                                                                                    <fragment content="ニックネーム">
+                                                                                    <fragment content="趣味">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <font key="NSFont" size="12" name="HiraginoSans-W3"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
                                                                                 </attributedString>
@@ -767,7 +791,7 @@
                                                                             <constraint firstAttribute="width" constant="140" id="yD5-1u-pUh"/>
                                                                         </constraints>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BCf-1S-r9b" userLabel="Detail Title Stack View">
+                                                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BCf-1S-r9b" userLabel="Detail Data Stack View">
                                                                         <rect key="frame" x="140" y="0.0" width="234" height="174"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnM-8S-z0K">
@@ -879,6 +903,9 @@
                                                                         </fragment>
                                                                     </attributedString>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="likeButtonPressed:" destination="k94-Sb-ulu" eventType="touchUpInside" id="SPD-up-7QH"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -955,6 +982,43 @@
                         <viewLayoutGuide key="safeArea" id="sHM-YH-68B"/>
                     </view>
                     <size key="freeformSize" width="414" height="2500"/>
+                    <connections>
+                        <outlet property="GroupInfoContentView" destination="KJE-aR-dSZ" id="uNT-pH-2b7"/>
+                        <outlet property="ageInfoLabel1" destination="woG-y3-YSk" id="Gm0-Or-YFU"/>
+                        <outlet property="ageInfoLabel2" destination="lz8-zf-1YB" id="HRW-Sn-GcU"/>
+                        <outlet property="ageLabel1" destination="Yae-yA-aP6" id="uy3-Db-xS9"/>
+                        <outlet property="ageLabel2" destination="aEc-a6-Vlr" id="gaQ-iS-9oI"/>
+                        <outlet property="cigaretteInfoLabel1" destination="4BO-FN-tUS" id="Pbi-qP-tvP"/>
+                        <outlet property="cigaretteInfoLabel2" destination="FUD-c5-ORa" id="TOA-Ij-tZ1"/>
+                        <outlet property="detailInfoContentView" destination="pQg-gN-6zf" id="7ct-DK-gRd"/>
+                        <outlet property="gradeInfoLabel1" destination="jUt-qu-A72" id="hBi-Xl-tHo"/>
+                        <outlet property="gradeInfoLabel2" destination="KTY-oV-b2c" id="BFj-tT-X5K"/>
+                        <outlet property="heightInfoLabel1" destination="Ia0-PH-nFh" id="5on-D0-Dit"/>
+                        <outlet property="heightInfoLabel2" destination="Mch-to-JC7" id="Bi9-49-m7p"/>
+                        <outlet property="hobbyInfoLabel1" destination="OSN-VK-IAR" id="uCu-M3-tqW"/>
+                        <outlet property="hobbyInfoLabel2" destination="dCK-d4-QTK" id="yVW-Nz-3IN"/>
+                        <outlet property="introduceContentView" destination="1xp-2d-5Bz" id="keN-tu-qOa"/>
+                        <outlet property="introduceTextView" destination="vBY-Ki-pRu" id="8aH-Go-C3X"/>
+                        <outlet property="likeButton" destination="oMi-hs-rF8" id="zAz-Qg-rzA"/>
+                        <outlet property="liquorAllowImageView" destination="fAL-Hj-wmX" id="ncA-iD-9PQ"/>
+                        <outlet property="nameInfoLabel1" destination="Ki3-tw-fSM" id="mpq-6I-m2D"/>
+                        <outlet property="nameInfoLabel2" destination="SnM-8S-z0K" id="FH4-N4-RWB"/>
+                        <outlet property="nameLabel1" destination="Tw8-9V-shS" id="lSi-gP-b1X"/>
+                        <outlet property="nameLabel2" destination="fQy-T7-ecI" id="wsM-ZF-9Je"/>
+                        <outlet property="onlineStatusColorView" destination="Ce0-fG-nJJ" id="nT4-Vr-8Ui"/>
+                        <outlet property="onlineStatusNameLabel" destination="lsu-3c-jia" id="rT5-7J-HA4"/>
+                        <outlet property="profileDetailView" destination="lze-PR-bdP" id="hhM-aM-7Ny"/>
+                        <outlet property="profileImageView1" destination="dB7-fL-i3W" id="20V-Vo-0w1"/>
+                        <outlet property="profileImageView2" destination="7eu-9J-DIn" id="GMH-ft-GDL"/>
+                        <outlet property="regionInfoLabel1" destination="stz-oQ-pJ9" id="eiW-hH-zxK"/>
+                        <outlet property="regionInfoLabel2" destination="X09-xn-gFQ" id="M1O-ib-lJ4"/>
+                        <outlet property="regionRabel" destination="DhY-E8-9mH" id="AGG-kF-wgz"/>
+                        <outlet property="syntalityGradeImageView" destination="MTt-LG-8Bu" id="guW-Rv-b0R"/>
+                        <outlet property="topContentView" destination="3fI-oL-brp" id="LV4-Uz-CZw"/>
+                        <outlet property="tweetTextView" destination="vyB-Ci-NPU" id="Cqd-5F-hM6"/>
+                        <outlet property="verifyImageView1" destination="nLa-mK-fPW" id="vdk-mM-fWG"/>
+                        <outlet property="verifyImageView2" destination="NzI-V9-caB" id="W0H-UG-ILW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jI-IC-yyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

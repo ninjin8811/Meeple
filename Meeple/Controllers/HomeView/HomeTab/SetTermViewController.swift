@@ -202,7 +202,7 @@ class SetTermViewController: UIViewController {
             filter += "cigarette=\(SetTermViewController.termLists[5].setArray[0])"
         }
         print(filter)
-        DCModel.query.hitsPerPage = 6
+        DCModel.query.hitsPerPage = 2
         DCModel.query.filters = filter
     }
     

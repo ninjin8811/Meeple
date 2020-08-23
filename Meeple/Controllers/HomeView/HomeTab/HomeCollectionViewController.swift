@@ -58,6 +58,9 @@ class HomeCollectionViewController: UICollectionViewController {
         layout.minimumLineSpacing = 20
         layout.sectionInset = UIEdgeInsets(top: 30, left: paddingLeftRight, bottom: 20, right: paddingLeftRight)
         collectionView.collectionViewLayout = layout
+        //遷移先ナビゲーションバーの戻るボタン
+        let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButtonItem
     }
 
     // MARK: UICollectionViewDataSource
