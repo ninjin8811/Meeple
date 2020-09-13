@@ -19,6 +19,7 @@ class HomeCollectionViewController: UICollectionViewController {
     
     let dcModel = DCModel()
     var loadStatus = false
+    var selectedIndexPath = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class HomeCollectionViewController: UICollectionViewController {
         self.navigationItem.backBarButtonItem = backButtonItem
     }
 
-    // MARK: UICollectionViewDataSource
+    // MARK:- UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -81,6 +82,11 @@ class HomeCollectionViewController: UICollectionViewController {
         return UICollectionViewCell()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProfileDetail", let destinationVC = segue.destination as? ProfileDetailContainerViewController {
+            destinationVC.selectedUser = DCModel.userList[selectedIndexPath.row]
+        }
+    }
 
     // MARK: UICollectionViewDelegate
     
@@ -100,6 +106,7 @@ class HomeCollectionViewController: UICollectionViewController {
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell {
             cell.highlightView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0.5)
         }
+        selectedIndexPath = indexPath
         performSegue(withIdentifier: "goToProfileDetail", sender: self)
     }
     //セルのタップが終わったときのハイライトを消す処理

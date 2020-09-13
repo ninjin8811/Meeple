@@ -1,5 +1,5 @@
 //
-//  HomeProfileDetailViewController.swift
+//  ProfileDetailViewController.swift
 //  Meeple
 //
 //  Created by 吉野史也 on 2020/08/10.
@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Nuke
+import FirebaseFirestore
 
-class HomeProfileDetailViewController: UIViewController {
+class ProfileDetailViewController: UIViewController {
     
     @IBOutlet weak var profileImageView1: UIImageView!
     @IBOutlet weak var profileImageView2: UIImageView!
@@ -44,19 +46,26 @@ class HomeProfileDetailViewController: UIViewController {
     @IBOutlet weak var heightInfoLabel2: UILabel!
     @IBOutlet weak var cigaretteInfoLabel2: UILabel!
     @IBOutlet weak var hobbyInfoLabel2: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
     
+    static var lookingUserProfile = UserProfileModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //見た目を整える
+        //見た目を整える(ナビゲーションバーはViewWillAppearで)
         prepareDesign()
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ナビゲーションバーの右側ボタン
+        let moreButton = UIBarButtonItem(title: "︙", style: .plain, target: self, action: #selector(moreButtonPressed(_:)))
+        moreButton.tintColor = ColorPalette.textColor()
+        moreButton.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
+        self.parent?.navigationItem.rightBarButtonItem = moreButton
+    }
+    
     func prepareDesign() {
-        //いいねボタンのデザイン
-        likeButton.layer.cornerRadius = 25
         //画像下の詳細Viewの上角を丸く
         profileDetailView.layer.cornerRadius = 15
         profileDetailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -69,19 +78,12 @@ class HomeProfileDetailViewController: UIViewController {
         tweetTextView.textContainerInset = UIEdgeInsets(top: 6, left: 10, bottom: 0, right: 10)
         //オンラインアイコン
         onlineStatusColorView.layer.cornerRadius = 5
-        //ナビゲーションバーの右側ボタン
-        let moreButton = UIBarButtonItem(title: "︙", style: .plain, target: self, action: #selector(moreButtonPressed(_:)))
-        moreButton.tintColor = ColorPalette.textColor()
-        moreButton.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
-        self.navigationItem.rightBarButtonItem = moreButton
     }
     
     @objc
     func moreButtonPressed(_ sender: Any) {
         print("ナビゲーションボタンがタップされました")
-    }
-    
-    @IBAction func likeButtonPressed(_ sender: Any) {
+        print(self.parent)
     }
     
 }

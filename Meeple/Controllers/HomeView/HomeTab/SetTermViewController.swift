@@ -201,8 +201,17 @@ class SetTermViewController: UIViewController {
             filter += filter.isEmpty ? "" : " AND "
             filter += "cigarette=\(SetTermViewController.termLists[5].setArray[0])"
         }
+        //自分を外す
+        if let uid = Firebase.Auth.auth().currentUser?.uid {
+            print(uid)
+            filter += filter.isEmpty ? "" : " AND "
+            filter += "NOT objectID:\(uid)"
+        }
+        //いいねした人を外す（いつか）
+        //ブロックした人を外す（いつか）
+        
         print(filter)
-        DCModel.query.hitsPerPage = 2
+        DCModel.query.hitsPerPage = 6
         DCModel.query.filters = filter
     }
     

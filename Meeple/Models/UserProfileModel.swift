@@ -32,16 +32,17 @@ class UserProfileModel: Codable, Equatable {
     var syntality: Int?
     var cigarette: Int?
     var liquor: Int?
-    var detailProfile: DetailProfileModel?
+    var imageURLs: ImageURLList?
+    var hobby: String?
+}
+
+class ImageURLList: Codable {
+    let urlList: [String]
 }
 
 //オブジェクト配列の中の更新日プロパティを比較する関数
 func == (left: UserProfileModel, right: UserProfileModel) -> Bool {
     return left.updateDate == right.updateDate
-}
-
-//プロフィールの詳細表示で使うデータ
-class DetailProfileModel: Codable {
 }
 
 //検索条件設定、プロフィール設定のテーブルビューに使う
@@ -51,6 +52,3 @@ class SelectedProfileData {
     var termArray = [Any]()
     var setArray = [Int]()
 }
-
-
-

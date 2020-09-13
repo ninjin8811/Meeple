@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k94-Sb-ulu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v7D-9D-C6l">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -7,10 +7,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Profile Detail View Controller-->
+        <!--Profile Detail Container View Controller-->
+        <scene sceneID="U5T-aW-B9k">
+            <objects>
+                <viewController storyboardIdentifier="profileDetail" id="v7D-9D-C6l" customClass="ProfileDetailContainerViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NYN-FD-sy2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrQ-ko-Dyc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <connections>
+                                    <segue destination="k94-Sb-ulu" kind="embed" identifier="embedProfileDetail" id="81B-rs-Pbz"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmn-XV-kqd">
+                                <rect key="frame" x="47" y="792" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Do-20-5vg"/>
+                                    <constraint firstAttribute="width" constant="320" id="lN4-v1-9Az"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="いいね！">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="16" name="HiraginoSans-W6"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="v7D-9D-C6l" eventType="touchUpInside" id="i7p-95-gN8"/>
+                                    <action selector="likeButtonPressed:" destination="k94-Sb-ulu" eventType="touchUpInside" id="rUg-7T-gWG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QrQ-ko-Dyc" firstAttribute="leading" secondItem="ATz-La-f6t" secondAttribute="leading" id="8hU-Jv-aWr"/>
+                            <constraint firstItem="Jmn-XV-kqd" firstAttribute="centerX" secondItem="NYN-FD-sy2" secondAttribute="centerX" id="J4t-7M-2TJ"/>
+                            <constraint firstItem="ATz-La-f6t" firstAttribute="trailing" secondItem="QrQ-ko-Dyc" secondAttribute="trailing" id="WWu-aG-jg6"/>
+                            <constraint firstItem="QrQ-ko-Dyc" firstAttribute="top" secondItem="ATz-La-f6t" secondAttribute="top" id="j2e-jf-kdo"/>
+                            <constraint firstItem="ATz-La-f6t" firstAttribute="bottom" secondItem="Jmn-XV-kqd" secondAttribute="bottom" constant="20" id="p0B-Ik-9mx"/>
+                            <constraint firstItem="ATz-La-f6t" firstAttribute="bottom" secondItem="QrQ-ko-Dyc" secondAttribute="bottom" id="ymS-4b-Imq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ATz-La-f6t"/>
+                    </view>
+                    <connections>
+                        <outlet property="likeButton" destination="Jmn-XV-kqd" id="1I3-xt-rg8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWF-1e-wPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1758" y="-139"/>
+        </scene>
+        <!--Profile Detail View Controller-->
         <scene sceneID="Oe0-lK-AQg">
             <objects>
-                <viewController storyboardIdentifier="profileDetail" automaticallyAdjustsScrollViewInsets="NO" id="k94-Sb-ulu" customClass="HomeProfileDetailViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="k94-Sb-ulu" customClass="ProfileDetailViewController" customModule="Meeple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nv5-GV-wQ1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -885,28 +942,6 @@
                                                                     <constraint firstAttribute="height" constant="174" id="03l-9j-7w8"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMi-hs-rF8">
-                                                                <rect key="frame" x="37" y="512" width="320" height="50"/>
-                                                                <color key="backgroundColor" red="0.87843137250000003" green="0.40000000000000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="k1d-on-Gpm"/>
-                                                                    <constraint firstAttribute="width" constant="320" id="vCY-NA-2YM"/>
-                                                                </constraints>
-                                                                <state key="normal">
-                                                                    <attributedString key="attributedTitle">
-                                                                        <fragment content="いいね！">
-                                                                            <attributes>
-                                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <font key="NSFont" size="16" name="HiraginoSans-W6"/>
-                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                            </attributes>
-                                                                        </fragment>
-                                                                    </attributedString>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="likeButtonPressed:" destination="k94-Sb-ulu" eventType="touchUpInside" id="SPD-up-7QH"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
@@ -915,14 +950,12 @@
                                                             <constraint firstItem="TKT-Ay-4P5" firstAttribute="top" secondItem="Ozb-3z-bnm" secondAttribute="bottom" constant="40" id="DHk-tr-ckX"/>
                                                             <constraint firstItem="I9Q-8t-zfu" firstAttribute="leading" secondItem="pQg-gN-6zf" secondAttribute="leading" constant="10" id="Mke-MS-tek"/>
                                                             <constraint firstItem="klG-Dn-cIY" firstAttribute="leading" secondItem="pQg-gN-6zf" secondAttribute="leading" constant="10" id="NCO-68-2kh"/>
-                                                            <constraint firstAttribute="bottom" secondItem="oMi-hs-rF8" secondAttribute="bottom" constant="20" id="Nof-t9-6SZ"/>
                                                             <constraint firstAttribute="trailing" secondItem="Ozb-3z-bnm" secondAttribute="trailing" constant="10" id="XzT-T7-Tah"/>
                                                             <constraint firstAttribute="trailing" secondItem="I9Q-8t-zfu" secondAttribute="trailing" constant="10" id="aXy-Fs-yyZ"/>
-                                                            <constraint firstItem="oMi-hs-rF8" firstAttribute="top" secondItem="I9Q-8t-zfu" secondAttribute="bottom" constant="40" id="dE0-Kn-pBX"/>
+                                                            <constraint firstAttribute="bottom" secondItem="I9Q-8t-zfu" secondAttribute="bottom" constant="110" id="bPj-7d-VX5"/>
                                                             <constraint firstItem="1Zr-Sz-ZsX" firstAttribute="top" secondItem="pQg-gN-6zf" secondAttribute="top" id="e8f-c0-2Qn"/>
                                                             <constraint firstItem="klG-Dn-cIY" firstAttribute="top" secondItem="1Zr-Sz-ZsX" secondAttribute="bottom" constant="20" id="eiY-Pd-Z1b"/>
                                                             <constraint firstItem="1Zr-Sz-ZsX" firstAttribute="leading" secondItem="pQg-gN-6zf" secondAttribute="leading" constant="10" id="k4F-In-j8l"/>
-                                                            <constraint firstItem="oMi-hs-rF8" firstAttribute="centerX" secondItem="pQg-gN-6zf" secondAttribute="centerX" id="mKR-aa-jsf"/>
                                                             <constraint firstItem="TKT-Ay-4P5" firstAttribute="leading" secondItem="pQg-gN-6zf" secondAttribute="leading" constant="10" id="rTm-7P-c5H"/>
                                                             <constraint firstItem="I9Q-8t-zfu" firstAttribute="top" secondItem="TKT-Ay-4P5" secondAttribute="bottom" constant="10" id="umL-RS-TLs"/>
                                                         </constraints>
@@ -999,7 +1032,6 @@
                         <outlet property="hobbyInfoLabel2" destination="dCK-d4-QTK" id="yVW-Nz-3IN"/>
                         <outlet property="introduceContentView" destination="1xp-2d-5Bz" id="keN-tu-qOa"/>
                         <outlet property="introduceTextView" destination="vBY-Ki-pRu" id="8aH-Go-C3X"/>
-                        <outlet property="likeButton" destination="oMi-hs-rF8" id="zAz-Qg-rzA"/>
                         <outlet property="liquorAllowImageView" destination="fAL-Hj-wmX" id="ncA-iD-9PQ"/>
                         <outlet property="nameInfoLabel1" destination="Ki3-tw-fSM" id="mpq-6I-m2D"/>
                         <outlet property="nameInfoLabel2" destination="SnM-8S-z0K" id="FH4-N4-RWB"/>
