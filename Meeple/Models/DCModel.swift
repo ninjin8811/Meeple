@@ -120,8 +120,8 @@ class DCModel {
             "kindsun884.730@gmail.com"
         ]
         //urlを生成
-        let verifyURL1 = "https://meeple-1af15.web.app/verify.html?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=1"
-        let verifyURL2 = "https://meeple-1af15.web.app/verify.html?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=2"
+        let verifyURL1 = "https://meeple-1af15.web.app/verify/?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=1"
+        let verifyURL2 = "https://meeple-1af15.web.app/verify/?gender=\(myGender)&numOfPeople=two&userID=\(userID)&selectedIndivisual=2"
         guard let name1 = DCModel.currentUserData.name1, let name2 = DCModel.currentUserData.name2 else {
             preconditionFailure("ユーザーの名前を取得できませんでした:DCModel:sendVerifyEmail")
         }

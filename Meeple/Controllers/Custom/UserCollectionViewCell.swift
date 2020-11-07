@@ -59,14 +59,16 @@ class UserCollectionViewCell: UICollectionViewCell {
         cell.verifyIconView1.image = UserSelectData.verifyIconImage(opIsVerified: DCModel.userList[indexPath.row].isVerified1)
         cell.verifyIconView2.image = UserSelectData.verifyIconImage(opIsVerified: DCModel.userList[indexPath.row].isVerified2)
         cell.tweetTextView.text = UserSelectData.tweetString(opTweet: DCModel.userList[indexPath.row].tweet)
-        cell.profileImageView1.image = #imageLiteral(resourceName: "noneAvatarImage")
-        cell.profileImageView2.image = #imageLiteral(resourceName: "noneAvatarImage")
         //NukeでImageをダウンロード
         if let avatarImageURL1 = UserSelectData.stringToURL(opString: DCModel.userList[indexPath.row].mainImageURL1) {
             Nuke.loadImage(with: avatarImageURL1, into: cell.profileImageView1)
+        } else {
+            cell.profileImageView1.image = #imageLiteral(resourceName: "noneAvatarImage")
         }
         if let avatarImageURL2 = UserSelectData.stringToURL(opString: DCModel.userList[indexPath.row].mainImageURL2) {
             Nuke.loadImage(with: avatarImageURL2, into: cell.profileImageView2)
+        } else {
+            cell.profileImageView2.image = #imageLiteral(resourceName: "noneAvatarImage")
         }
         return cell
     }

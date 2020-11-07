@@ -30,9 +30,11 @@ class UserProfileModel: Codable, Equatable {
     var updateDate: TimeInterval?
     var tweet: String?
     var syntality: Int?
+    //タバコも１人ずつ設定できるようにする！
     var cigarette: Int?
     var liquor: Int?
     var imageURLs: ImageURLList?
+    //趣味も１人ずつ！
     var hobby: String?
 }
 

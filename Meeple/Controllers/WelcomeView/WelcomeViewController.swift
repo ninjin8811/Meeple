@@ -94,6 +94,7 @@ extension WelcomeViewController: FUIAuthDelegate {
                         if let error = opError {
                             print("サインインエラー：\(error)")
                         } else {
+                            // ここでFirebaseにドキュメントが保存されているかチェックして、保存されている場合はHome画面へ
                             self.performSegue(withIdentifier: "goToRegister", sender: self)
                         }
                     }

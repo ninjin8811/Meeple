@@ -117,6 +117,15 @@ final class UserSelectData: NSObject {
         }
     }
     
+    class func selectedCigaretteString(opIndex: Int?) -> String {
+        if let index = opIndex {
+            let cigaretteList = self.cigaretteList()
+            return cigaretteList[index]
+        } else {
+            return ""
+        }
+    }
+    
     class func verifyIconImage(opIsVerified: Bool?) -> UIImage? {
         if let isVerified = opIsVerified, isVerified {
             return #imageLiteral(resourceName: "verifyIcon")
