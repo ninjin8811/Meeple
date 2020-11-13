@@ -53,8 +53,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //ここにログイン試行処理も書く（FBのパスワードを変えた時に変になる）
             //起動画面を変えてる(本来ならHomeview)
 //            goToRegisterView(window: window)
-//            goToWelcomeView(window: window)
-            goToHomeView(window: window)
+            goToWelcomeView(window: window)
+//            goToHomeView(window: window)
         } else {
             goToWelcomeView(window: window)
         }
